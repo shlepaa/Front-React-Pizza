@@ -4,3 +4,4 @@ export * from './CartButton/CartButton';
 export * from './AddButton/AddButton';
 export * from './Categories/Categories';
 export * from './Header/Header';
+export * from './ContentTop/ContentTop';

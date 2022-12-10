@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import cn from 'classnames';
-import { Categories, Header, PizzaBlock, Sort } from './components';
+import { ContentTop, Header, PizzaBlock } from './components';
 import styles from './styles/styles.module.scss';
 
 export const App: FC = () => {
@@ -9,10 +9,7 @@ export const App: FC = () => {
 			<Header className={styles.header} />
 			<div className={styles.content}>
 				<div className={styles.container}>
-					<div className={styles.contentTop}>
-						<Categories />
-						<Sort />
-					</div>
+					<ContentTop />
 					<h2 className={styles.title}>Все пиццы</h2>
 					<div className={styles.items}>
 						<PizzaBlock
