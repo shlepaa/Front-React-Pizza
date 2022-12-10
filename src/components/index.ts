@@ -6,3 +6,4 @@ export * from './Categories/Categories';
 export * from './Header/Header';
 export * from './ContentTop/ContentTop';
 export * from './Allpizzas/Allpizzas';
+export * from './Content/Content';
