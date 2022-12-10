@@ -16,9 +16,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
 						<p>самая вкатывающая пицца во вселенной</p>
 					</div>
 				</div>
-				<div className={styles.cart}>
-					<CartButton link="/cart.html" />
-				</div>
+				<CartButton link="/cart.html" />
 			</div>
 		</div>
 	);

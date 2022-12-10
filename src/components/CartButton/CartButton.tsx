@@ -11,10 +11,8 @@ export const CartButton: FC<CartButtonProps> = ({
 	...props
 }) => {
 	return (
-		<button
-			className={cn(className, styles.button, styles.buttonCart)}
-			{...props}>
-			<a href={link}>
+		<a href={link} {...props}>
+			<button className={cn(className, styles.button, styles.buttonCart)}>
 				<span>520 ₽</span>
 				<div className={styles.delimiter}></div>
 				<IconContext.Provider
@@ -25,7 +23,7 @@ export const CartButton: FC<CartButtonProps> = ({
 					<RiShoppingCartLine />
 				</IconContext.Provider>
 				<span>3</span>
-			</a>
-		</button>
+			</button>
+		</a>
 	);
 };

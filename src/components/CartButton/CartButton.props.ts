@@ -2,8 +2,8 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export interface CartButtonProps
 	extends DetailedHTMLProps<
-		HTMLAttributes<HTMLButtonElement>,
-		HTMLButtonElement
+		HTMLAttributes<HTMLAnchorElement>,
+		HTMLAnchorElement
 	> {
 	link: string;
 }
