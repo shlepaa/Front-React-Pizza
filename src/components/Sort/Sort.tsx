@@ -1,32 +1,56 @@
 import styles from './Sort.module.scss';
 import { SortProps } from './Sort.props';
 import cn from 'classnames';
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import ArrowIcon from './arrow.svg';
 
 export const Sort: FC<SortProps> = ({ className, ...props }) => {
+	const [sort, setSort] = useState<string>('популярности');
+	const [isOpened, setIsOpened] = useState<boolean>(false);
+	const chooseSort = (chosenSort: string) => {
+		setSort(chosenSort);
+		setIsOpened(false);
+	};
 	return (
 		<div className={cn(className, styles.sort)} {...props}>
-			<div className={cn(styles.label)}>
-				<svg
-					width="10"
-					height="6"
-					viewBox="0 0 10 6"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M10 5C10 5.16927 9.93815 5.31576 9.81445 5.43945C9.69075 5.56315 9.54427 5.625 9.375 5.625H0.625C0.455729 5.625 0.309245 5.56315 0.185547 5.43945C0.061849 5.31576 0 5.16927 0 5C0 4.83073 0.061849 4.68424 0.185547 4.56055L4.56055 0.185547C4.68424 0.061849 4.83073 0 5 0C5.16927 0 5.31576 0.061849 5.43945 0.185547L9.81445 4.56055C9.93815 4.68424 10 4.83073 10 5Z"
-						fill="#2C2C2C"
-					/>
-				</svg>
+			<button
+				onClick={() => setIsOpened(!isOpened)}
+				className={cn(styles.label)}>
+				<ArrowIcon
+					className={cn({
+						[styles.down]: isOpened,
+					})}
+				/>
 				<b>Сортировка по:</b>
-				<span>популярности</span>
-			</div>
-			<div className={cn(styles.popup)}>
-				<ul>
-					<li className={cn(styles.active)}>популярности</li>
-					<li>цене</li>
-					<li>алфавиту</li>
-				</ul>
+				<span>{sort}</span>
+			</button>
+			<div
+				className={cn(styles.popup, {
+					[styles.popupActive]: isOpened,
+				})}>
+				<div className={styles.sortBlock}>
+					<button
+						onClick={() => chooseSort('популярности')}
+						className={cn({
+							[styles.active]: sort === 'популярности',
+						})}>
+						популярности
+					</button>
+					<button
+						onClick={() => chooseSort('цене')}
+						className={cn({
+							[styles.active]: sort === 'цене',
+						})}>
+						цене
+					</button>
+					<button
+						onClick={() => chooseSort('алфавиту')}
+						className={cn({
+							[styles.active]: sort === 'алфавиту',
+						})}>
+						алфавиту
+					</button>
+				</div>
 			</div>
 		</div>
 	);

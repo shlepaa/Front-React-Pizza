@@ -6,9 +6,16 @@
 	.label {
 		display: flex;
 		align-items: center;
+		border: unset;
+		background-color: unset;
+		cursor: pointer;
 
 		svg {
 			margin-right: 8px;
+
+			&.down {
+				transform: rotate(180deg);
+			}
 		}
 
 		b {
@@ -18,27 +25,34 @@
 		span {
 			color: $orange;
 			border-bottom: 1px dashed $orange;
-			cursor: pointer;
 		}
 	}
 
 	.popup {
 		position: absolute;
+		display: none;
 		right: 0;
 		width: 160px;
-		margin-top: 15px;
+		margin-top: 5px;
 		padding: 10px 0;
 		overflow: hidden;
 		background: $white;
 		border-radius: 10px;
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1%);
 
-		ul {
+		&.popupActive {
+			display: block;
+		}
+
+		.sortBlock {
 			overflow: hidden;
 
-			li {
+			button {
 				padding: 12px 20px;
 				cursor: pointer;
+				border: unset;
+				background-color: unset;
+				width: 100%;
 
 				&:hover {
 					background: rgba($color: $black, $alpha: 0.05%);

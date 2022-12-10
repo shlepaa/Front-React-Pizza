@@ -5,6 +5,7 @@
 	font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
 	list-style: none;
 	outline: none;
+	font-size: 16px;
 }
 
 html {
@@ -26,7 +27,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+button {
 	color: $black;
 }
 

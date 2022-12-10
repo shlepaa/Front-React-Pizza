@@ -6,6 +6,6 @@ module.exports = {
 	tabWidth: 4,
 	endOfLine: 'auto',
 	bracketSameLine: true,
-	arrowParens: 'avoid',
+	arrowParens: 'always',
 	useTabs: true,
 };
