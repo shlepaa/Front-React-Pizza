@@ -39,7 +39,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	];
 	return (
 		<div className={cn(className, styles.items)} {...props}>
-			{pizzas.map(p => (
+			{pizzas.map((p) => (
 				<PizzaBlock
 					image={p.image}
 					title={p.title}

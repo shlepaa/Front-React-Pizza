@@ -7,50 +7,48 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 	const [type, setType] = useState<string>('all');
 	return (
 		<div className={cn(className, styles.categories)} {...props}>
-			<ul>
-				<li
-					onClick={() => setType('all')}
-					className={cn({
-						[styles.active]: type === 'all',
-					})}>
-					Все
-				</li>
-				<li
-					onClick={() => setType('meat')}
-					className={cn({
-						[styles.active]: type === 'meat',
-					})}>
-					Мясные
-				</li>
-				<li
-					onClick={() => setType('vegetarian')}
-					className={cn({
-						[styles.active]: type === 'vegetarian',
-					})}>
-					Вегетарианская
-				</li>
-				<li
-					onClick={() => setType('grill')}
-					className={cn({
-						[styles.active]: type === 'grill',
-					})}>
-					Гриль
-				</li>
-				<li
-					onClick={() => setType('spicy')}
-					className={cn({
-						[styles.active]: type === 'spicy',
-					})}>
-					Острые
-				</li>
-				<li
-					onClick={() => setType('closed')}
-					className={cn({
-						[styles.active]: type === 'closed',
-					})}>
-					Закрытые
-				</li>
-			</ul>
+			<button
+				onClick={() => setType('all')}
+				className={cn({
+					[styles.active]: type === 'all',
+				})}>
+				Все
+			</button>
+			<button
+				onClick={() => setType('meat')}
+				className={cn({
+					[styles.active]: type === 'meat',
+				})}>
+				Мясные
+			</button>
+			<button
+				onClick={() => setType('vegetarian')}
+				className={cn({
+					[styles.active]: type === 'vegetarian',
+				})}>
+				Вегетарианская
+			</button>
+			<button
+				onClick={() => setType('grill')}
+				className={cn({
+					[styles.active]: type === 'grill',
+				})}>
+				Гриль
+			</button>
+			<button
+				onClick={() => setType('spicy')}
+				className={cn({
+					[styles.active]: type === 'spicy',
+				})}>
+				Острые
+			</button>
+			<button
+				onClick={() => setType('closed')}
+				className={cn({
+					[styles.active]: type === 'closed',
+				})}>
+				Закрытые
+			</button>
 		</div>
 	);
 };

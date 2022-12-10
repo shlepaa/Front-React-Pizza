@@ -41,11 +41,11 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		}
 		const allPizzas: IChosenPizza[] = JSON.parse(localStorage.pizzas);
 		const currentPizza = allPizzas.find(
-			p => p.title === title && p.dough === dough && p.size === size
+			(p) => p.title === title && p.dough === dough && p.size === size
 		);
 
 		if (currentPizza) {
-			allPizzas.map(p => {
+			allPizzas.map((p) => {
 				if (p.title === title && p.dough === dough && p.size === size) {
 					p.count++;
 					return p;

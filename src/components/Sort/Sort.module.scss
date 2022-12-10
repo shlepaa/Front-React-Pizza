@@ -6,8 +6,8 @@
 	.label {
 		display: flex;
 		align-items: center;
-		border: unset;
 		background-color: unset;
+		border: unset;
 		cursor: pointer;
 
 		svg {
@@ -30,8 +30,8 @@
 
 	.popup {
 		position: absolute;
-		display: none;
 		right: 0;
+		display: none;
 		width: 160px;
 		margin-top: 5px;
 		padding: 10px 0;
@@ -48,11 +48,11 @@
 			overflow: hidden;
 
 			button {
-				padding: 12px 20px;
-				cursor: pointer;
-				border: unset;
-				background-color: unset;
 				width: 100%;
+				padding: 12px 20px;
+				background-color: unset;
+				border: unset;
+				cursor: pointer;
 
 				&:hover {
 					background: rgba($color: $black, $alpha: 0.05%);
