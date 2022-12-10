@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import cn from 'classnames';
-import { ContentTop, Header, PizzaBlock } from './components';
+import { Allpizzas, ContentTop, Header } from './components';
 import styles from './styles/styles.module.scss';
 
 export const App: FC = () => {
@@ -11,33 +11,7 @@ export const App: FC = () => {
 				<div className={styles.container}>
 					<ContentTop />
 					<h2 className={styles.title}>Все пиццы</h2>
-					<div className={styles.items}>
-						<PizzaBlock
-							image="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-							title="Чизбургер-пицца"
-							price={395}
-						/>
-						<PizzaBlock
-							image="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-							title="Чизбургер-пицца"
-							price={395}
-						/>
-						<PizzaBlock
-							image="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-							title="Чизбургер-пицца"
-							price={395}
-						/>
-						<PizzaBlock
-							image="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-							title="Чизбургер-пицца"
-							price={395}
-						/>
-						<PizzaBlock
-							image="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-							title="Чизбургер-пицца"
-							price={395}
-						/>
-					</div>
+					<Allpizzas />
 				</div>
 			</div>
 		</div>

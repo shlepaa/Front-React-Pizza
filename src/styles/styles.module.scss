@@ -25,31 +25,3 @@
 	width: 90%;
 	margin: 0 auto;
 }
-
-.items {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	gap: 65px 0;
-	justify-items: center;
-}
-
-@media screen and (max-width: 1460px) {
-	.items {
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 55px 45px;
-	}
-}
-
-@media screen and (max-width: 1150px) {
-	.items {
-		grid-template-columns: 1fr 1fr;
-		gap: 45px 25px;
-	}
-}
-
-@media screen and (max-width: 800px) {
-	.items {
-		grid-template-columns: 1fr;
-		gap: 35px 0;
-	}
-}
