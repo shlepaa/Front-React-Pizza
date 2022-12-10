@@ -1,0 +1,30 @@
+@import url('../../styles/variables.scss');
+
+.categories {
+	ul {
+		display: flex;
+
+		li {
+			margin-right: 10px;
+			padding: 13px 30px;
+			font-weight: bold;
+			background-color: $white;
+			border-radius: 30px;
+			cursor: pointer;
+			transition: background-color 0.1s ease-in-out;
+
+			&:hover {
+				background-color: darken($white, 2%);
+			}
+
+			&:active {
+				background-color: darken($white, 5%);
+			}
+
+			&.active {
+				color: $white;
+				background-color: $black;
+			}
+		}
+	}
+}

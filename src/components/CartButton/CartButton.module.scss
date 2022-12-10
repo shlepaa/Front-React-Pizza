@@ -1,0 +1,60 @@
+@import url('../../styles/variables.scss');
+
+.button {
+	display: inline-block;
+	min-width: 100px;
+	padding: 10px 20px;
+	text-align: center;
+	background-color: $orange;
+	border: 1px solid transparent;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: background-color $duration ease-in-out,
+		border-color $duration ease-in-out;
+
+	&,
+	span {
+		color: $white;
+	}
+
+	i,
+	span,
+	path,
+	svg {
+		transition: all $duration ease-in-out;
+	}
+
+	&:hover {
+		background-color: darken($color: $orange, $amount: 8%);
+	}
+
+	&:active {
+		background-color: darken($color: $orange, $amount: 12%);
+		transform: translateY(1px);
+	}
+
+	.delimiter {
+		width: 1px;
+		height: 25px;
+		margin-right: 14px;
+		margin-left: 14px;
+		background-color: rgba($color: $white, $alpha: 25%);
+	}
+
+	&.buttonCart {
+		display: flex;
+		align-items: center;
+		padding: 12px 25px;
+		line-height: 23px;
+
+		svg {
+			margin-right: 8px;
+			margin-bottom: 1px;
+		}
+
+		span {
+			font-weight: 600;
+			font-size: 16px;
+		}
+	}
+}

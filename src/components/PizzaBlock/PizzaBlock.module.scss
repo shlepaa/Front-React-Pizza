@@ -1,0 +1,68 @@
+@import url('../../styles/variables.scss');
+
+.pizzaBlock {
+	width: 280px;
+	margin-bottom: 65px;
+	text-align: center;
+
+	&:not(:nth-of-type(4n)) {
+		margin-right: 35px;
+	}
+
+	.image {
+		width: 260px;
+	}
+
+	.title {
+		margin-bottom: 20px;
+		font-weight: 900;
+		font-size: 20px;
+		letter-spacing: 1%;
+	}
+
+	.selector {
+		display: flex;
+		flex-direction: column;
+		padding: 6px;
+		background-color: #f3f3f3;
+		border-radius: 10px;
+
+		ul {
+			display: flex;
+			flex: 1;
+
+			&:first-of-type {
+				margin-bottom: 6px;
+			}
+
+			li {
+				flex: 1;
+				padding: 8px;
+				font-weight: 600;
+				font-size: 14px;
+				cursor: pointer;
+
+				&.active {
+					background: $white;
+					border-radius: 5px;
+					box-shadow: 0 2px 4px rgb(0 0 0 / 4%);
+					cursor: auto;
+				}
+			}
+		}
+	}
+
+	& .info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 20px;
+	}
+
+	& .price {
+		font-weight: bold;
+		font-size: 22px;
+		line-height: 27px;
+		letter-spacing: 0.015em;
+	}
+}
