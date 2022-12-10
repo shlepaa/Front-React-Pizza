@@ -13,7 +13,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
 					<Logo className={styles.logo} />
 					<div>
 						<h1>React Pizza</h1>
-						<p>самая вкусная пицца во вселенной</p>
+						<p>самая вкатывающая пицца во вселенной</p>
 					</div>
 				</div>
 				<div className={styles.cart}>

@@ -12,6 +12,10 @@
 	transition: background-color $duration ease-in-out,
 		border-color $duration ease-in-out;
 
+	a {
+		display: flex;
+	}
+
 	&,
 	span {
 		color: $white;
