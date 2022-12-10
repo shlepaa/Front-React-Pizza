@@ -91,6 +91,11 @@ module.exports = {
 				],
 			},
 			{
+				test: /\.svg$/,
+				issuer: /\.[jt]sx?$/,
+				use: ['@svgr/webpack'],
+			},
+			{
 				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 				type: 'asset/resource',
 				generator: {
@@ -98,7 +103,7 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+				test: /\.(woff(2)?|eot|ttf|otf|)$/,
 				type: 'asset/resource',
 				generator: {
 					filename: 'assets/fonts/[name][ext][query]',

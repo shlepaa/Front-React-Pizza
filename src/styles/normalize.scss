@@ -9,13 +9,13 @@
 
 html {
 	text-size-adjust: 100%;
-	text-size-adjust: 100%;
 }
 
 body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	color: $black;
+	background-color: $background;
 }
 
 a,
@@ -42,14 +42,4 @@ h2 {
 
 a {
 	text-decoration: none;
-}
-
-@mixin noselect {
-	-webkit-touch-callout: none; /* iOS Safari */
-	user-select: none; /* Safari */
-	user-select: none; /* Konqueror HTML */
-	user-select: none; /* Old versions of Firefox */
-	user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
 }

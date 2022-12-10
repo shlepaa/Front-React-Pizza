@@ -1,13 +1,8 @@
-@import url('../../styles/variables.scss');
+@import '../../styles/variables.scss';
 
 .pizzaBlock {
 	width: 280px;
-	margin-bottom: 65px;
 	text-align: center;
-
-	&:not(:nth-of-type(4n)) {
-		margin-right: 35px;
-	}
 
 	.image {
 		width: 260px;
@@ -24,7 +19,7 @@
 		display: flex;
 		flex-direction: column;
 		padding: 6px;
-		background-color: #f3f3f3;
+		background-color: $gray-block;
 		border-radius: 10px;
 
 		ul {
@@ -45,7 +40,7 @@
 				&.active {
 					background: $white;
 					border-radius: 5px;
-					box-shadow: 0 2px 4px rgb(0 0 0 / 4%);
+					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04%);
 					cursor: auto;
 				}
 			}

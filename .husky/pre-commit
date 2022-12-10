@@ -3,5 +3,6 @@
 
 npm run stylelint
 
-npm run format
+npm run eslint
 
+npm run format

@@ -1,4 +1,4 @@
-@import url('../../styles/variables.scss');
+@import '../../styles/variables.scss';
 
 .categories {
 	ul {
@@ -14,7 +14,7 @@
 			transition: background-color 0.1s ease-in-out;
 
 			&:hover {
-				background-color: darken($white, 2%);
+				background-color: darken($white, 5%);
 			}
 
 			&:active {

@@ -1,4 +1,4 @@
-@import url('../../styles/variables.scss');
+@import '../../styles/variables.scss';
 
 .sort {
 	position: relative;
@@ -29,9 +29,9 @@
 		margin-top: 15px;
 		padding: 10px 0;
 		overflow: hidden;
-		background: var(--white);
+		background: $white;
 		border-radius: 10px;
-		box-shadow: 0 5px 15px rgb(0 0 0 / 9%);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1%);
 
 		ul {
 			overflow: hidden;
@@ -41,12 +41,13 @@
 				cursor: pointer;
 
 				&:hover {
-					background: rgba($color: $black, $alpha: 5%);
+					background: rgba($color: $black, $alpha: 0.05%);
 				}
 
 				&.active {
 					color: $orange;
 					font-weight: bold;
+					background: rgba($color: $black, $alpha: 0.05%);
 				}
 			}
 		}

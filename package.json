@@ -7,7 +7,9 @@
 		"start": "webpack serve --config webpack/webpack.config.js --env env=dev",
 		"build": "webpack --node-env=prod --config webpack/webpack.config.js",
 		"stylelint": "stylelint \"**/*.scss\" --fix",
-		"format": "prettier --write \"./*.{babelrc,js,json}\" \"./{webpack,src}/**/*.{js,jsx,ts,tsx,json,css,scss,md,html,}\""
+		"eslint": "eslint --fix",
+		"format": "prettier --write \"./*.{babelrc,js,json}\" \"./{webpack,src}/**/*.{js,jsx,ts,tsx,json,css,scss,md,html,}\"",
+		"prepare": "husky install"
 	},
 	"keywords": [],
 	"author": "",
@@ -48,7 +50,6 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"html-webpack-plugin": "^5.5.0",
 		"husky": "^8.0.0",
-		"lint-staged": "^13.0.3",
 		"mini-css-extract-plugin": "^2.6.1",
 		"node-sass": "^7.0.3",
 		"postcss": "^8.4.18",
