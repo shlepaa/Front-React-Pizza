@@ -6,13 +6,13 @@ import { FC } from 'react';
 export const AddButton: FC<AddButtonProps> = ({ className, ...props }) => {
 	return (
 		<div
+			{...props}
 			className={cn(
 				className,
 				styles.button,
 				styles.buttonOutline,
 				styles.buttonAdd
-			)}
-			{...props}>
+			)}>
 			<svg
 				width="12"
 				height="12"
