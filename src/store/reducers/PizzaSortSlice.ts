@@ -17,6 +17,8 @@ interface UserState {
 	pizzasBackup: IPizza[];
 	allPizzaTypes: string[];
 	currentType: string;
+	searchValue: string;
+	searchPizzas: IPizza[];
 }
 
 export const initialState: UserState = {
@@ -24,8 +26,18 @@ export const initialState: UserState = {
 	pizzas: fetchPizzas,
 	pizzasBackup: fetchPizzas,
 	allPizzaTypes: sortedTypes,
+	searchPizzas: [],
 	currentType: 'все',
+	searchValue: '',
 	error: '',
+};
+
+const checkForSimilarity = (word: string, search: string): boolean => {
+	return word
+		.toLocaleLowerCase()
+		.split(' ')
+		.join('')
+		.includes(search.toLocaleLowerCase().split(' ').join(''));
 };
 
 export const pizzaSortSlice = createSlice({
@@ -48,14 +60,29 @@ export const pizzaSortSlice = createSlice({
 			);
 		},
 		sortByType: (state, action: PayloadAction<string>) => {
-			state.pizzas = state.pizzasBackup.filter((p) =>
-				p.types.includes(action.payload)
-			);
+			state.pizzas = (
+				state.searchValue ? state.searchPizzas : state.pizzasBackup
+			).filter((p) => p.types.includes(action.payload));
 			state.currentType = action.payload;
 		},
 		unset: (state) => {
 			state.pizzas = state.pizzasBackup;
 			state.currentType = 'все';
+		},
+		search: (state, action: PayloadAction<string>) => {
+			state.pizzas = state.pizzasBackup.filter(
+				(p) =>
+					checkForSimilarity(p.title, action.payload) ||
+					checkForSimilarity(p.types.join(''), action.payload)
+			);
+			state.searchPizzas = state.pizzasBackup.filter(
+				(p) =>
+					checkForSimilarity(p.title, action.payload) ||
+					checkForSimilarity(p.types.join(''), action.payload)
+			);
+		},
+		setSearchValue: (state, action: PayloadAction<string>) => {
+			state.searchValue = action.payload;
 		},
 	},
 });
