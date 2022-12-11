@@ -3,6 +3,7 @@ import { PizzaBlockProps } from './Sort.props';
 import cn from 'classnames';
 import { FC, useState } from 'react';
 import { AddButton } from '../AddButton/AddButton';
+import { UlSizes } from '../UlSizes/UlSizes';
 
 interface IChosenPizza {
 	dough: string;
@@ -22,12 +23,9 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 }) => {
 	const [dough, setDough] = useState<string>('thin');
 	const [size, setSize] = useState<string>('26');
-	const [count, setCount] = useState<number>(0);
+	const [count, setCount] = useState<number>(1);
 	const setPizzaParams = () => {
-		if (!count) {
-			return;
-		}
-		setCount(0);
+		setCount(1);
 		const chosenPizza: IChosenPizza = {
 			dough,
 			title,
@@ -69,7 +67,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			setCount(count + 1);
 		}
 		if (inctremOrDecrem === 'decrement') {
-			setCount(count !== 0 ? count - 1 : 0);
+			setCount(count !== 1 ? count - 1 : 1);
 		}
 	};
 
@@ -94,29 +92,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 						традиционное
 					</li>
 				</ul>
-				<ul>
-					<li
-						onClick={() => setSize('26')}
-						className={cn({
-							[styles.active]: size === '26',
-						})}>
-						26 см.
-					</li>
-					<li
-						onClick={() => setSize('30')}
-						className={cn({
-							[styles.active]: size === '30',
-						})}>
-						30 см.
-					</li>
-					<li
-						onClick={() => setSize('40')}
-						className={cn({
-							[styles.active]: size === '40',
-						})}>
-						40 см.
-					</li>
-				</ul>
+				<UlSizes setSize={setSize} size={size} />
 			</div>
 			<div className={cn(styles.info)}>
 				<div className={cn(styles.price)}>
