@@ -2,8 +2,8 @@
 
 .button {
 	display: inline-block;
-	min-width: 100px;
-	padding: 10px 20px;
+	min-width: 95px;
+	padding: 9px 9px;
 	text-align: center;
 	background-color: $orange;
 	border: 1px solid transparent;
@@ -99,4 +99,16 @@
 	line-height: 22px;
 	background-color: $orange;
 	border-radius: 30px;
+}
+
+.plus {
+	cursor: pointer;
+	color: $orange;
+	&:hover {
+		fill: $black;
+	}
+}
+
+.buttonsBlock {
+	margin-top: 6px;
 }

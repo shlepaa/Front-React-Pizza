@@ -22,9 +22,12 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 }) => {
 	const [dough, setDough] = useState<string>('thin');
 	const [size, setSize] = useState<string>('26');
+	const [count, setCount] = useState<number>(0);
 	const setPizzaParams = () => {
-		let count = 0;
-		count++;
+		if (!count) {
+			return;
+		}
+		setCount(0);
 		const chosenPizza: IChosenPizza = {
 			dough,
 			title,
@@ -39,15 +42,15 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			console.log(JSON.parse(localStorage.pizzas), 1);
 			return;
 		}
+
 		const allPizzas: IChosenPizza[] = JSON.parse(localStorage.pizzas);
 		const currentPizza = allPizzas.find(
 			(p) => p.title === title && p.dough === dough && p.size === size
 		);
-
 		if (currentPizza) {
 			allPizzas.map((p) => {
 				if (p.title === title && p.dough === dough && p.size === size) {
-					p.count++;
+					p.count = p.count + count;
 					return p;
 				}
 				return p;
@@ -59,6 +62,15 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		}
 		localStorage.pizzas = JSON.stringify([...allPizzas, chosenPizza]);
 		console.log(JSON.parse(localStorage.pizzas), 3);
+	};
+
+	const handlerSetCount = (inctremOrDecrem: string) => {
+		if (inctremOrDecrem === 'increment') {
+			setCount(count + 1);
+		}
+		if (inctremOrDecrem === 'decrement') {
+			setCount(count !== 0 ? count - 1 : 0);
+		}
 	};
 
 	return (
@@ -107,8 +119,20 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 				</ul>
 			</div>
 			<div className={cn(styles.info)}>
-				<div className={cn(styles.price)}>от {price} ₽</div>
-				<AddButton onClick={setPizzaParams} />
+				<div className={cn(styles.price)}>
+					<span
+						className={cn(styles.amountCost, {
+							[styles.visibleAmount]: count > 1,
+						})}>
+						Общая цена
+					</span>
+					{count > 1 ? price * count : price} ₽
+				</div>
+				<AddButton
+					onClick={setPizzaParams}
+					count={count}
+					setCount={handlerSetCount}
+				/>
 			</div>
 		</div>
 	);

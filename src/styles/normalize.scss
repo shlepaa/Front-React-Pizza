@@ -32,6 +32,11 @@ button {
 	color: $black;
 }
 
+button {
+	border: unset;
+	background-color: unset;
+}
+
 h1 {
 	font-size: 48px;
 }

@@ -57,7 +57,19 @@
 	& .price {
 		font-weight: bold;
 		font-size: 22px;
-		line-height: 27px;
 		letter-spacing: 0.015em;
+		position: relative;
 	}
+}
+
+.amountCost {
+	position: absolute;
+	display: none;
+	top: -15px;
+	white-space: nowrap;
+	color: darken($color: $white, $amount: 30%);
+}
+
+.visibleAmount {
+	display: block;
 }
