@@ -3,4 +3,5 @@ export interface IPizza {
 	image: string;
 	title: string;
 	rating: number;
+	types: string[];
 }

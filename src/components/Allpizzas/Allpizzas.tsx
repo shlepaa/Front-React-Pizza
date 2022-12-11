@@ -6,7 +6,7 @@ import { PizzaBlock } from '../PizzaBlock/PizzaBlock';
 import { useAppSelector } from '../../hooks/redux';
 
 export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
-	const { pizzas } = useAppSelector((state) => state.pizzaReducer);
+	const { pizzas } = useAppSelector((state) => state.pizzaSortReducer);
 	return (
 		<div className={cn(className, styles.items)} {...props}>
 			{pizzas.map((p) => (

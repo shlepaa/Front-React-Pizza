@@ -4,13 +4,13 @@ import cn from 'classnames';
 import { FC, useState } from 'react';
 import ArrowIcon from './arrow.svg';
 import { useAppDispatch } from '../../hooks/redux';
-import { pizzaSlice } from '../../store/reducers/PizzaSlice';
+import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 
 export const Sort: FC<SortProps> = ({ className, ...props }) => {
 	const [sort, setSort] = useState<string>('популярности');
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
-	const { sortRating, sortAlphabet, sortPrice } = pizzaSlice.actions;
+	const { sortRating, sortAlphabet, sortPrice } = pizzaSortSlice.actions;
 	const chooseSort = (chosenSort: string) => {
 		setSort(chosenSort);
 		setIsOpened(false);
