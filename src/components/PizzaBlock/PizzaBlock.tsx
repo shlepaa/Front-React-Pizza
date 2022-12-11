@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { FC, useState } from 'react';
 import { AddButton } from '../AddButton/AddButton';
 import { UlSizes } from '../UlSizes/UlSizes';
+import { UlDough } from '../UlDough/UlDough';
 
 interface IChosenPizza {
 	dough: string;
@@ -76,22 +77,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			<img className={cn(styles.image)} src={image} alt={title} />
 			<h4 className={cn(styles.title)}>{title}</h4>
 			<div className={cn(styles.selector)}>
-				<ul>
-					<li
-						onClick={() => setDough('thin')}
-						className={cn({
-							[styles.active]: dough === 'thin',
-						})}>
-						тонкое
-					</li>
-					<li
-						onClick={() => setDough('traditional')}
-						className={cn({
-							[styles.active]: dough === 'traditional',
-						})}>
-						традиционное
-					</li>
-				</ul>
+				<UlDough setDough={setDough} dough={dough} />
 				<UlSizes setSize={setSize} size={size} />
 			</div>
 			<div className={cn(styles.info)}>

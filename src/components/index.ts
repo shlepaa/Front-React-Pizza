@@ -7,3 +7,5 @@ export * from './Header/Header';
 export * from './ContentTop/ContentTop';
 export * from './Allpizzas/Allpizzas';
 export * from './Content/Content';
+export * from './UlSizes/UlSizes';
+export * from './UlDough/UlDough';

@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.list {
+	display: flex;
+	flex: 1;
+
+	&:first-of-type {
+		margin-bottom: 6px;
+	}
+
+	li {
+		flex: 1;
+		padding: 8px;
+		font-weight: 600;
+		font-size: 14px;
+		cursor: pointer;
+
+		&.active {
+			background: $white;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04%);
+			cursor: auto;
+		}
+	}
+}
