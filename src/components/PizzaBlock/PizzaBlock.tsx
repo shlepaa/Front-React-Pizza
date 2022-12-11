@@ -22,7 +22,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 	className,
 	...props
 }) => {
-	const [dough, setDough] = useState<string>('thin');
+	const [dough, setDough] = useState<string>('тонкое');
 	const [size, setSize] = useState<string>('26');
 	const [count, setCount] = useState<number>(1);
 	const setPizzaParams = () => {
@@ -77,8 +77,16 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			<img className={cn(styles.image)} src={image} alt={title} />
 			<h4 className={cn(styles.title)}>{title}</h4>
 			<div className={cn(styles.selector)}>
-				<UlDough setDough={setDough} dough={dough} />
-				<UlSizes setSize={setSize} size={size} />
+				<UlDough
+					setDough={setDough}
+					allDoughs={['тонкое', 'традиционное']}
+					currentDough={dough}
+				/>
+				<UlSizes
+					setSize={setSize}
+					allSizes={['26', '30', '40']}
+					currentSize={size}
+				/>
 			</div>
 			<div className={cn(styles.info)}>
 				<div className={cn(styles.price)}>

@@ -6,5 +6,6 @@ export interface UlSizesProps
 		HTMLUListElement
 	> {
 	setSize: (size: string) => void;
-	size: string;
+	currentSize: string;
+	allSizes: string[];
 }

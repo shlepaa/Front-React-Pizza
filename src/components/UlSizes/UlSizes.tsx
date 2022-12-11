@@ -4,34 +4,24 @@ import { FC } from 'react';
 import cn from 'classnames';
 
 export const UlSizes: FC<UlSizesProps> = ({
-	size,
+	currentSize,
+	allSizes,
 	setSize,
 	className,
 	...props
 }) => {
 	return (
 		<ul className={cn(className, styles.list)} {...props}>
-			<li
-				onClick={() => setSize('26')}
-				className={cn({
-					[styles.active]: size === '26',
-				})}>
-				26 см.
-			</li>
-			<li
-				onClick={() => setSize('30')}
-				className={cn({
-					[styles.active]: size === '30',
-				})}>
-				30 см.
-			</li>
-			<li
-				onClick={() => setSize('40')}
-				className={cn({
-					[styles.active]: size === '40',
-				})}>
-				40 см.
-			</li>
+			{allSizes.map((s) => (
+				<li
+					key={s}
+					onClick={() => setSize(s)}
+					className={cn({
+						[styles.active]: currentSize === s,
+					})}>
+					{s} см
+				</li>
+			))}
 		</ul>
 	);
 };

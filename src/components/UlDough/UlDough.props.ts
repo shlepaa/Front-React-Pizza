@@ -6,5 +6,6 @@ export interface UlDoughProps
 		HTMLUListElement
 	> {
 	setDough: (size: string) => void;
-	dough: string;
+	allDoughs: string[];
+	currentDough: string;
 }

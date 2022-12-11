@@ -4,27 +4,24 @@ import { FC } from 'react';
 import cn from 'classnames';
 
 export const UlDough: FC<UlDoughProps> = ({
-	dough,
+	allDoughs,
+	currentDough,
 	setDough,
 	className,
 	...props
 }) => {
 	return (
 		<ul className={cn(className, styles.list)} {...props}>
-			<li
-				onClick={() => setDough('thin')}
-				className={cn({
-					[styles.active]: dough === 'thin',
-				})}>
-				тонкое
-			</li>
-			<li
-				onClick={() => setDough('traditional')}
-				className={cn({
-					[styles.active]: dough === 'traditional',
-				})}>
-				традиционное
-			</li>
+			{allDoughs.map((d) => (
+				<li
+					key={d}
+					onClick={() => setDough(d)}
+					className={cn({
+						[styles.active]: currentDough === d,
+					})}>
+					{d}
+				</li>
+			))}
 		</ul>
 	);
 };
