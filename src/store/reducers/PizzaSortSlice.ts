@@ -9,12 +9,14 @@ allPizzaTypes.forEach((p) => {
 		sortedTypes.push(p);
 	}
 });
+
 interface UserState {
 	isLoading: boolean;
 	error: string;
 	pizzas: IPizza[];
 	pizzasBackup: IPizza[];
 	allPizzaTypes: string[];
+	currentType: string;
 }
 
 export const initialState: UserState = {
@@ -22,6 +24,7 @@ export const initialState: UserState = {
 	pizzas: fetchPizzas,
 	pizzasBackup: fetchPizzas,
 	allPizzaTypes: sortedTypes,
+	currentType: 'все',
 	error: '',
 };
 
@@ -48,9 +51,11 @@ export const pizzaSortSlice = createSlice({
 			state.pizzas = state.pizzasBackup.filter((p) =>
 				p.types.includes(action.payload)
 			);
+			state.currentType = action.payload;
 		},
 		unset: (state) => {
 			state.pizzas = state.pizzasBackup;
+			state.currentType = 'все';
 		},
 	},
 });

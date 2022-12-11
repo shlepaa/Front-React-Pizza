@@ -6,13 +6,13 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 
 export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
-	const [type, setType] = useState<string>('all');
+	const [type, setType] = useState<string>('все');
 	const dispatch = useAppDispatch();
 	const { allPizzaTypes } = useAppSelector((state) => state.pizzaSortReducer);
 	const { unset, sortByType } = pizzaSortSlice.actions;
 	const handlerSetType = (type: string) => {
 		setType(type);
-		if (type === 'all') {
+		if (type === 'все') {
 			dispatch(unset());
 			return;
 		}
@@ -21,9 +21,9 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 	return (
 		<div className={cn(className, styles.categories)} {...props}>
 			<button
-				onClick={() => handlerSetType('all')}
+				onClick={() => handlerSetType('все')}
 				className={cn({
-					[styles.active]: type === 'all',
+					[styles.active]: type === 'все',
 				})}>
 				Все
 			</button>
