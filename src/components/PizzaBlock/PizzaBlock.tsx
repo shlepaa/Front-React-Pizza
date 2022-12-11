@@ -5,8 +5,10 @@ import { FC, useState } from 'react';
 import { AddButton } from '../AddButton/AddButton';
 import { UlSizes } from '../UlSizes/UlSizes';
 import { UlDough } from '../UlDough/UlDough';
+import { useAppDispatch } from '../../hooks/redux';
+import { pizzasSlice } from '../../store/reducers/PizzasSlice';
 
-interface IChosenPizza {
+export interface IChosenPizza {
 	dough: string;
 	title: string;
 	count: number;
@@ -25,6 +27,8 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 	const [dough, setDough] = useState<string>('тонкое');
 	const [size, setSize] = useState<string>('26');
 	const [count, setCount] = useState<number>(1);
+	const dispatch = useAppDispatch();
+	const { addPizza, reloadPizzas } = pizzasSlice.actions;
 	const setPizzaParams = () => {
 		setCount(1);
 		const chosenPizza: IChosenPizza = {
@@ -38,6 +42,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 
 		if (!localStorage.pizzas) {
 			localStorage.pizzas = JSON.stringify([chosenPizza]);
+			dispatch(addPizza(chosenPizza));
 			console.log(JSON.parse(localStorage.pizzas), 1);
 			return;
 		}
@@ -54,11 +59,13 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 				}
 				return p;
 			});
+			dispatch(reloadPizzas(allPizzas));
 			localStorage.pizzas = JSON.stringify(allPizzas);
 			console.log(JSON.parse(localStorage.pizzas), 2);
 
 			return;
 		}
+		dispatch(addPizza(chosenPizza));
 		localStorage.pizzas = JSON.stringify([...allPizzas, chosenPizza]);
 		console.log(JSON.parse(localStorage.pizzas), 3);
 	};
