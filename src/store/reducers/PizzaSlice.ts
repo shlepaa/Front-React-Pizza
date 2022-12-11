@@ -50,7 +50,7 @@ const initialState: UserState = {
 	error: '',
 };
 
-const pizzaSlice = createSlice({
+export const pizzaSlice = createSlice({
 	name: 'pizza',
 	initialState,
 	reducers: {
