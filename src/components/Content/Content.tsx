@@ -10,7 +10,6 @@ export const Content: FC<ContentProps> = ({ className, ...props }) => {
 		<div className={cn(className, styles.content)} {...props}>
 			<div className={styles.container}>
 				<ContentTop />
-				<h2 className={styles.title}>Все пиццы</h2>
 				<Allpizzas />
 			</div>
 		</div>

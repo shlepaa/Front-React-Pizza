@@ -1,103 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IPizza } from '../../interfaces/IPizza';
+import { fetchPizzas } from './data';
 
+const allPizzaTypes = fetchPizzas.map((p) => p.types).flat();
+const sortedTypes: string[] = [];
+allPizzaTypes.forEach((p) => {
+	if (!sortedTypes.includes(p)) {
+		sortedTypes.push(p);
+	}
+});
 interface UserState {
 	isLoading: boolean;
 	error: string;
 	pizzas: IPizza[];
 	pizzasBackup: IPizza[];
+	allPizzaTypes: string[];
 }
 
 export const initialState: UserState = {
 	isLoading: false,
-	pizzas: [
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Пицца 4 сыра',
-			price: 1495,
-			rating: 4,
-			types: ['вегетарианская', 'сырная'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Колбасная вечеринка',
-			price: 525,
-			rating: 5,
-			types: ['мясная', 'гриль', 'острая'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Сладкая пицца',
-			price: 461,
-			rating: 2,
-			types: ['сладкая'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Чизбургер-пицца',
-			price: 395,
-			rating: 3,
-			types: ['вегетарианская', 'сырная'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Гамбургер-пицца',
-			price: 295,
-			rating: 5,
-			types: ['мясная', 'гриль', 'острая'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Губка-боб',
-			price: 395,
-			rating: 1,
-			types: ['закрытая'],
-		},
-	],
-	pizzasBackup: [
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Пицца 4 сыра',
-			price: 495,
-			rating: 4,
-			types: ['вегетарианская', 'сырная'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Колбасная вечеринка',
-			price: 525,
-			rating: 5,
-			types: ['мясная', 'гриль', 'острая'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Сладкая пицца',
-			price: 461,
-			rating: 2,
-			types: ['сладкая'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Чизбургер-пицца',
-			price: 395,
-			rating: 3,
-			types: ['вегетарианская', 'сырная'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Гамбургер-пицца',
-			price: 295,
-			rating: 5,
-			types: ['мясная', 'гриль', 'острая'],
-		},
-		{
-			image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
-			title: 'Губка-боб',
-			price: 395,
-			rating: 1,
-			types: ['закрытая'],
-		},
-	],
+	pizzas: fetchPizzas,
+	pizzasBackup: fetchPizzas,
+	allPizzaTypes: sortedTypes,
 	error: '',
 };
 
@@ -120,29 +44,9 @@ export const pizzaSortSlice = createSlice({
 				a.rating > b.rating ? 1 : -1
 			);
 		},
-		sortMeat: (state) => {
+		sortByType: (state, action: PayloadAction<string>) => {
 			state.pizzas = state.pizzasBackup.filter((p) =>
-				p.types.includes('мясная')
-			);
-		},
-		sortVegetables: (state) => {
-			state.pizzas = state.pizzasBackup.filter((p) =>
-				p.types.includes('вегетарианская')
-			);
-		},
-		sortGrill: (state) => {
-			state.pizzas = state.pizzasBackup.filter((p) =>
-				p.types.includes('гриль')
-			);
-		},
-		sortSpicy: (state) => {
-			state.pizzas = state.pizzasBackup.filter((p) =>
-				p.types.includes('острая')
-			);
-		},
-		sortClosed: (state) => {
-			state.pizzas = state.pizzasBackup.filter((p) =>
-				p.types.includes('закрытая')
+				p.types.includes(action.payload)
 			);
 		},
 		unset: (state) => {

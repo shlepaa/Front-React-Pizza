@@ -7,6 +7,10 @@
 	justify-items: center;
 }
 
+.title {
+	margin: 35px 0;
+}
+
 @media screen and (max-width: 1460px) {
 	.items {
 		grid-template-columns: 1fr 1fr 1fr;

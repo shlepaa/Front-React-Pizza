@@ -2,80 +2,41 @@ import styles from './Categories.module.scss';
 import { CategoriesProps } from './Categories.props';
 import cn from 'classnames';
 import { FC, useState } from 'react';
-import { useAppDispatch } from '../../hooks/redux';
-import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
-
-type ReducersType =
-	| 'pizza/sortSpicy'
-	| 'pizza/sortClosed'
-	| 'pizza/sortGrill'
-	| 'pizza/sortMeat'
-	| 'pizza/sortVegetables'
-	| 'pizza/unset';
 
 export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 	const [type, setType] = useState<string>('all');
 	const dispatch = useAppDispatch();
-	const {
-		sortClosed,
-		sortGrill,
-		sortMeat,
-		sortSpicy,
-		sortVegetables,
-		unset,
-	} = pizzaSortSlice.actions;
-	const handlerSetType = (
-		type: string,
-		reducer: ActionCreatorWithoutPayload<ReducersType>
-	) => {
+	const { allPizzaTypes } = useAppSelector((state) => state.pizzaSortReducer);
+	const { unset, sortByType } = pizzaSortSlice.actions;
+	const handlerSetType = (type: string) => {
 		setType(type);
-		dispatch(reducer());
+		if (type === 'all') {
+			dispatch(unset());
+			return;
+		}
+		dispatch(sortByType(type));
 	};
 	return (
 		<div className={cn(className, styles.categories)} {...props}>
 			<button
-				onClick={() => handlerSetType('all', unset)}
+				onClick={() => handlerSetType('all')}
 				className={cn({
 					[styles.active]: type === 'all',
 				})}>
 				Все
 			</button>
-			<button
-				onClick={() => handlerSetType('meat', sortMeat)}
-				className={cn({
-					[styles.active]: type === 'meat',
-				})}>
-				Мясные
-			</button>
-			<button
-				onClick={() => handlerSetType('vegetarian', sortVegetables)}
-				className={cn({
-					[styles.active]: type === 'vegetarian',
-				})}>
-				Вегетарианская
-			</button>
-			<button
-				onClick={() => handlerSetType('grill', sortGrill)}
-				className={cn({
-					[styles.active]: type === 'grill',
-				})}>
-				Гриль
-			</button>
-			<button
-				onClick={() => handlerSetType('spicy', sortSpicy)}
-				className={cn({
-					[styles.active]: type === 'spicy',
-				})}>
-				Острые
-			</button>
-			<button
-				onClick={() => handlerSetType('closed', sortClosed)}
-				className={cn({
-					[styles.active]: type === 'closed',
-				})}>
-				Закрытые
-			</button>
+			{allPizzaTypes.map((p) => (
+				<button
+					key={p}
+					onClick={() => handlerSetType(p)}
+					className={cn({
+						[styles.active]: type === p,
+					})}>
+					{p[0]?.toUpperCase() + p.slice(1, p.length)}
+				</button>
+			))}
 		</div>
 	);
 };

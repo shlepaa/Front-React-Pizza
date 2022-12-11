@@ -8,15 +8,18 @@ import { useAppSelector } from '../../hooks/redux';
 export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	const { pizzas } = useAppSelector((state) => state.pizzaSortReducer);
 	return (
-		<div className={cn(className, styles.items)} {...props}>
-			{pizzas.map((p) => (
-				<PizzaBlock
-					image={p.image}
-					title={p.title}
-					price={p.price}
-					key={Math.random()}
-				/>
-			))}
-		</div>
+		<>
+			<h2 className={styles.title}>Все пиццы</h2>
+			<div className={cn(className, styles.items)} {...props}>
+				{pizzas.map((p) => (
+					<PizzaBlock
+						image={p.image}
+						title={p.title}
+						price={p.price}
+						key={Math.random()}
+					/>
+				))}
+			</div>
+		</>
 	);
 };

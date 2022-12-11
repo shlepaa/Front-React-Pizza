@@ -11,19 +11,25 @@ export const CartButton: FC<CartButtonProps> = ({
 	className,
 	...props
 }) => {
+	const [totalPrice, setTotalPrice] = useState<number>(0);
 	const [totalCount, setTotalCount] = useState<number>(0);
 	const { pizzas } = useAppSelector((state) => state.pizzasReducer);
 
 	useEffect(() => {
-		console.log(pizzas.length);
-		if (pizzas.length === 0) {
+		if (!pizzas.length) {
+			setTotalPrice(0);
 			setTotalCount(0);
 		}
-		const count = pizzas.reduce(
+		const price = pizzas.reduce(
 			(totalPrice, currentPrice) =>
 				totalPrice + currentPrice.price * currentPrice.count,
 			0
 		);
+		const count = pizzas.reduce(
+			(totalPrice, currentPrice) => totalPrice + currentPrice.count,
+			0
+		);
+		setTotalPrice(price);
 		setTotalCount(count);
 		console.log(1);
 	}, [pizzas]);
@@ -31,7 +37,7 @@ export const CartButton: FC<CartButtonProps> = ({
 	return (
 		<a href={link} {...props}>
 			<button className={cn(className, styles.button, styles.buttonCart)}>
-				<span>{totalCount} ₽</span>
+				<span>{totalPrice} ₽</span>
 				<div className={styles.delimiter}></div>
 				<IconContext.Provider
 					value={{
@@ -40,7 +46,7 @@ export const CartButton: FC<CartButtonProps> = ({
 					}}>
 					<RiShoppingCartLine />
 				</IconContext.Provider>
-				<span>3</span>
+				<span>{totalCount}</span>
 			</button>
 		</a>
 	);
