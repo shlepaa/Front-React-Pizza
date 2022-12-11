@@ -111,4 +111,8 @@
 
 .buttonsBlock {
 	margin-top: 6px;
+
+	> button + button {
+		margin-left: 10px;
+	}
 }

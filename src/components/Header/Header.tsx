@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { CartButton } from '../CartButton/CartButton';
 import Logo from './logo.svg';
+import { Search } from '../Search/Search';
 
 export const Header: FC<HeaderProps> = ({ className, ...props }) => {
 	return (
@@ -16,6 +17,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
 						<p>самая вкатывающая пицца во вселенной</p>
 					</div>
 				</div>
+				<Search />
 				<CartButton link="/cart.html" />
 			</div>
 		</div>

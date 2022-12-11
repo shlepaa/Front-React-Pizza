@@ -7,15 +7,7 @@ import { UlSizes } from '../UlSizes/UlSizes';
 import { UlDough } from '../UlDough/UlDough';
 import { useAppDispatch } from '../../hooks/redux';
 import { pizzasSlice } from '../../store/reducers/PizzasSlice';
-
-export interface IChosenPizza {
-	dough: string;
-	title: string;
-	count: number;
-	size: string;
-	image: string;
-	price: number;
-}
+import { IChosenPizza } from '../../interfaces/IChosenPizza';
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
