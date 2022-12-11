@@ -17,7 +17,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
 						<p>самая вкатывающая пицца во вселенной</p>
 					</div>
 				</div>
-				<Search />
+				<Search className={styles.search} />
 				<CartButton link="/cart.html" />
 			</div>
 		</div>

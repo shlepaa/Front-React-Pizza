@@ -5,7 +5,8 @@
 	border-bottom: 1px solid $gray-line;
 
 	.container {
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr auto auto;
 		align-items: center;
 		justify-content: space-between;
 		width: 90%;
@@ -36,4 +37,8 @@
 			color: $gray;
 		}
 	}
+}
+
+.search {
+	margin-right: 35px;
 }

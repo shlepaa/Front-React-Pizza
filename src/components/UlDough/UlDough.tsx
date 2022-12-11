@@ -11,17 +11,17 @@ export const UlDough: FC<UlDoughProps> = ({
 	...props
 }) => {
 	return (
-		<ul className={cn(className, styles.list)} {...props}>
+		<div className={cn(className, styles.list)} {...props}>
 			{allDoughs.map((d) => (
-				<li
+				<button
 					key={d}
 					onClick={() => setDough(d)}
 					className={cn({
 						[styles.active]: currentDough === d,
 					})}>
 					{d}
-				</li>
+				</button>
 			))}
-		</ul>
+		</div>
 	);
 };

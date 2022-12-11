@@ -11,17 +11,17 @@ export const UlSizes: FC<UlSizesProps> = ({
 	...props
 }) => {
 	return (
-		<ul className={cn(className, styles.list)} {...props}>
+		<div className={cn(className, styles.list)} {...props}>
 			{allSizes.map((s) => (
-				<li
+				<button
 					key={s}
 					onClick={() => setSize(s)}
 					className={cn({
 						[styles.active]: currentSize === s,
 					})}>
 					{s} см
-				</li>
+				</button>
 			))}
-		</ul>
+		</div>
 	);
 };
