@@ -20,6 +20,8 @@ interface IUserState {
 	currentType: string;
 	searchValue: string;
 	currentSortParam: TypeParams;
+	isSortedByType: boolean;
+	isSortedByUpOrDown: boolean;
 }
 
 export const initialState: IUserState = {
@@ -28,12 +30,12 @@ export const initialState: IUserState = {
 	pizzas: localStorage.pizzas
 		? (JSON.parse(localStorage.pizzas) as unknown as IPizza[])
 		: fetchPizzas,
-	pizzasBackup: localStorage.pizzas
-		? (JSON.parse(localStorage.pizzas) as unknown as IPizza[])
-		: fetchPizzas,
+	pizzasBackup: fetchPizzas,
 	allPizzaTypes: sortedTypes,
 	currentType: 'все',
 	searchValue: '',
+	isSortedByType: false,
+	isSortedByUpOrDown: localStorage.isSortedByUpOrDown ?? false,
 	currentSortParam: {
 		title: 'популярности',
 		param: 'rating',
@@ -54,6 +56,9 @@ export const pizzaSortSlice = createSlice({
 	name: 'pizza',
 	initialState,
 	reducers: {
+		setParam: (state, action: PayloadAction<IPizza[]>) => {
+			state.pizzas = action.payload;
+		},
 		sortToUpOrDown: (state, action: PayloadAction<boolean>) => {
 			state.pizzas = state.pizzas.sort((a, b) => {
 				if (
@@ -64,12 +69,16 @@ export const pizzaSortSlice = createSlice({
 				}
 				return action.payload ? 1 : -1;
 			});
+			state.isSortedByUpOrDown = !state.isSortedByUpOrDown;
 		},
 		sortByParam: (state, action: PayloadAction<TypeParams>) => {
 			state.pizzas = state.pizzas.sort((a, b) =>
 				a[action.payload.param] > b[action.payload.param] ? 1 : -1
 			);
 			state.currentSortParam = action.payload;
+			state.pizzasBackup = state.pizzasBackup.sort((a, b) =>
+				a[action.payload.param] > b[action.payload.param] ? 1 : -1
+			);
 		},
 		sortByType: (state, action: PayloadAction<string>) => {
 			state.pizzas = state.pizzasBackup.filter((p) =>
@@ -77,14 +86,28 @@ export const pizzaSortSlice = createSlice({
 			);
 			state.currentType = action.payload;
 			state.searchValue = '';
+			state.isSortedByType = true;
 		},
 		unset: (state) => {
-			state.pizzas = state.pizzasBackup;
+			state.pizzas = state.pizzasBackup.map((pizzaBack) => {
+				const replacementPizza: IPizza = (
+					localStorage.pizzas
+						? JSON.parse(localStorage.pizzas)
+						: state.pizzas
+				).find((pizza: IPizza) => pizzaBack.title === pizza.title);
+				if (replacementPizza) {
+					return replacementPizza;
+				}
+				return pizzaBack;
+			});
 			state.currentType = 'все';
 			state.searchValue = '';
+			state.isSortedByType = false;
 		},
 		search: (state, action: PayloadAction<string>) => {
-			state.pizzas = state.pizzasBackup.filter(
+			state.pizzas = (
+				state.searchValue ? state.pizzasBackup : state.pizzas
+			).filter(
 				(p) =>
 					checkForSimilarity(p.title, action.payload) ||
 					checkForSimilarity(p.types.join(''), action.payload)

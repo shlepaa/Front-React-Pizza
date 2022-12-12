@@ -10,10 +10,9 @@ import { AiFillCaretUp } from 'react-icons/ai';
 
 export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
-	const [isSortedByUpOrDown, setIsSortedByUpOrDown] = useState<boolean>(true);
 	const dispatch = useAppDispatch();
 	const { sortByParam, sortToUpOrDown } = pizzaSortSlice.actions;
-	const { currentSortParam } = useAppSelector(
+	const { currentSortParam, isSortedByUpOrDown } = useAppSelector(
 		(state) => state.pizzaSortReducer
 	);
 
@@ -23,18 +22,20 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 		} else {
 			dispatch(sortByParam(currentSortParam));
 		}
-	}, [dispatch, sortByParam]);
+		if (localStorage.isSortedByUpOrDown) {
+			dispatch(sortToUpOrDown(!isSortedByUpOrDown));
+		}
+	}, [dispatch, sortByParam, sortToUpOrDown]);
 
 	const chooseSort = (param: TypeParams) => {
 		setIsOpened(false);
 		localStorage.currentSortParam = JSON.stringify(param);
 		dispatch(sortByParam(param));
-		dispatch(sortToUpOrDown(!isSortedByUpOrDown));
 	};
 
 	const handlerSetIsSortedByUpOrDown = () => {
-		setIsSortedByUpOrDown(!isSortedByUpOrDown);
 		dispatch(sortToUpOrDown(isSortedByUpOrDown));
+		localStorage.isSortedByUpOrDown = isSortedByUpOrDown;
 	};
 
 	return (

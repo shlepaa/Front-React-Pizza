@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { pizzasSlice } from '../../store/reducers/PizzasSlice';
 import { IChosenPizza } from '../../interfaces/IChosenPizza';
 import { IPizza } from '../../interfaces/IPizza';
+import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
@@ -23,8 +24,14 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 	const [size, setSize] = useState<string>(defaultSize);
 	const [count, setCount] = useState<number>(1);
 	const dispatch = useAppDispatch();
+	const { setParam } = pizzaSortSlice.actions;
 	const { addPizza, reloadPizzas } = pizzasSlice.actions;
-	const { pizzas } = useAppSelector((state) => state.pizzaSortReducer);
+	const { pizzas, isSortedByType } = useAppSelector(
+		(state) => state.pizzaSortReducer
+	);
+	const copiedWithoutFlagsPizzas: IPizza[] = JSON.parse(
+		JSON.stringify(pizzas)
+	);
 
 	const setPizzaParams = () => {
 		setCount(1);
@@ -78,19 +85,33 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 
 	const handlerSetDough = (currentDough: string) => {
 		setDough(currentDough);
-		const copiedWithoutFlagsPizzas: IPizza[] = JSON.parse(
-			JSON.stringify(pizzas)
-		);
 		const correctedPizzas = copiedWithoutFlagsPizzas.map((p) => {
 			if (p.title === title) {
 				return { ...p, dough: currentDough };
 			}
 			return p;
 		});
+		dispatch(setParam(correctedPizzas));
+		if (isSortedByType) {
+			return;
+		}
 		localStorage.pizzas = JSON.stringify(correctedPizzas);
-		console.log(JSON.parse(localStorage.pizzas));
 	};
 
+	const handlerSetSize = (currentSize: string) => {
+		setSize(currentSize);
+		const correctedPizzas = copiedWithoutFlagsPizzas.map((p) => {
+			if (p.title === title) {
+				return { ...p, size: currentSize };
+			}
+			return p;
+		});
+		dispatch(setParam(correctedPizzas));
+		if (isSortedByType) {
+			return;
+		}
+		localStorage.pizzas = JSON.stringify(correctedPizzas);
+	};
 	return (
 		<div className={cn(className, styles.pizzaBlock)} {...props}>
 			<img className={cn(styles.image)} src={image} alt={title} />
@@ -102,7 +123,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 					currentDough={dough}
 				/>
 				<UlSizes
-					setSize={setSize}
+					setSize={handlerSetSize}
 					allSizes={['26', '30', '40']}
 					currentSize={size}
 				/>

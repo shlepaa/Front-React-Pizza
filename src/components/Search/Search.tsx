@@ -13,15 +13,15 @@ export const Search: FC<SearchProps> = ({ className, ...props }) => {
 	const { searchValue } = useAppSelector((state) => state.pizzaSortReducer);
 
 	useEffect(() => {
-		dispatch(search(searchValue));
+		searchValue && dispatch(search(searchValue));
 	}, [dispatch, search, searchValue]);
 
 	const handlerSearch = (currentValue: string) => {
-		dispatch(setSearchValue(currentValue));
 		if (!currentValue) {
 			dispatch(unset());
 			return;
 		}
+		dispatch(setSearchValue(currentValue));
 		dispatch(search(searchValue));
 	};
 

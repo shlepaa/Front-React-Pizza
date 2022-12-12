@@ -19,7 +19,7 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 		}
 		dispatch(sortByType(type));
 	};
-	
+
 	return (
 		<div className={cn(className, styles.categories)} {...props}>
 			<button
