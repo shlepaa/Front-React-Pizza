@@ -64,9 +64,11 @@ export const pizzaSortSlice = createSlice({
 				state.searchValue ? state.searchPizzas : state.pizzasBackup
 			).filter((p) => p.types.includes(action.payload));
 			state.currentType = action.payload;
+			state.currentType = action.payload;
 		},
 		unset: (state) => {
 			state.pizzas = state.pizzasBackup;
+			state.searchPizzas = [];
 			state.currentType = 'все';
 		},
 		search: (state, action: PayloadAction<string>) => {
