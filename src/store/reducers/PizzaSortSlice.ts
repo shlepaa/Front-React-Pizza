@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TypeParams } from '../../interfaces/TypeParams';
 import { IPizza } from '../../interfaces/IPizza';
 import { fetchPizzas } from './data';
 
@@ -18,17 +19,24 @@ interface IUserState {
 	allPizzaTypes: string[];
 	currentType: string;
 	searchValue: string;
+	currentSortParam: TypeParams;
 }
 
 export const initialState: IUserState = {
 	isLoading: false,
+	error: '',
 	pizzas: fetchPizzas,
 	pizzasBackup: fetchPizzas,
 	allPizzaTypes: sortedTypes,
 	currentType: 'все',
 	searchValue: '',
-	error: '',
+	currentSortParam: {
+		title: 'популярности',
+		param: 'rating',
+	},
 };
+
+export type PossibleSortParams = 'price' | 'title' | 'rating';
 
 const checkForSimilarity = (word: string, search: string): boolean => {
 	return word
@@ -42,28 +50,11 @@ export const pizzaSortSlice = createSlice({
 	name: 'pizza',
 	initialState,
 	reducers: {
-		sortByParam: (
-			state,
-			action: PayloadAction<'price' | 'title' | 'rating'>
-		) => {
+		sortByParam: (state, action: PayloadAction<TypeParams>) => {
 			state.pizzas = state.pizzas.sort((a, b) =>
-				a[action.payload] > b[action.payload] ? 1 : -1
+				a[action.payload.param] > b[action.payload.param] ? 1 : -1
 			);
-		},
-		sortPrice: (state) => {
-			state.pizzas = state.pizzas.sort((a, b) =>
-				a.price > b.price ? 1 : -1
-			);
-		},
-		sortAlphabet: (state) => {
-			state.pizzas = state.pizzas.sort((a, b) =>
-				a.title > b.title ? 1 : -1
-			);
-		},
-		sortRating: (state) => {
-			state.pizzas = state.pizzas.sort((a, b) =>
-				a.rating > b.rating ? 1 : -1
-			);
+			state.currentSortParam = action.payload;
 		},
 		sortByType: (state, action: PayloadAction<string>) => {
 			state.pizzas = state.pizzasBackup.filter((p) =>

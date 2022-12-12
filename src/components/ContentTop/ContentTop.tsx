@@ -9,7 +9,13 @@ export const ContentTop: FC<ContentTopProps> = ({ className, ...props }) => {
 	return (
 		<div className={cn(className, styles.contentTop)} {...props}>
 			<Categories />
-			<Sort sortParams={['популярности', 'цене', 'алфавиту']} />
+			<Sort
+				sortParams={[
+					{ param: 'rating', title: 'популярности' },
+					{ param: 'price', title: 'цене' },
+					{ param: 'title', title: 'алфавиту' },
+				]}
+			/>
 		</div>
 	);
 };

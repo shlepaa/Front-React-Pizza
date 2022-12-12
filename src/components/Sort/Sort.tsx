@@ -1,28 +1,30 @@
 import styles from './Sort.module.scss';
 import { SortProps } from './Sort.props';
 import cn from 'classnames';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import ArrowIcon from './arrow.svg';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
+import { TypeParams } from '../../interfaces/TypeParams';
 
 export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
-	const [sort, setSort] = useState<string>('популярности');
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
-	const { sortRating, sortAlphabet, sortPrice } = pizzaSortSlice.actions;
-	const chooseSort = (chosenSort: string) => {
-		setSort(chosenSort);
+	const { sortByParam } = pizzaSortSlice.actions;
+	const { currentSortParam } = useAppSelector(
+		(state) => state.pizzaSortReducer
+	);
+
+	useEffect(() => {
+		if (localStorage.currentSortParam) {
+			dispatch(sortByParam(JSON.parse(localStorage.currentSortParam)));
+		}
+	}, [dispatch, sortByParam]);
+
+	const chooseSort = (param: TypeParams) => {
 		setIsOpened(false);
-		if (chosenSort === 'популярности') {
-			dispatch(sortRating());
-		}
-		if (chosenSort === 'алфавиту') {
-			dispatch(sortAlphabet());
-		}
-		if (chosenSort === 'цене') {
-			dispatch(sortPrice());
-		}
+		localStorage.currentSortParam = JSON.stringify(param);
+		dispatch(sortByParam(param));
 	};
 	return (
 		<div className={cn(className, styles.sort)} {...props}>
@@ -35,7 +37,7 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 					})}
 				/>
 				<b>Сортировка по:</b>
-				<span>{sort}</span>
+				<span>{currentSortParam.title}</span>
 			</button>
 			<div
 				className={cn(styles.popup, {
@@ -44,12 +46,13 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 				<div className={styles.sortBlock}>
 					{sortParams.map((p) => (
 						<button
-							key={p}
+							key={p.param}
 							onClick={() => chooseSort(p)}
 							className={cn({
-								[styles.active]: sort === p,
+								[styles.active]:
+									currentSortParam.param === p.param,
 							})}>
-							{p}
+							{p.title}
 						</button>
 					))}
 				</div>
