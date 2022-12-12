@@ -50,6 +50,17 @@ export const pizzaSortSlice = createSlice({
 	name: 'pizza',
 	initialState,
 	reducers: {
+		sortToUpOrDown: (state, action: PayloadAction<boolean>) => {
+			state.pizzas = state.pizzas.sort((a, b) => {
+				if (
+					a[state.currentSortParam.param] >
+					b[state.currentSortParam.param]
+				) {
+					return action.payload ? -1 : 1;
+				}
+				return action.payload ? 1 : -1;
+			});
+		},
 		sortByParam: (state, action: PayloadAction<TypeParams>) => {
 			state.pizzas = state.pizzas.sort((a, b) =>
 				a[action.payload.param] > b[action.payload.param] ? 1 : -1
@@ -60,7 +71,6 @@ export const pizzaSortSlice = createSlice({
 			state.pizzas = state.pizzasBackup.filter((p) =>
 				p.types.includes(action.payload)
 			);
-			state.currentType = action.payload;
 			state.currentType = action.payload;
 			state.searchValue = '';
 		},

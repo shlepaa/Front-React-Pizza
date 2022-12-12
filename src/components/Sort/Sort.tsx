@@ -2,15 +2,17 @@ import styles from './Sort.module.scss';
 import { SortProps } from './Sort.props';
 import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
-import ArrowIcon from './arrow.svg';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 import { TypeParams } from '../../interfaces/TypeParams';
+import { IconContext } from 'react-icons';
+import { AiFillCaretUp } from 'react-icons/ai';
 
 export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
+	const [isSortedByUpOrDown, setIsSortedByUpOrDown] = useState<boolean>(true);
 	const dispatch = useAppDispatch();
-	const { sortByParam } = pizzaSortSlice.actions;
+	const { sortByParam, sortToUpOrDown } = pizzaSortSlice.actions;
 	const { currentSortParam } = useAppSelector(
 		(state) => state.pizzaSortReducer
 	);
@@ -18,6 +20,8 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 	useEffect(() => {
 		if (localStorage.currentSortParam) {
 			dispatch(sortByParam(JSON.parse(localStorage.currentSortParam)));
+		} else {
+			dispatch(sortByParam(currentSortParam));
 		}
 	}, [dispatch, sortByParam]);
 
@@ -25,17 +29,32 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 		setIsOpened(false);
 		localStorage.currentSortParam = JSON.stringify(param);
 		dispatch(sortByParam(param));
+		dispatch(sortToUpOrDown(!isSortedByUpOrDown));
 	};
+
+	const handlerSetIsSortedByUpOrDown = () => {
+		setIsSortedByUpOrDown(!isSortedByUpOrDown);
+		dispatch(sortToUpOrDown(isSortedByUpOrDown));
+	};
+
 	return (
 		<div className={cn(className, styles.sort)} {...props}>
 			<button
+				onClick={handlerSetIsSortedByUpOrDown}
+				className={styles.icon}>
+				<IconContext.Provider
+					value={{
+						size: '30px',
+						className: cn({
+							[styles.down]: isSortedByUpOrDown,
+						}),
+					}}>
+					<AiFillCaretUp />
+				</IconContext.Provider>
+			</button>
+			<button
 				onClick={() => setIsOpened(!isOpened)}
 				className={cn(styles.label)}>
-				<ArrowIcon
-					className={cn({
-						[styles.down]: isOpened,
-					})}
-				/>
 				<b>Сортировка по:</b>
 				<span>{currentSortParam.title}</span>
 			</button>

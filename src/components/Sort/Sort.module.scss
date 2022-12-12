@@ -2,6 +2,7 @@
 
 .sort {
 	position: relative;
+	display: flex;
 
 	.label {
 		display: flex;
@@ -33,7 +34,7 @@
 		right: 0;
 		display: none;
 		width: 160px;
-		margin-top: 5px;
+		margin-top: 25px;
 		padding: 10px 0;
 		overflow: hidden;
 		background: $white;
@@ -64,6 +65,17 @@
 					background: rgba($color: $black, $alpha: 0.05%);
 				}
 			}
+		}
+	}
+}
+
+.icon {
+	cursor: pointer;
+	svg {
+		margin-right: 8px;
+
+		&.down {
+			transform: rotate(180deg);
 		}
 	}
 }
