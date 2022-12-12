@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IChosenPizza } from '../../interfaces/IChosenPizza';
 
-interface UserState {
+interface IUserState {
 	pizzas: IChosenPizza[];
 }
 
-export const initialState: UserState = {
+export const initialState: IUserState = {
 	pizzas: localStorage.pizzas ? JSON.parse(localStorage.pizzas) : [],
 };
 

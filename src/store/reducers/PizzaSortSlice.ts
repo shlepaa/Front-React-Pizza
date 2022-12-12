@@ -10,7 +10,7 @@ allPizzaTypes.forEach((p) => {
 	}
 });
 
-interface UserState {
+interface IUserState {
 	isLoading: boolean;
 	error: string;
 	pizzas: IPizza[];
@@ -20,7 +20,7 @@ interface UserState {
 	searchValue: string;
 }
 
-export const initialState: UserState = {
+export const initialState: IUserState = {
 	isLoading: false,
 	pizzas: fetchPizzas,
 	pizzasBackup: fetchPizzas,
@@ -42,6 +42,14 @@ export const pizzaSortSlice = createSlice({
 	name: 'pizza',
 	initialState,
 	reducers: {
+		sortByParam: (
+			state,
+			action: PayloadAction<'price' | 'title' | 'rating'>
+		) => {
+			state.pizzas = state.pizzas.sort((a, b) =>
+				a[action.payload] > b[action.payload] ? 1 : -1
+			);
+		},
 		sortPrice: (state) => {
 			state.pizzas = state.pizzas.sort((a, b) =>
 				a.price > b.price ? 1 : -1

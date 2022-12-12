@@ -6,7 +6,7 @@ import ArrowIcon from './arrow.svg';
 import { useAppDispatch } from '../../hooks/redux';
 import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 
-export const Sort: FC<SortProps> = ({ className, ...props }) => {
+export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 	const [sort, setSort] = useState<string>('популярности');
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
@@ -42,27 +42,16 @@ export const Sort: FC<SortProps> = ({ className, ...props }) => {
 					[styles.popupActive]: isOpened,
 				})}>
 				<div className={styles.sortBlock}>
-					<button
-						onClick={() => chooseSort('популярности')}
-						className={cn({
-							[styles.active]: sort === 'популярности',
-						})}>
-						популярности
-					</button>
-					<button
-						onClick={() => chooseSort('цене')}
-						className={cn({
-							[styles.active]: sort === 'цене',
-						})}>
-						цене
-					</button>
-					<button
-						onClick={() => chooseSort('алфавиту')}
-						className={cn({
-							[styles.active]: sort === 'алфавиту',
-						})}>
-						алфавиту
-					</button>
+					{sortParams.map((p) => (
+						<button
+							key={p}
+							onClick={() => chooseSort(p)}
+							className={cn({
+								[styles.active]: sort === p,
+							})}>
+							{p}
+						</button>
+					))}
 				</div>
 			</div>
 		</div>

@@ -1,14 +1,21 @@
 import styles from './Allpizzas.module.scss';
 import { AllpizzasProps } from './Allpizzas.props';
 import cn from 'classnames';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { PizzaBlock } from '../PizzaBlock/PizzaBlock';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 
 export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	const { pizzas, currentType, searchValue } = useAppSelector(
 		(state) => state.pizzaSortReducer
 	);
+	const dispatch = useAppDispatch();
+	const {} = pizzaSortSlice.actions;
+
+	useEffect(() => {
+	}, [])
+
 	const firstToUpper =
 		currentType[0]?.toUpperCase() +
 		currentType.slice(1, currentType.length);
