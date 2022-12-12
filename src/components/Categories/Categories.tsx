@@ -11,6 +11,7 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 		(state) => state.pizzaSortReducer
 	);
 	const { unset, sortByType } = pizzaSortSlice.actions;
+
 	const handlerSetType = (type: string) => {
 		if (type === 'все') {
 			dispatch(unset());
@@ -18,6 +19,7 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 		}
 		dispatch(sortByType(type));
 	};
+	
 	return (
 		<div className={cn(className, styles.categories)} {...props}>
 			<button

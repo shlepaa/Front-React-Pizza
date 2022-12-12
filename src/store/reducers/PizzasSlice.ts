@@ -6,7 +6,9 @@ interface IUserState {
 }
 
 export const initialState: IUserState = {
-	pizzas: localStorage.pizzas ? JSON.parse(localStorage.pizzas) : [],
+	pizzas: localStorage.chosenPizzas
+		? JSON.parse(localStorage.chosenPizzas)
+		: [],
 };
 
 export const pizzasSlice = createSlice({

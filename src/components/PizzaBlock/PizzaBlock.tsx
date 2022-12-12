@@ -1,26 +1,31 @@
 import styles from './PizzaBlock.module.scss';
-import { PizzaBlockProps } from './Sort.props';
+import { PizzaBlockProps } from './PizzaBlock.props';
 import cn from 'classnames';
 import { FC, useState } from 'react';
 import { AddButton } from '../AddButton/AddButton';
 import { UlSizes } from '../UlSizes/UlSizes';
 import { UlDough } from '../UlDough/UlDough';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { pizzasSlice } from '../../store/reducers/PizzasSlice';
 import { IChosenPizza } from '../../interfaces/IChosenPizza';
+import { IPizza } from '../../interfaces/IPizza';
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
 	price,
 	image,
+	defaultDough = 'тонкое',
+	defaultSize = '26',
 	className,
 	...props
 }) => {
-	const [dough, setDough] = useState<string>('тонкое');
-	const [size, setSize] = useState<string>('26');
+	const [dough, setDough] = useState<string>(defaultDough);
+	const [size, setSize] = useState<string>(defaultSize);
 	const [count, setCount] = useState<number>(1);
 	const dispatch = useAppDispatch();
 	const { addPizza, reloadPizzas } = pizzasSlice.actions;
+	const { pizzas } = useAppSelector((state) => state.pizzaSortReducer);
+
 	const setPizzaParams = () => {
 		setCount(1);
 		const chosenPizza: IChosenPizza = {
@@ -32,14 +37,14 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			price,
 		};
 
-		if (!localStorage.pizzas) {
-			localStorage.pizzas = JSON.stringify([chosenPizza]);
+		if (!localStorage.chosenPizzas) {
+			localStorage.chosenPizzas = JSON.stringify([chosenPizza]);
 			dispatch(addPizza(chosenPizza));
-			console.log(JSON.parse(localStorage.pizzas), 1);
+			console.log(JSON.parse(localStorage.chosenPizzas), 1);
 			return;
 		}
 
-		const allPizzas: IChosenPizza[] = JSON.parse(localStorage.pizzas);
+		const allPizzas: IChosenPizza[] = JSON.parse(localStorage.chosenPizzas);
 		const currentPizza = allPizzas.find(
 			(p) => p.title === title && p.dough === dough && p.size === size
 		);
@@ -52,14 +57,14 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 				return p;
 			});
 			dispatch(reloadPizzas(allPizzas));
-			localStorage.pizzas = JSON.stringify(allPizzas);
-			console.log(JSON.parse(localStorage.pizzas), 2);
-
+			localStorage.chosenPizzas = JSON.stringify(allPizzas);
+			console.log(JSON.parse(localStorage.chosenPizzas), 2);
 			return;
 		}
+
 		dispatch(addPizza(chosenPizza));
-		localStorage.pizzas = JSON.stringify([...allPizzas, chosenPizza]);
-		console.log(JSON.parse(localStorage.pizzas), 3);
+		localStorage.chosenPizzas = JSON.stringify([...allPizzas, chosenPizza]);
+		console.log(JSON.parse(localStorage.chosenPizzas), 3);
 	};
 
 	const handlerSetCount = (inctremOrDecrem: string) => {
@@ -71,13 +76,28 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		}
 	};
 
+	const handlerSetDough = (currentDough: string) => {
+		setDough(currentDough);
+		const copiedWithoutFlagsPizzas: IPizza[] = JSON.parse(
+			JSON.stringify(pizzas)
+		);
+		const correctedPizzas = copiedWithoutFlagsPizzas.map((p) => {
+			if (p.title === title) {
+				return { ...p, dough: currentDough };
+			}
+			return p;
+		});
+		localStorage.pizzas = JSON.stringify(correctedPizzas);
+		console.log(JSON.parse(localStorage.pizzas));
+	};
+
 	return (
 		<div className={cn(className, styles.pizzaBlock)} {...props}>
 			<img className={cn(styles.image)} src={image} alt={title} />
 			<h4 className={cn(styles.title)}>{title}</h4>
 			<div className={cn(styles.selector)}>
 				<UlDough
-					setDough={setDough}
+					setDough={handlerSetDough}
 					allDoughs={['тонкое', 'традиционное']}
 					currentDough={dough}
 				/>

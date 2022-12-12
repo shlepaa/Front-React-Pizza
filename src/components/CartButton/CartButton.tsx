@@ -31,7 +31,6 @@ export const CartButton: FC<CartButtonProps> = ({
 		);
 		setTotalPrice(price);
 		setTotalCount(count);
-		console.log(1);
 	}, [pizzas]);
 
 	return (

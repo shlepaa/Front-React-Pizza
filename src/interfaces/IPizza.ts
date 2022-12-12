@@ -4,4 +4,6 @@ export interface IPizza {
 	title: string;
 	rating: number;
 	types: string[];
+	dough?: string;
+	size?: string;
 }

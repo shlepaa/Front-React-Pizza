@@ -25,8 +25,12 @@ interface IUserState {
 export const initialState: IUserState = {
 	isLoading: false,
 	error: '',
-	pizzas: fetchPizzas,
-	pizzasBackup: fetchPizzas,
+	pizzas: localStorage.pizzas
+		? (JSON.parse(localStorage.pizzas) as unknown as IPizza[])
+		: fetchPizzas,
+	pizzasBackup: localStorage.pizzas
+		? (JSON.parse(localStorage.pizzas) as unknown as IPizza[])
+		: fetchPizzas,
 	allPizzaTypes: sortedTypes,
 	currentType: 'все',
 	searchValue: '',

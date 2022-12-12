@@ -5,4 +5,6 @@ export interface PizzaBlockProps
 	image: string;
 	title: string;
 	price: number;
+	defaultDough?: string;
+	defaultSize?: string;
 }

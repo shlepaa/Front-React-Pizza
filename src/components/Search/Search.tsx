@@ -24,6 +24,7 @@ export const Search: FC<SearchProps> = ({ className, ...props }) => {
 		}
 		dispatch(search(searchValue));
 	};
+
 	return (
 		<div className={styles.wrapper}>
 			<input

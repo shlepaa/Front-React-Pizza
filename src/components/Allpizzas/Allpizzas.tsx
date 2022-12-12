@@ -16,6 +16,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	const lastChars = `${firstToUpper[firstToUpper.length - 2]}${
 		firstToUpper[firstToUpper.length - 1]
 	}`;
+
 	let correctedType = '';
 	if (lastChars === 'ая') {
 		correctedType = firstToUpper.slice(0, firstToUpper.length - 2) + 'ие';
@@ -35,6 +36,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 		}
 		return correctedType;
 	};
+
 	return (
 		<>
 			<h2 className={styles.title}>{handlerLogicalTitle()} пиццы</h2>
@@ -45,6 +47,8 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 						title={p.title}
 						price={p.price}
 						key={Math.random()}
+						defaultDough={p.dough}
+						defaultSize={p.size}
 					/>
 				))}
 			</div>
