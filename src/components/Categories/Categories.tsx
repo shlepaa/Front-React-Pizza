@@ -7,7 +7,7 @@ import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 
 export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 	const dispatch = useAppDispatch();
-	const { allPizzaTypes, currentType } = useAppSelector(
+	const { allPizzaTypes, currentType, searchValue } = useAppSelector(
 		(state) => state.pizzaSortReducer
 	);
 	const { unset, sortByType } = pizzaSortSlice.actions;
@@ -23,7 +23,7 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 			<button
 				onClick={() => handlerSetType('все')}
 				className={cn({
-					[styles.active]: currentType === 'все',
+					[styles.active]: currentType === 'все' && !searchValue,
 				})}>
 				Все
 			</button>
@@ -32,7 +32,7 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 					key={p}
 					onClick={() => handlerSetType(p)}
 					className={cn({
-						[styles.active]: currentType === p,
+						[styles.active]: currentType === p && !searchValue,
 					})}>
 					{p[0]?.toUpperCase() + p.slice(1, p.length)}
 				</button>
