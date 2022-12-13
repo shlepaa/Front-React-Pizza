@@ -13,12 +13,11 @@ import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
-	price,
+	sizesAndPrices,
 	possibleDoughs,
-	possibleSizes,
 	image,
-	defaultDough = 'тонкое',
-	defaultSize = '26',
+	defaultDough = possibleDoughs[0] || '',
+	defaultSize = sizesAndPrices.map((s) => s.size)[0] || '',
 	className,
 	...props
 }) => {
@@ -43,7 +42,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			count,
 			size,
 			image,
-			price,
+			price: findDependencyBetweenSizeAndPrice(),
 		};
 
 		if (!localStorage.chosenPizzas) {
@@ -114,6 +113,15 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		}
 		localStorage.pizzas = JSON.stringify(correctedPizzas);
 	};
+
+	const findDependencyBetweenSizeAndPrice = (): number => {
+		const currentDependency = sizesAndPrices.find((s) => s.size === size);
+		if (currentDependency) {
+			return currentDependency.price;
+		}
+		return 0;
+	};
+
 	return (
 		<div className={cn(className, styles.pizzaBlock)} {...props}>
 			<img className={cn(styles.image)} src={image} alt={title} />
@@ -126,7 +134,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 				/>
 				<UlSizes
 					setSize={handlerSetSize}
-					allSizes={possibleSizes}
+					allSizes={sizesAndPrices.map((s) => s.size)}
 					currentSize={size}
 				/>
 			</div>
@@ -138,7 +146,10 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 						})}>
 						Общая цена
 					</span>
-					{count > 1 ? price * count : price} ₽
+					{count > 1
+						? findDependencyBetweenSizeAndPrice() * count
+						: findDependencyBetweenSizeAndPrice()}
+					₽
 				</div>
 				<AddButton
 					onClick={setPizzaParams}

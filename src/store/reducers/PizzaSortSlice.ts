@@ -30,7 +30,9 @@ export const initialState: IUserState = {
 	pizzas: localStorage.pizzas
 		? (JSON.parse(localStorage.pizzas) as unknown as IPizza[])
 		: fetchPizzas,
-	pizzasBackup: fetchPizzas,
+	pizzasBackup: localStorage.pizzasBackup
+		? JSON.parse(localStorage.pizzasBackup)
+		: fetchPizzas,
 	allPizzaTypes: sortedTypes,
 	currentType: 'все',
 	searchValue: '',
@@ -58,6 +60,15 @@ export const pizzaSortSlice = createSlice({
 	reducers: {
 		setParam: (state, action: PayloadAction<IPizza[]>) => {
 			state.pizzas = action.payload;
+			state.pizzasBackup = state.pizzasBackup.map((pizzaBack) => {
+				const replacementPizza = action.payload.find(
+					(pizza) => pizzaBack.title === pizza.title
+				);
+				if (replacementPizza) {
+					return replacementPizza;
+				}
+				return pizzaBack;
+			});
 		},
 		sortToUpOrDown: (state, action: PayloadAction<boolean>) => {
 			state.pizzas = state.pizzas.sort((a, b) => {
@@ -79,6 +90,7 @@ export const pizzaSortSlice = createSlice({
 			state.pizzasBackup = state.pizzasBackup.sort((a, b) =>
 				a[action.payload.param] > b[action.payload.param] ? 1 : -1
 			);
+			state.isSortedToDown = true;
 		},
 		sortByType: (state, action: PayloadAction<string>) => {
 			state.pizzas = state.pizzasBackup.filter((p) =>
@@ -89,17 +101,7 @@ export const pizzaSortSlice = createSlice({
 			state.isSortedByType = true;
 		},
 		unset: (state) => {
-			state.pizzas = state.pizzasBackup.map((pizzaBack) => {
-				const replacementPizza: IPizza = (
-					localStorage.pizzas
-						? JSON.parse(localStorage.pizzas)
-						: state.pizzas
-				).find((pizza: IPizza) => pizzaBack.title === pizza.title);
-				if (replacementPizza) {
-					return replacementPizza;
-				}
-				return pizzaBack;
-			});
+			state.pizzas = state.pizzasBackup;
 			state.currentType = 'все';
 			state.searchValue = '';
 			state.isSortedByType = false;

@@ -1,12 +1,12 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { ISizeAndPrice } from '../../interfaces/ISizeandPrice';
 
 export interface PizzaBlockProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	image: string;
 	title: string;
-	price: number;
 	defaultDough?: string;
 	defaultSize?: string;
 	possibleDoughs: string[];
-	possibleSizes: string[];
+	sizesAndPrices: ISizeAndPrice[];
 }

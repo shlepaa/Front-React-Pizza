@@ -1,3 +1,5 @@
+import { ISizeAndPrice } from './ISizeandPrice';
+
 export interface IPizza {
 	price: number;
 	image: string;
@@ -8,4 +10,5 @@ export interface IPizza {
 	size?: string;
 	possibleDoughs: string[];
 	possibleSizes: string[];
+	sizesAndPrices: ISizeAndPrice[];
 }
