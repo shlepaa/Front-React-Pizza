@@ -24,12 +24,25 @@ interface IUserState {
 	isSortedToDown: boolean;
 }
 
+const check = (): IPizza[] => {
+	if (localStorage.pizzas) {
+		return fetchPizzas.map((fetchPizza) => {
+			const replacementPizza: IPizza = JSON.parse(
+				localStorage.pizzas
+			).find((pizza: IPizza) => fetchPizza.title === pizza.title);
+			if (replacementPizza) {
+				return replacementPizza;
+			}
+			return fetchPizza;
+		});
+	}
+	return fetchPizzas;
+};
+
 export const initialState: IUserState = {
 	isLoading: false,
 	error: '',
-	pizzas: localStorage.pizzas
-		? (JSON.parse(localStorage.pizzas) as unknown as IPizza[])
-		: fetchPizzas,
+	pizzas: check(),
 	pizzasBackup: localStorage.pizzasBackup
 		? JSON.parse(localStorage.pizzasBackup)
 		: fetchPizzas,
@@ -83,16 +96,13 @@ export const pizzaSortSlice = createSlice({
 			state.isSortedToDown = !state.isSortedToDown;
 		},
 		sortByParam: (state, action: PayloadAction<TypeParams>) => {
-			state.pizzas = state.pizzas.sort((a, b) => {
-				if (action.payload.param !== undefined) {
-					a[action.payload.param] > b[action.payload.param] ? 1 : -1;
-				}
-				return 0;
-			});
-			state.currentSortParam = action.payload;
+			state.pizzas = state.pizzas.sort((a, b) =>
+				a[action.payload.param] > b[action.payload.param] ? 1 : -1
+			);
 			state.pizzasBackup = state.pizzasBackup.sort((a, b) =>
 				a[action.payload.param] > b[action.payload.param] ? 1 : -1
 			);
+			state.currentSortParam = action.payload;
 			state.isSortedToDown = true;
 		},
 		sortByType: (state, action: PayloadAction<string>) => {

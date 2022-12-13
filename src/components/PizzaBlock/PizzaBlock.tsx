@@ -14,7 +14,6 @@ import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
 	sizesAndPrices,
-	currentPrice,
 	possibleDoughs,
 	image,
 	defaultDough = possibleDoughs[0] || '',
@@ -28,9 +27,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 	const dispatch = useAppDispatch();
 	const { setParam } = pizzaSortSlice.actions;
 	const { addPizza, reloadPizzas } = pizzasSlice.actions;
-	const { pizzas, isSortedByType } = useAppSelector(
-		(state) => state.pizzaSortReducer
-	);
+	const { pizzas } = useAppSelector((state) => state.pizzaSortReducer);
 	const copiedWithoutFlagsPizzas: IPizza[] = JSON.parse(
 		JSON.stringify(pizzas)
 	);
@@ -43,7 +40,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			count,
 			size,
 			image,
-			price: currentPrice,
+			price: findDependencyBetweenSizeAndPrice(),
 		};
 
 		if (!localStorage.chosenPizzas) {
@@ -94,9 +91,6 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			return p;
 		});
 		dispatch(setParam(correctedPizzas));
-		if (isSortedByType) {
-			return;
-		}
 		localStorage.pizzas = JSON.stringify(correctedPizzas);
 	};
 
@@ -107,15 +101,11 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 				return {
 					...p,
 					size: currentSize,
-					currentPrice: findDependencyBetweenSizeAndPrice(),
 				};
 			}
 			return p;
 		});
 		dispatch(setParam(correctedPizzas));
-		if (isSortedByType) {
-			return;
-		}
 		localStorage.pizzas = JSON.stringify(correctedPizzas);
 	};
 

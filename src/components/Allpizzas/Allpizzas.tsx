@@ -50,7 +50,6 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 						key={p.title}
 						defaultDough={p.dough}
 						defaultSize={p.size}
-						currentPrice={p.currentPrice}
 					/>
 				))}
 			</div>

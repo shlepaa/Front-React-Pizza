@@ -72,7 +72,7 @@ export const fetchPizzas: IPizza[] = [
 		types: ['закрытая', 'мокрая'],
 		possibleDoughs: ['тонкое', 'традиционное'],
 		sizesAndPrices: [
-			{ size: '26', price: 295 },
+			{ size: '26', price: 395 },
 			{ size: '30', price: 530 },
 		],
 	},

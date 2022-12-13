@@ -2,7 +2,7 @@ export type TypeParams = IPriceParam | ITitleParam | IRatingParam;
 
 interface IPriceParam {
 	title: 'цене';
-	param: 'currentPrice';
+	param: 'sizesAndPrices';
 }
 
 interface ITitleParam {
