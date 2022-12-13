@@ -12,7 +12,7 @@ export const ContentTop: FC<ContentTopProps> = ({ className, ...props }) => {
 			<Sort
 				sortParams={[
 					{ param: 'rating', title: 'популярности' },
-					{ param: 'price', title: 'цене' },
+					{ param: 'currentPrice', title: 'цене' },
 					{ param: 'title', title: 'алфавиту' },
 				]}
 			/>

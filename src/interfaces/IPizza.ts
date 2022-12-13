@@ -1,7 +1,7 @@
 import { ISizeAndPrice } from './ISizeandPrice';
 
 export interface IPizza {
-	price: number;
+	currentPrice: number;
 	image: string;
 	title: string;
 	rating: number;
@@ -9,6 +9,5 @@ export interface IPizza {
 	dough?: string;
 	size?: string;
 	possibleDoughs: string[];
-	possibleSizes: string[];
 	sizesAndPrices: ISizeAndPrice[];
 }

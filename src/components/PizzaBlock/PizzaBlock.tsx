@@ -14,6 +14,7 @@ import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
 	sizesAndPrices,
+	currentPrice,
 	possibleDoughs,
 	image,
 	defaultDough = possibleDoughs[0] || '',
@@ -42,7 +43,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			count,
 			size,
 			image,
-			price: findDependencyBetweenSizeAndPrice(),
+			price: currentPrice,
 		};
 
 		if (!localStorage.chosenPizzas) {
@@ -103,7 +104,11 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		setSize(currentSize);
 		const correctedPizzas = copiedWithoutFlagsPizzas.map((p) => {
 			if (p.title === title) {
-				return { ...p, size: currentSize };
+				return {
+					...p,
+					size: currentSize,
+					currentPrice: findDependencyBetweenSizeAndPrice(),
+				};
 			}
 			return p;
 		});

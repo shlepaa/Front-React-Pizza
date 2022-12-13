@@ -83,9 +83,12 @@ export const pizzaSortSlice = createSlice({
 			state.isSortedToDown = !state.isSortedToDown;
 		},
 		sortByParam: (state, action: PayloadAction<TypeParams>) => {
-			state.pizzas = state.pizzas.sort((a, b) =>
-				a[action.payload.param] > b[action.payload.param] ? 1 : -1
-			);
+			state.pizzas = state.pizzas.sort((a, b) => {
+				if (action.payload.param !== undefined) {
+					a[action.payload.param] > b[action.payload.param] ? 1 : -1;
+				}
+				return 0;
+			});
 			state.currentSortParam = action.payload;
 			state.pizzasBackup = state.pizzasBackup.sort((a, b) =>
 				a[action.payload.param] > b[action.payload.param] ? 1 : -1

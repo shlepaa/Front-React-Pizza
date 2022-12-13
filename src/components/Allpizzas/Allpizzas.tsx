@@ -47,9 +47,10 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 						possibleDoughs={p.possibleDoughs}
 						image={p.image}
 						title={p.title}
-						key={Math.random()}
+						key={p.title}
 						defaultDough={p.dough}
 						defaultSize={p.size}
+						currentPrice={p.currentPrice}
 					/>
 				))}
 			</div>

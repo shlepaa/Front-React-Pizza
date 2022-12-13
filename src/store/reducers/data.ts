@@ -4,11 +4,10 @@ export const fetchPizzas: IPizza[] = [
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/50555f951a6d4fd4ac0088c099eb3769_292x292.webp',
 		title: 'Пицца 4 сыра',
-		price: 1495,
+		currentPrice: 1495,
 		rating: 4,
 		types: ['вегетарианская', 'сырная'],
 		possibleDoughs: ['тонкое', 'традиционное', 'шаурма'],
-		possibleSizes: ['26', '30', '40'],
 		sizesAndPrices: [
 			{ size: '26', price: 625 },
 			{ size: '30', price: 860 },
@@ -18,11 +17,10 @@ export const fetchPizzas: IPizza[] = [
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
 		title: 'Колбасная вечеринка',
-		price: 225,
+		currentPrice: 225,
 		rating: 5,
 		types: ['мясная', 'закрытая', 'острая'],
 		possibleDoughs: ['традиционное', 'шаурма'],
-		possibleSizes: ['1/2 26', '30', '50'],
 		sizesAndPrices: [
 			{ size: '1/2 26', price: 225 },
 			{ size: '30', price: 530 },
@@ -32,11 +30,10 @@ export const fetchPizzas: IPizza[] = [
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
 		title: 'Сладкая пицца',
-		price: 461,
+		currentPrice: 461,
 		rating: 2,
 		types: ['сладкая', 'праздничная'],
 		possibleDoughs: ['тонкое', 'еще тоньше'],
-		possibleSizes: ['30', '40'],
 		sizesAndPrices: [
 			{ size: '30', price: 461 },
 			{ size: '40', price: 700 },
@@ -45,11 +42,10 @@ export const fetchPizzas: IPizza[] = [
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/e379c72af6c54f81b7b4e6ffbb2b1729_292x292.webp',
 		title: 'Чизбургер-пицца',
-		price: 395,
+		currentPrice: 395,
 		rating: 3,
 		types: ['вегетарианская', 'сырная', 'закрытая'],
 		possibleDoughs: ['тонкое', 'традиционное'],
-		possibleSizes: ['26', '30', '40'],
 		sizesAndPrices: [
 			{ size: '26', price: 395 },
 			{ size: '30', price: 650 },
@@ -59,11 +55,10 @@ export const fetchPizzas: IPizza[] = [
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/d6c9f93ea37649ac923e9586c034a5a0_292x292.webp',
 		title: 'Гамбургер-пицца',
-		price: 295,
+		currentPrice: 295,
 		rating: 4,
 		types: ['мясная', 'гриль', 'острая'],
 		possibleDoughs: ['тонкое', 'традиционное'],
-		possibleSizes: ['26', '40'],
 		sizesAndPrices: [
 			{ size: '26', price: 295 },
 			{ size: '40', price: 790 },
@@ -72,11 +67,10 @@ export const fetchPizzas: IPizza[] = [
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/0c24c7c195574d7cae45c889bd8043fc_292x292.webp',
 		title: 'Губка-боб',
-		price: 395,
+		currentPrice: 395,
 		rating: 1,
 		types: ['закрытая', 'мокрая'],
 		possibleDoughs: ['тонкое', 'традиционное'],
-		possibleSizes: ['26', '30'],
 		sizesAndPrices: [
 			{ size: '26', price: 295 },
 			{ size: '30', price: 530 },
