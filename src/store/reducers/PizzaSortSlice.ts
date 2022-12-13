@@ -21,7 +21,7 @@ interface IUserState {
 	searchValue: string;
 	currentSortParam: TypeParams;
 	isSortedByType: boolean;
-	isSortedByUpOrDown: boolean;
+	isSortedToDown: boolean;
 }
 
 export const initialState: IUserState = {
@@ -35,7 +35,7 @@ export const initialState: IUserState = {
 	currentType: 'все',
 	searchValue: '',
 	isSortedByType: false,
-	isSortedByUpOrDown: localStorage.isSortedByUpOrDown ?? false,
+	isSortedToDown: true,
 	currentSortParam: {
 		title: 'популярности',
 		param: 'rating',
@@ -69,7 +69,7 @@ export const pizzaSortSlice = createSlice({
 				}
 				return action.payload ? 1 : -1;
 			});
-			state.isSortedByUpOrDown = !state.isSortedByUpOrDown;
+			state.isSortedToDown = !state.isSortedToDown;
 		},
 		sortByParam: (state, action: PayloadAction<TypeParams>) => {
 			state.pizzas = state.pizzas.sort((a, b) =>

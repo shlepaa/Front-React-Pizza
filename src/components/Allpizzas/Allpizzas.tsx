@@ -43,6 +43,8 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 			<div className={cn(className, styles.items)} {...props}>
 				{pizzas.map((p) => (
 					<PizzaBlock
+						possibleDoughs={p.possibleDoughs}
+						possibleSizes={p.possibleSizes}
 						image={p.image}
 						title={p.title}
 						price={p.price}

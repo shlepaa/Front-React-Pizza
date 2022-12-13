@@ -14,6 +14,8 @@ import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
 	price,
+	possibleDoughs,
+	possibleSizes,
 	image,
 	defaultDough = 'тонкое',
 	defaultSize = '26',
@@ -119,12 +121,12 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			<div className={cn(styles.selector)}>
 				<UlDough
 					setDough={handlerSetDough}
-					allDoughs={['тонкое', 'традиционное']}
+					allDoughs={possibleDoughs}
 					currentDough={dough}
 				/>
 				<UlSizes
 					setSize={handlerSetSize}
-					allSizes={['26', '30', '40']}
+					allSizes={possibleSizes}
 					currentSize={size}
 				/>
 			</div>

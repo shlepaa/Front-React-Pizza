@@ -7,4 +7,6 @@ export interface PizzaBlockProps
 	price: number;
 	defaultDough?: string;
 	defaultSize?: string;
+	possibleDoughs: string[];
+	possibleSizes: string[];
 }

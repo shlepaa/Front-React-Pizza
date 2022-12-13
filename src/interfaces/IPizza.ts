@@ -6,4 +6,6 @@ export interface IPizza {
 	types: string[];
 	dough?: string;
 	size?: string;
+	possibleDoughs: string[];
+	possibleSizes: string[];
 }

@@ -7,6 +7,8 @@ export const fetchPizzas: IPizza[] = [
 		price: 1495,
 		rating: 4,
 		types: ['вегетарианская', 'сырная'],
+		possibleDoughs: ['тонкое', 'традиционное', 'шаурма'],
+		possibleSizes: ['26', '30', '40'],
 	},
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
@@ -14,6 +16,8 @@ export const fetchPizzas: IPizza[] = [
 		price: 525,
 		rating: 5,
 		types: ['мясная', 'закрытая', 'острая'],
+		possibleDoughs: ['традиционное', 'шаурма'],
+		possibleSizes: ['1/2 26', '30', '50'],
 	},
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
@@ -21,6 +25,8 @@ export const fetchPizzas: IPizza[] = [
 		price: 461,
 		rating: 2,
 		types: ['сладкая', 'праздничная'],
+		possibleDoughs: ['тонкое', 'еще тоньше'],
+		possibleSizes: ['30', '40'],
 	},
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
@@ -28,6 +34,8 @@ export const fetchPizzas: IPizza[] = [
 		price: 395,
 		rating: 3,
 		types: ['вегетарианская', 'сырная', 'закрытая'],
+		possibleDoughs: ['тонкое', 'традиционное'],
+		possibleSizes: ['26', '30', '40'],
 	},
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
@@ -35,6 +43,8 @@ export const fetchPizzas: IPizza[] = [
 		price: 295,
 		rating: 4,
 		types: ['мясная', 'гриль', 'острая'],
+		possibleDoughs: ['тонкое', 'традиционное'],
+		possibleSizes: ['26', '40'],
 	},
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg',
@@ -42,5 +52,7 @@ export const fetchPizzas: IPizza[] = [
 		price: 395,
 		rating: 1,
 		types: ['закрытая', 'мокрая'],
+		possibleDoughs: ['тонкое', 'традиционное'],
+		possibleSizes: ['26', '30'],
 	},
 ];

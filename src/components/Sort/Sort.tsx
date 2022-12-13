@@ -12,7 +12,7 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
 	const { sortByParam, sortToUpOrDown } = pizzaSortSlice.actions;
-	const { currentSortParam, isSortedByUpOrDown } = useAppSelector(
+	const { currentSortParam, isSortedToDown } = useAppSelector(
 		(state) => state.pizzaSortReducer
 	);
 
@@ -22,9 +22,6 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 		} else {
 			dispatch(sortByParam(currentSortParam));
 		}
-		if (localStorage.isSortedByUpOrDown) {
-			dispatch(sortToUpOrDown(!isSortedByUpOrDown));
-		}
 	}, [dispatch, sortByParam, sortToUpOrDown]);
 
 	const chooseSort = (param: TypeParams) => {
@@ -32,12 +29,9 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 		localStorage.currentSortParam = JSON.stringify(param);
 		dispatch(sortByParam(param));
 	};
-
 	const handlerSetIsSortedByUpOrDown = () => {
-		dispatch(sortToUpOrDown(isSortedByUpOrDown));
-		localStorage.isSortedByUpOrDown = isSortedByUpOrDown;
+		dispatch(sortToUpOrDown(isSortedToDown));
 	};
-
 	return (
 		<div className={cn(className, styles.sort)} {...props}>
 			<button
@@ -47,7 +41,7 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 					value={{
 						size: '30px',
 						className: cn({
-							[styles.down]: isSortedByUpOrDown,
+							[styles.down]: isSortedToDown,
 						}),
 					}}>
 					<AiFillCaretUp />
