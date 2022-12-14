@@ -20,11 +20,10 @@ interface IUserState {
 	currentType: string;
 	searchValue: string;
 	currentSortParam: TypeParams;
-	isSortedByType: boolean;
 	isSortedToDown: boolean;
 }
 
-const check = (): IPizza[] => {
+const checkForSavedPizzas = (): IPizza[] => {
 	if (localStorage.pizzas) {
 		return fetchPizzas.map((fetchPizza) => {
 			const replacementPizza: IPizza = JSON.parse(
@@ -42,22 +41,19 @@ const check = (): IPizza[] => {
 export const initialState: IUserState = {
 	isLoading: false,
 	error: '',
-	pizzas: check(),
+	pizzas: checkForSavedPizzas(),
 	pizzasBackup: localStorage.pizzasBackup
 		? JSON.parse(localStorage.pizzasBackup)
 		: fetchPizzas,
 	allPizzaTypes: sortedTypes,
 	currentType: 'все',
 	searchValue: '',
-	isSortedByType: false,
 	isSortedToDown: true,
 	currentSortParam: {
 		title: 'популярности',
 		param: 'rating',
 	},
 };
-
-export type PossibleSortParams = 'price' | 'title' | 'rating';
 
 const checkForSimilarity = (word: string, search: string): boolean => {
 	return word
@@ -111,13 +107,11 @@ export const pizzaSortSlice = createSlice({
 			);
 			state.currentType = action.payload;
 			state.searchValue = '';
-			state.isSortedByType = true;
 		},
 		unset: (state) => {
 			state.pizzas = state.pizzasBackup;
 			state.currentType = 'все';
 			state.searchValue = '';
-			state.isSortedByType = false;
 		},
 		search: (state, action: PayloadAction<string>) => {
 			state.pizzas = (

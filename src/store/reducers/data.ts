@@ -4,7 +4,7 @@ export const fetchPizzas: IPizza[] = [
 	{
 		image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/50555f951a6d4fd4ac0088c099eb3769_292x292.webp',
 		title: 'Пицца 4 сыра',
-		currentPrice: 1495,
+		currentPrice: 625,
 		rating: 4,
 		types: ['вегетарианская', 'сырная'],
 		possibleDoughs: ['тонкое', 'традиционное', 'шаурма'],
