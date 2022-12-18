@@ -5,7 +5,7 @@ import { fetchPizzas } from './ActionCreators';
 
 interface IUserState {
 	isLoading: boolean;
-	error: string;
+	error: boolean;
 	pizzas: IPizza[];
 	pizzasBackup: IPizza[];
 	allPizzaTypes: string[];
@@ -17,8 +17,8 @@ interface IUserState {
 
 export const initialState: IUserState = {
 	isLoading: false,
-	error: '',
-	pizzas: [],
+	error: false,
+	pizzas: localStorage.pizzas ? JSON.parse(localStorage.pizzas) : [],
 	pizzasBackup: [],
 	allPizzaTypes: [],
 	currentType: 'все',
@@ -104,12 +104,19 @@ export const pizzaSortSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(fetchPizzas.fulfilled, (state, action) => {
 			state.isLoading = false;
-			state.error = '';
+			state.error = false;
 			state.pizzas = action.payload?.pizzas ?? [];
 			state.allPizzaTypes = action.payload?.types ?? [];
-			state.pizzasBackup = localStorage.pizzasBackup
-				? JSON.parse(localStorage.pizzasBackup)
-				: action.payload?.pizzas ?? [];
+			state.pizzasBackup = action.payload?.pizzas ?? [];
+		});
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		builder.addCase(fetchPizzas.pending, (state, _action) => {
+			state.isLoading = true;
+		});
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		builder.addCase(fetchPizzas.rejected, (state, _action) => {
+			state.isLoading = false;
+			state.error = true;
 		});
 	},
 });
