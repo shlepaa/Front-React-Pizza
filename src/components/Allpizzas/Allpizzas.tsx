@@ -57,7 +57,11 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 
 	return (
 		<>
-			<h2 className={styles.title}>{handlerLogicalTitle()} пиццы</h2>
+			<h2 className={styles.title}>
+				{isLoading
+					? 'Загрузка пицц . . .'
+					: `${handlerLogicalTitle()} пиццы`}
+			</h2>
 			<div className={cn(className, styles.items)} {...props}>
 				{isLoading
 					? fillWithSkeletonPizzas(8).map((p) => (
