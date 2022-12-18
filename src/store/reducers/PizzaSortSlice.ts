@@ -1,15 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TypeParams } from '../../interfaces/TypeParams';
 import { IPizza } from '../../interfaces/IPizza';
-import { fetchPizzas } from './data';
-
-const allPizzaTypes = fetchPizzas.map((p) => p.types).flat();
-const sortedTypes: string[] = [];
-allPizzaTypes.forEach((p) => {
-	if (!sortedTypes.includes(p)) {
-		sortedTypes.push(p);
-	}
-});
+import { fetchPizzas } from './ActionCreators';
 
 interface IUserState {
 	isLoading: boolean;
@@ -23,29 +15,12 @@ interface IUserState {
 	isSortedToDown: boolean;
 }
 
-const checkForSavedPizzas = (): IPizza[] => {
-	if (localStorage.pizzas) {
-		return fetchPizzas.map((fetchPizza) => {
-			const replacementPizza: IPizza = JSON.parse(
-				localStorage.pizzas
-			).find((pizza: IPizza) => fetchPizza.title === pizza.title);
-			if (replacementPizza) {
-				return replacementPizza;
-			}
-			return fetchPizza;
-		});
-	}
-	return fetchPizzas;
-};
-
 export const initialState: IUserState = {
 	isLoading: false,
 	error: '',
-	pizzas: checkForSavedPizzas(),
-	pizzasBackup: localStorage.pizzasBackup
-		? JSON.parse(localStorage.pizzasBackup)
-		: fetchPizzas,
-	allPizzaTypes: sortedTypes,
+	pizzas: [],
+	pizzasBackup: [],
+	allPizzaTypes: [],
 	currentType: 'все',
 	searchValue: '',
 	isSortedToDown: true,
@@ -125,6 +100,17 @@ export const pizzaSortSlice = createSlice({
 		setSearchValue: (state, action: PayloadAction<string>) => {
 			state.searchValue = action.payload;
 		},
+	},
+	extraReducers: (builder) => {
+		builder.addCase(fetchPizzas.fulfilled, (state, action) => {
+			state.isLoading = false;
+			state.error = '';
+			state.pizzas = action.payload?.pizzas ?? [];
+			state.allPizzaTypes = action.payload?.types ?? [];
+			state.pizzasBackup = localStorage.pizzasBackup
+				? JSON.parse(localStorage.pizzasBackup)
+				: action.payload?.pizzas ?? [];
+		});
 	},
 });
 
