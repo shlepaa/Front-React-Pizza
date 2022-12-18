@@ -5,11 +5,11 @@ import { FC, useEffect } from 'react';
 import { PizzaBlock } from '../PizzaBlock/PizzaBlock';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchPizzas } from '../../store/reducers/ActionCreators';
+import { PIzzaSkeletonBlock } from '../PIzzaSkeletonBlock/PIzzaSkeletonBlock';
 
 export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
-	const { pizzas, currentType, searchValue } = useAppSelector(
-		(state) => state.pizzaSortReducer
-	);
+	const { pizzas, currentType, searchValue, error, isLoading } =
+		useAppSelector((state) => state.pizzaSortReducer);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -43,21 +43,37 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 		return correctedType;
 	};
 
+	const fillWithSkeletonPizzas = (count: number) => {
+		const skeletonArray = [];
+		for (let i = 0; i < count; i++) {
+			skeletonArray.push(i);
+		}
+		return skeletonArray;
+	};
+
+	if (error) {
+		return <h1>error</h1>;
+	}
+
 	return (
 		<>
 			<h2 className={styles.title}>{handlerLogicalTitle()} пиццы</h2>
 			<div className={cn(className, styles.items)} {...props}>
-				{pizzas.map((p) => (
-					<PizzaBlock
-						sizesAndPrices={p.sizesAndPrices}
-						possibleDoughs={p.possibleDoughs}
-						image={p.image}
-						title={p.title}
-						key={p.title}
-						defaultDough={p.dough}
-						defaultSize={p.size}
-					/>
-				))}
+				{isLoading
+					? fillWithSkeletonPizzas(8).map((p) => (
+							<PIzzaSkeletonBlock key={p} />
+					  ))
+					: pizzas.map((p) => (
+							<PizzaBlock
+								sizesAndPrices={p.sizesAndPrices}
+								possibleDoughs={p.possibleDoughs}
+								image={p.image}
+								title={p.title}
+								key={p.title}
+								defaultDough={p.dough}
+								defaultSize={p.size}
+							/>
+					  ))}
 			</div>
 		</>
 	);

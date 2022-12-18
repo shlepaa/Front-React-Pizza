@@ -41,9 +41,7 @@ export const fetchPizzas = createAsyncThunk(
 			};
 		} catch (error) {
 			if (error instanceof Error) {
-				return thunkAPI.rejectWithValue(
-					`Не удалось загрузить пиццы ${error.message}`
-				);
+				return thunkAPI.rejectWithValue(error);
 			}
 			return;
 		}

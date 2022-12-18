@@ -1,0 +1,123 @@
+@import '../../styles/variables.scss';
+
+.pizzaBlock {
+	width: 280px;
+	text-align: center;
+
+	.image {
+		width: 260px;
+	}
+
+	.title {
+		margin: 0 auto;
+		margin-bottom: 20px;
+		background-color: #f3f3f3;
+		width: 70%;
+		height: 24px;
+		border-radius: 10px;
+	}
+
+	.selector {
+		display: flex;
+		flex-direction: column;
+		padding: 6px;
+		background-color: #f3f3f3;
+		border-radius: 10px;
+		height: 85px;
+	}
+
+	& .info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 20px;
+	}
+
+	& .price {
+		height: 30px;
+		background-color: #f3f3f3;
+		width: 30%;
+		border-radius: 10px;
+	}
+}
+
+.list {
+	display: flex;
+	flex: 1;
+
+	&:first-of-type {
+		margin-bottom: 6px;
+	}
+
+	div {
+		flex: 1;
+		padding: 8px;
+		font-weight: 600;
+		font-size: 14px;
+
+		&.active {
+			background: white;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04%);
+		}
+	}
+}
+
+.plus {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #f3f3f3;
+	&:hover {
+		fill: $black;
+	}
+}
+
+.buttonsBlock {
+	display: flex;
+
+	> div + div {
+		margin-left: 10px;
+	}
+}
+
+.button {
+	display: flex;
+	min-width: 95px;
+	justify-content: space-between;
+	padding: 9px 9px;
+	text-align: center;
+	border: 1px solid transparent;
+	border-radius: 30px;
+	height: 50px;
+
+	&,
+	span {
+		color: white;
+	}
+
+	&.buttonOutline {
+		background-color: white;
+		border-color: #f3f3f3;
+		border-width: 5px;
+
+		&,
+		span {
+			color: $orange;
+		}
+	}
+}
+
+.buttonTitle {
+	width: 65%;
+	border-radius: 10px;
+	height: 100%;
+	background-color: #f3f3f3;
+}
+
+.count {
+	width: 30%;
+	height: 100%;
+	background-color: #f3f3f3;
+	border-radius: 50%;
+}
