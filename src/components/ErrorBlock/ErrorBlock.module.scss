@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.error {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	height: 60vh;
+	text-align: center;
+}
+
+.text {
+	font-size: 25px;
+}
+
+.image {
+	width: 260px;
+}
