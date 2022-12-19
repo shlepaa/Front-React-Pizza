@@ -43,8 +43,8 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 		return correctedType;
 	};
 
-	const fillWithSkeletonPizzas = (count: number) => {
-		const skeletonArray = [];
+	const fillWithSkeletonPizzas = (count: number): number[] => {
+		const skeletonArray: number[] = [];
 		for (let i = 0; i < count; i++) {
 			skeletonArray.push(i);
 		}

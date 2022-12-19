@@ -52,8 +52,6 @@
 	div {
 		flex: 1;
 		padding: 8px;
-		font-weight: 600;
-		font-size: 14px;
 
 		&.active {
 			background: $skeleton-white;
@@ -86,7 +84,6 @@
 	min-width: 95px;
 	justify-content: space-between;
 	padding: 9px 9px;
-	text-align: center;
 	border: 1px solid transparent;
 	border-radius: 30px;
 	height: 50px;
@@ -100,11 +97,6 @@
 		background-color: $skeleton-white;
 		border-color: $skeleton-main-color;
 		border-width: 5px;
-
-		&,
-		span {
-			color: $orange;
-		}
 	}
 }
 
