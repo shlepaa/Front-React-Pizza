@@ -18,7 +18,7 @@ interface IUserState {
 export const initialState: IUserState = {
 	isLoading: false,
 	error: false,
-	pizzas: localStorage.pizzas ? JSON.parse(localStorage.pizzas) : [],
+	pizzas: [],
 	pizzasBackup: [],
 	allPizzaTypes: [],
 	currentType: 'все',

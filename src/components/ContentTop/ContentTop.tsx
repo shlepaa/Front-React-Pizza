@@ -12,13 +12,13 @@ export const ContentTop: FC<ContentTopProps> = ({ className, ...props }) => {
 		(state) => state.pizzaSortReducer
 	);
 
-	if (error) {
-		return <h1>error</h1>;
-	}
-
 	return (
 		<div className={cn(className, styles.contentTop)} {...props}>
-			{isLoading ? <CategoriesSkeleton count={4} /> : <Categories />}
+			{isLoading || error ? (
+				<CategoriesSkeleton count={4} />
+			) : (
+				<Categories />
+			)}
 			<Sort
 				sortParams={[
 					{ param: 'rating', title: 'популярности' },
