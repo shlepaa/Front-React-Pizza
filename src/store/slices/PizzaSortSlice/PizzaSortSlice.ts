@@ -123,10 +123,6 @@ export const pizzaSortSlice = createSlice({
 
 export default pizzaSortSlice.reducer;
 
-export const getError = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): boolean => state?.pizzaSortReducer?.error || false;
-
 export const getPizzas = (
 	state?: Pick<RootState, 'pizzaSortReducer'>
 ): IPizza[] => state?.pizzaSortReducer?.pizzas || [];

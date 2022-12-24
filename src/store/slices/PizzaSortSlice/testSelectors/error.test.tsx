@@ -1,9 +1,8 @@
 import { RootState } from '../../../store';
 import { initialState } from '../PizzaSortSlice';
 
-export const getError = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): boolean => state?.pizzaSortReducer?.error || false;
+const getError = (state?: Pick<RootState, 'pizzaSortReducer'>): boolean =>
+	state?.pizzaSortReducer?.error || false;
 
 describe('getIsLoading', () => {
 	it('with empty state', async () => {
