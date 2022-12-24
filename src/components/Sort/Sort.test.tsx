@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { createReduxStore } from '../../store/store';
 import { Sort } from './Sort';
 import userEvent from '@testing-library/user-event';
-import { IUserState } from '../../store/reducers/PizzaSortSlice';
+import { IUserState } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import React from 'react';
 
 const setRender = <T,>(store?: Record<string, T>) => {
