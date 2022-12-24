@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TypeParams } from '../../../interfaces/TypeParams';
 import { IPizza } from '../../../interfaces/IPizza';
 import { fetchPizzas } from '../ActionCreators';
-import { RootState } from '../../store';
 
 export interface IUserState {
 	isLoading: boolean;
@@ -122,31 +121,3 @@ export const pizzaSortSlice = createSlice({
 });
 
 export default pizzaSortSlice.reducer;
-
-export const getcCurrentType = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): string => state?.pizzaSortReducer?.currentType || 'все';
-
-export const getPizzasBackup = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): IPizza[] => state?.pizzaSortReducer?.pizzas || [];
-
-export const getAllPizzaTypes = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): string[] => state?.pizzaSortReducer?.allPizzaTypes || [];
-
-export const getSearchValue = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): string => state?.pizzaSortReducer?.searchValue || '';
-
-export const getSsSortedToDown = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): boolean => state?.pizzaSortReducer?.isSortedToDown || false;
-
-export const getCurrentSortParam = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): TypeParams =>
-	state?.pizzaSortReducer?.currentSortParam || {
-		title: 'популярности',
-		param: 'rating',
-	};
