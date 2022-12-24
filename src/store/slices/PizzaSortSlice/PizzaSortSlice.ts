@@ -64,7 +64,7 @@ export const pizzaSortSlice = createSlice({
 				}
 				return action.payload ? 1 : -1;
 			});
-			state.isSortedToDown = !state.isSortedToDown;
+			state.isSortedToDown = !action.payload;
 		},
 		sortByParam: (state, action: PayloadAction<TypeParams>) => {
 			state.pizzas = state.pizzas.sort((a, b) =>
@@ -121,3 +121,13 @@ export const pizzaSortSlice = createSlice({
 });
 
 export default pizzaSortSlice.reducer;
+
+export const {
+	search,
+	setParam,
+	setSearchValue,
+	sortByParam,
+	sortByType,
+	sortToUpOrDown,
+	unset,
+} = pizzaSortSlice.actions;

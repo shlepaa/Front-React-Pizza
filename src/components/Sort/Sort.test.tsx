@@ -35,7 +35,7 @@ const sortInitialState: IUserState = {
 	},
 };
 
-describe('Sort', () => {
+describe('Sort table where you can sort to up or down or by using params', () => {
 	beforeEach(() => {
 		localStorage.clear();
 	});
