@@ -3,7 +3,7 @@ import { SortProps } from './Sort.props';
 import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
+import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import { TypeParams } from '../../interfaces/TypeParams';
 import { IconContext } from 'react-icons';
 import { AiFillCaretUp } from 'react-icons/ai';

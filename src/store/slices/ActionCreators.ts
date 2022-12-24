@@ -3,7 +3,7 @@ import axios from 'axios';
 import { IPizza } from '../../interfaces/IPizza';
 
 export const fetchPizzas = createAsyncThunk(
-	'pizzas/fetchAll',
+	'get pizzas',
 	async (_, thunkAPI) => {
 		try {
 			const response = await axios.get<IPizza[]>(

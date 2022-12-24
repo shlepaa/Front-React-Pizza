@@ -3,7 +3,7 @@ import { CategoriesProps } from './Categories.props';
 import cn from 'classnames';
 import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
+import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 
 export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 	const dispatch = useAppDispatch();

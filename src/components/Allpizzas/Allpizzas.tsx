@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { FC, useEffect } from 'react';
 import { PizzaBlock } from '../PizzaBlock/PizzaBlock';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchPizzas } from '../../store/reducers/ActionCreators';
+import { fetchPizzas } from '../../store/slices/ActionCreators';
 import { PIzzaSkeletonBlock } from '../PIzzaSkeletonBlock/PIzzaSkeletonBlock';
 import { ErrorBlock } from '../ErrorBlock/ErrorBlock';
 

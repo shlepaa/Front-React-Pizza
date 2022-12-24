@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import pizzaSortReducer from './reducers/PizzaSortSlice';
-import pizzasReducer from './reducers/PizzasSlice';
+import pizzaSortReducer from './slices/PizzaSortSlice/PizzaSortSlice';
+import pizzasReducer from './slices/PizzasSlice/PizzasSlice';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const createReduxStore = (initialState = {}) => {

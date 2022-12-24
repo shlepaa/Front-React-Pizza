@@ -6,10 +6,10 @@ import { AddButton } from '../AddButton/AddButton';
 import { UlSizes } from '../UlSizes/UlSizes';
 import { UlDough } from '../UlDough/UlDough';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { pizzasSlice } from '../../store/reducers/PizzasSlice';
+import { pizzasSlice } from '../../store/slices/PizzasSlice/PizzasSlice';
 import { IChosenPizza } from '../../interfaces/IChosenPizza';
 import { IPizza } from '../../interfaces/IPizza';
-import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
+import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,

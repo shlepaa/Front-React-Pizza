@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IChosenPizza } from '../../interfaces/IChosenPizza';
+import { IChosenPizza } from '../../../interfaces/IChosenPizza';
 
 interface IUserState {
 	pizzas: IChosenPizza[];

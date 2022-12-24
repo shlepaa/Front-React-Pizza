@@ -4,7 +4,7 @@ import { FC, useEffect } from 'react';
 import cn from 'classnames';
 import { FcBinoculars } from 'react-icons/fc';
 import { IconContext } from 'react-icons';
-import { pizzaSortSlice } from '../../store/reducers/PizzaSortSlice';
+import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 export const Search: FC<SearchProps> = ({ className, ...props }) => {
