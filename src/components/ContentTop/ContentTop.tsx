@@ -17,15 +17,17 @@ export const ContentTop: FC<ContentTopProps> = ({ className, ...props }) => {
 			{isLoading || error ? (
 				<CategoriesSkeleton count={4} />
 			) : (
-				<Categories />
+				<>
+					<Categories />
+					<Sort
+						sortParams={[
+							{ param: 'rating', title: 'популярности' },
+							{ param: 'currentPrice', title: 'цене' },
+							{ param: 'title', title: 'алфавиту' },
+						]}
+					/>
+				</>
 			)}
-			<Sort
-				sortParams={[
-					{ param: 'rating', title: 'популярности' },
-					{ param: 'currentPrice', title: 'цене' },
-					{ param: 'title', title: 'алфавиту' },
-				]}
-			/>
 		</div>
 	);
 };

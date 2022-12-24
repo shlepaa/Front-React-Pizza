@@ -12,7 +12,7 @@ export const ErrorBlock: FC<ErrorBlockProps> = ({ className, ...props }) => {
 				src="https://i.imgur.com/F0qoSsb.png"
 				alt="Pizza error"
 			/>
-			<span className={styles.text}>Не удалось загрузить пиццы.</span>
+			<span className={styles.text}>Не удалось загрузить пиццы</span>
 			<span className={styles.text}>
 				Перезагрузите страничку или попробуйте позже
 			</span>

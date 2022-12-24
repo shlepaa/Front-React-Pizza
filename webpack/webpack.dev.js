@@ -6,6 +6,7 @@ module.exports = {
 	devServer: {
 		hot: true,
 		open: true,
+		historyApiFallback: true,
 	},
 	plugins: [new ReactRefreshWebpackPlugin()],
 };
