@@ -21,9 +21,9 @@ export const ContentTop: FC<ContentTopProps> = ({ className, ...props }) => {
 					<Categories />
 					<Sort
 						sortParams={[
+							{ param: 'title', title: 'алфавиту' },
 							{ param: 'rating', title: 'популярности' },
 							{ param: 'currentPrice', title: 'цене' },
-							{ param: 'title', title: 'алфавиту' },
 						]}
 					/>
 				</>

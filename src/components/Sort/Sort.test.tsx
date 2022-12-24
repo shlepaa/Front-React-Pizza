@@ -36,6 +36,10 @@ const sortInitialState: IUserState = {
 };
 
 describe('Sort', () => {
+	beforeEach(() => {
+		localStorage.clear();
+	});
+
 	it('Other state for currentSortParam', async () => {
 		const spy = jest.spyOn(React, 'useEffect');
 		setRender({
@@ -52,9 +56,17 @@ describe('Sort', () => {
 
 		sortButtonElems[2] && (await userEvent.click(sortButtonElems[2]));
 		expect(buttonElem).toHaveTextContent('алфавиту');
+		expect(JSON.parse(localStorage.currentSortParam)).toEqual({
+			param: 'title',
+			title: 'алфавиту',
+		});
 
 		sortButtonElems[0] && (await userEvent.click(sortButtonElems[0]));
 		expect(buttonElem).toHaveTextContent('популярности');
+		expect(JSON.parse(localStorage.currentSortParam)).toEqual({
+			param: 'rating',
+			title: 'популярности',
+		});
 	});
 
 	it('Other state for isSortedToDown', async () => {
@@ -66,6 +78,7 @@ describe('Sort', () => {
 
 		await userEvent.click(sortUpDownButton);
 		expect(sortUpDownButton).not.toHaveClass('down');
+		expect(localStorage.isDown).toBe('false');
 	});
 
 	it('Sort up or down button', async () => {
@@ -75,6 +88,11 @@ describe('Sort', () => {
 
 		await userEvent.click(sortUpDownButton);
 		expect(sortUpDownButton).toHaveClass('down');
+		expect(localStorage.isDown).toBe('true');
+
+		await userEvent.click(sortUpDownButton);
+		expect(sortUpDownButton).not.toHaveClass('down');
+		expect(localStorage.isDown).toBe('false');
 	});
 
 	it('Popup opening', async () => {
@@ -102,9 +120,17 @@ describe('Sort', () => {
 
 		sortButtonElems[2] && (await userEvent.click(sortButtonElems[2]));
 		expect(buttonElem).toHaveTextContent('алфавиту');
+		expect(JSON.parse(localStorage.currentSortParam)).toEqual({
+			param: 'title',
+			title: 'алфавиту',
+		});
 
 		sortButtonElems[0] && (await userEvent.click(sortButtonElems[0]));
 		expect(buttonElem).toHaveTextContent('популярности');
+		expect(JSON.parse(localStorage.currentSortParam)).toEqual({
+			param: 'rating',
+			title: 'популярности',
+		});
 
 		sortButtonElems[1] && (await userEvent.click(sortButtonElems[1]));
 		expect(buttonElem).toHaveTextContent('цене');
