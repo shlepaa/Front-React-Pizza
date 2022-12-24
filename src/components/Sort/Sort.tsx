@@ -29,9 +29,16 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 		localStorage.currentSortParam = JSON.stringify(param);
 		dispatch(sortByParam(param));
 	};
+
 	const handlerSetIsSortedByUpOrDown = () => {
 		dispatch(sortToUpOrDown(isSortedToDown));
+		if (!isSortedToDown) {
+			localStorage.isDown = true;
+			return;
+		}
+		localStorage.isDown = false;
 	};
+
 	return (
 		<div className={cn(className, styles.sort)} {...props}>
 			<button
@@ -44,11 +51,11 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 							[styles.down]: isSortedToDown,
 						}),
 					}}>
-					<AiFillCaretUp />
+					<AiFillCaretUp data-testid="sort-up-down-button" />
 				</IconContext.Provider>
 			</button>
 			<button
-				data-testid="sorting-button"
+				data-testid="open-popuop-button"
 				onClick={() => setIsOpened(!isOpened)}
 				className={cn(styles.label)}>
 				<b>Сортировка по:</b>
@@ -62,6 +69,7 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 				<div className={styles.sortBlock}>
 					{sortParams.map((p) => (
 						<button
+							data-testid="sort-button"
 							key={p.param}
 							onClick={() => chooseSort(p)}
 							className={cn({
