@@ -3,7 +3,7 @@ import { TypeParams } from '../../interfaces/TypeParams';
 import { IPizza } from '../../interfaces/IPizza';
 import { fetchPizzas } from './ActionCreators';
 
-interface IUserState {
+export interface IUserState {
 	isLoading: boolean;
 	error: boolean;
 	pizzas: IPizza[];
@@ -23,7 +23,7 @@ export const initialState: IUserState = {
 	allPizzaTypes: [],
 	currentType: 'все',
 	searchValue: '',
-	isSortedToDown: true,
+	isSortedToDown: localStorage.isDown === 'true' ? true : false,
 	currentSortParam: {
 		title: 'популярности',
 		param: 'rating',
@@ -74,7 +74,6 @@ export const pizzaSortSlice = createSlice({
 				a[action.payload.param] > b[action.payload.param] ? 1 : -1
 			);
 			state.currentSortParam = action.payload;
-			state.isSortedToDown = true;
 		},
 		sortByType: (state, action: PayloadAction<string>) => {
 			state.pizzas = state.pizzasBackup.filter((p) =>
