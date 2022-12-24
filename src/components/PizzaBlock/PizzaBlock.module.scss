@@ -31,19 +31,19 @@
 	}
 
 	& .price {
+		position: relative;
 		font-weight: bold;
 		font-size: 22px;
 		letter-spacing: 0.015em;
-		position: relative;
 	}
 }
 
 .amountCost {
 	position: absolute;
-	display: none;
 	top: -15px;
-	white-space: nowrap;
+	display: none;
 	color: darken($color: $white, $amount: 30%);
+	white-space: nowrap;
 }
 
 .visibleAmount {

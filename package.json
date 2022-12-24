@@ -9,7 +9,8 @@
 		"stylelint": "stylelint \"**/*.scss\" --fix",
 		"eslint": "eslint --fix",
 		"format": "prettier --write \"./*.{babelrc,js,json}\" \"./{webpack,src}/**/*.{js,jsx,ts,tsx,json,css,scss,md,html,}\"",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"test": "jest"
 	},
 	"keywords": [],
 	"author": "",
@@ -37,6 +38,7 @@
 		"@testing-library/dom": "^8.19.1",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^14.4.3",
 		"@types/jest": "^29.2.4",
 		"@types/node": "^18.11.13",
 		"@types/react": "^18.0.23",
@@ -47,6 +49,7 @@
 		"@typescript-eslint/parser": "^5.41.0",
 		"autoprefixer": "^10.4.12",
 		"babel-loader": "^8.2.5",
+		"babel-plugin-react-remove-properties": "^0.3.0",
 		"copy-webpack-plugin": "^11.0.0",
 		"css-loader": "^6.7.1",
 		"cssnano": "^5.1.13",

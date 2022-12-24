@@ -3,7 +3,7 @@
 .button {
 	display: inline-block;
 	min-width: 95px;
-	padding: 9px 9px;
+	padding: 9px;
 	text-align: center;
 	background-color: $orange;
 	border: 1px solid transparent;
@@ -104,6 +104,7 @@
 .plus {
 	cursor: pointer;
 	color: $orange;
+
 	&:hover {
 		fill: $black;
 	}

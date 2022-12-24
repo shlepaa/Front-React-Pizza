@@ -48,12 +48,14 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 				</IconContext.Provider>
 			</button>
 			<button
+				data-testid="sorting-button"
 				onClick={() => setIsOpened(!isOpened)}
 				className={cn(styles.label)}>
 				<b>Сортировка по:</b>
 				<span>{currentSortParam.title}</span>
 			</button>
 			<div
+				data-testid="popup"
 				className={cn(styles.popup, {
 					[styles.popupActive]: isOpened,
 				})}>

@@ -2,16 +2,16 @@
 
 .categories {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	margin-right: 25px;
 
 	button {
 		padding: 13px 30px;
 		font-weight: bold;
 		background-color: $white;
-		border-radius: 30px;
 		border: 3px solid $gray-block;
+		border-radius: 30px;
 		cursor: pointer;
 		transition: background-color 0.1s ease-in-out;
 

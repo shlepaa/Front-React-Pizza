@@ -9,21 +9,21 @@
 	}
 
 	.title {
+		width: 70%;
+		height: 24px;
 		margin: 0 auto;
 		margin-bottom: 20px;
 		background-color: $skeleton-main-color;
-		width: 70%;
-		height: 24px;
 		border-radius: 10px;
 	}
 
 	.selector {
 		display: flex;
 		flex-direction: column;
+		height: 85px;
 		padding: 6px;
 		background-color: $skeleton-main-color;
 		border-radius: 10px;
-		height: 85px;
 	}
 
 	& .info {
@@ -34,9 +34,9 @@
 	}
 
 	& .price {
+		width: 30%;
 		height: 30px;
 		background-color: $skeleton-main-color;
-		width: 30%;
 		border-radius: 10px;
 	}
 }
@@ -64,8 +64,9 @@
 .plus {
 	width: 30px;
 	height: 30px;
-	border-radius: 50%;
 	background-color: $skeleton-main-color;
+	border-radius: 50%;
+
 	&:hover {
 		fill: $black;
 	}
@@ -81,12 +82,12 @@
 
 .button {
 	display: flex;
-	min-width: 95px;
 	justify-content: space-between;
-	padding: 9px 9px;
+	min-width: 95px;
+	height: 50px;
+	padding: 9px;
 	border: 1px solid transparent;
 	border-radius: 30px;
-	height: 50px;
 
 	&,
 	span {
@@ -102,9 +103,9 @@
 
 .buttonTitle {
 	width: 65%;
-	border-radius: 10px;
 	height: 100%;
 	background-color: $skeleton-main-color;
+	border-radius: 10px;
 }
 
 .count {
