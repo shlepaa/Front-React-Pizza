@@ -123,10 +123,6 @@ export const pizzaSortSlice = createSlice({
 
 export default pizzaSortSlice.reducer;
 
-export const getPizzas = (
-	state?: Pick<RootState, 'pizzaSortReducer'>
-): IPizza[] => state?.pizzaSortReducer?.pizzas || [];
-
 export const getcCurrentType = (
 	state?: Pick<RootState, 'pizzaSortReducer'>
 ): string => state?.pizzaSortReducer?.currentType || 'все';
