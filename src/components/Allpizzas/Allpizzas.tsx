@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchPizzas } from '../../store/slices/ActionCreators';
 import { PIzzaSkeletonBlock } from '../PIzzaSkeletonBlock/PIzzaSkeletonBlock';
 import { ErrorBlock } from '../ErrorBlock/ErrorBlock';
+import fillWithNumbers from '../../helpers/fillWithNumbers';
 
 export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	const { pizzas, currentType, searchValue, error, isLoading } =
@@ -44,14 +45,6 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 		return correctedType;
 	};
 
-	const fillWithSkeletonPizzas = (count: number): number[] => {
-		const skeletonArray: number[] = [];
-		for (let i = 0; i < count; i++) {
-			skeletonArray.push(i);
-		}
-		return skeletonArray;
-	};
-
 	return (
 		<>
 			{error ? (
@@ -67,7 +60,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 					</h2>
 					<div className={cn(className, styles.items)} {...props}>
 						{isLoading
-							? fillWithSkeletonPizzas(8).map((p) => (
+							? fillWithNumbers(8).map((p) => (
 									<PIzzaSkeletonBlock key={p} />
 							  ))
 							: pizzas.map((p) => (
