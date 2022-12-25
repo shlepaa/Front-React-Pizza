@@ -88,9 +88,7 @@ export const pizzaSortSlice = createSlice({
 			state.searchValue = '';
 		},
 		search: (state, action: PayloadAction<string>) => {
-			state.pizzas = (
-				state.searchValue ? state.pizzasBackup : state.pizzas
-			).filter(
+			state.pizzas = state.pizzasBackup.filter(
 				(p) =>
 					checkForSimilarity(p.title, action.payload) ||
 					checkForSimilarity(p.types.join(''), action.payload)
