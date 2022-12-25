@@ -42,4 +42,13 @@ describe('Add pizza for cart page', () => {
 			pizzaToAdd,
 		]);
 	});
+
+	it('Add empty pizza', () => {
+		const changedState = pizzasReducer(
+			initialState,
+			addPizza({} as IChosenPizza)
+		);
+		expect(changedState.pizzas).toHaveLength(2);
+		expect(changedState.pizzas).toStrictEqual(startedPizzas);
+	});
 });

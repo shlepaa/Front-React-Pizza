@@ -16,7 +16,9 @@ export const pizzasSlice = createSlice({
 	initialState,
 	reducers: {
 		addPizza: (state, action: PayloadAction<IChosenPizza>) => {
-			state.pizzas = [...state.pizzas, action.payload];
+			if (action.payload.title) {
+				state.pizzas = [...state.pizzas, action.payload];
+			}
 		},
 		reloadPizzas: (state, action: PayloadAction<IChosenPizza[]>) => {
 			state.pizzas = action.payload;
