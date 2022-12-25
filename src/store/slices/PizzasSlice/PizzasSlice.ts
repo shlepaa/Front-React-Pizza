@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IChosenPizza } from '../../../interfaces/IChosenPizza';
 
-interface IUserState {
+export interface IUserState {
 	pizzas: IChosenPizza[];
 }
 
@@ -25,3 +25,5 @@ export const pizzasSlice = createSlice({
 });
 
 export default pizzasSlice.reducer;
+
+export const { addPizza, reloadPizzas } = pizzasSlice.actions;

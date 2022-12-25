@@ -231,7 +231,7 @@ const initialState: IUserState = {
 describe('Set pizzas according to their params', () => {
 	it('Sort by price', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState },
+			initialState,
 			sortByParam(sortByPrice)
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByPricePizzas);
@@ -241,7 +241,7 @@ describe('Set pizzas according to their params', () => {
 
 	it('Sort by rating', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState },
+			initialState,
 			sortByParam(sortByRating)
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByRatingPizzas);
@@ -251,7 +251,7 @@ describe('Set pizzas according to their params', () => {
 
 	it('Sort by alphabet', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState },
+			initialState,
 			sortByParam(sortByAlphabet)
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByAlphabetPizzas);

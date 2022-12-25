@@ -126,7 +126,7 @@ const initialState: IUserState = {
 describe('Set started pizzas and then replace started pizzas with changed(dough, size) pizzas and write new props into the pizzasBackup', () => {
 	it('Change properties in one pizza and then replace it', () => {
 		const changedState = pizzaSortReducer(
-			{ ...initialState },
+			initialState,
 			setParam(changedPizzas)
 		);
 		expect(changedState.pizzas).toHaveLength(1);
@@ -138,10 +138,7 @@ describe('Set started pizzas and then replace started pizzas with changed(dough,
 	});
 
 	it('With empty param', () => {
-		const changedState = pizzaSortReducer(
-			{ ...initialState },
-			setParam([])
-		);
+		const changedState = pizzaSortReducer(initialState, setParam([]));
 		expect(changedState.pizzas).toHaveLength(0);
 		expect(changedState.pizzasBackup).toHaveLength(2);
 		expect(changedState.pizzas).toStrictEqual([]);

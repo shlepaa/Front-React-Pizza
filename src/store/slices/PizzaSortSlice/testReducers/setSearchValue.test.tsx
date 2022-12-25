@@ -21,7 +21,7 @@ const initialState: IUserState = {
 describe('setSearchValue', () => {
 	it('Set search value with meat', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState },
+			initialState,
 			setSearchValue('мясная')
 		);
 		expect(changedState.searchValue).toBe('мясная');
@@ -29,7 +29,7 @@ describe('setSearchValue', () => {
 
 	it('Empty value', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState },
+			initialState,
 			setSearchValue('')
 		);
 		expect(changedState.searchValue).toBe('');
