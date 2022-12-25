@@ -123,7 +123,7 @@ const initialState: IUserState = {
 	},
 };
 
-describe('Set default pizzas and then replace main pizzas with changed pizzas and write new props into the pizzasBackup', () => {
+describe('Set started pizzas and then replace started pizzas with changed(dough, size) pizzas and write new props into the pizzasBackup', () => {
 	it('Change properties in one pizza and then replace it', () => {
 		const changedState = pizzaSortReducer(
 			{ ...initialState },
