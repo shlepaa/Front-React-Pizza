@@ -6,6 +6,7 @@ import { Categories } from '../Categories/Categories';
 import { Sort } from '../Sort/Sort';
 import { useAppSelector } from '../../hooks/redux';
 import { CategoriesSkeleton } from '../CategoriesSkeleton/CategoriesSkeleton';
+import sortParams from '../../helpers/sortParams';
 
 export const ContentTop: FC<ContentTopProps> = ({ className, ...props }) => {
 	const { error, isLoading } = useAppSelector(
@@ -19,13 +20,7 @@ export const ContentTop: FC<ContentTopProps> = ({ className, ...props }) => {
 			) : (
 				<>
 					<Categories />
-					<Sort
-						sortParams={[
-							{ param: 'title', title: 'алфавиту' },
-							{ param: 'rating', title: 'популярности' },
-							{ param: 'currentPrice', title: 'цене' },
-						]}
-					/>
+					<Sort sortParams={sortParams} />
 				</>
 			)}
 		</div>
