@@ -14,6 +14,7 @@ export const UlSizes: FC<UlSizesProps> = ({
 		<div className={cn(className, styles.list)} {...props}>
 			{allSizes.map((s) => (
 				<button
+					data-testid="size-button"
 					key={s}
 					onClick={() => setSize(s)}
 					className={cn({
