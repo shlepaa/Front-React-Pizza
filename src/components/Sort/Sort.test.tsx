@@ -1,23 +1,18 @@
-import { screen, render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { createReduxStore } from '../../store/store';
+import { screen } from '@testing-library/react';
 import { Sort } from './Sort';
 import userEvent from '@testing-library/user-event';
 import { IUserState } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import React from 'react';
+import setRender from '../../helpers/setRender';
+import { IDefaultProps } from '../../interfaces/IDefaultProps';
+import sortParams from '../../helpers/sortParams';
 
-const setRender = <T,>(store?: Record<string, T>) => {
-	return render(
-		<Provider store={createReduxStore(store)}>
-			<Sort
-				sortParams={[
-					{ param: 'rating', title: 'популярности' },
-					{ param: 'currentPrice', title: 'цене' },
-					{ param: 'title', title: 'алфавиту' },
-				]}
-			/>
-		</Provider>
-	);
+const defaultProps: IDefaultProps = {
+	sortParams: [
+		{ param: 'rating', title: 'популярности' },
+		{ param: 'currentPrice', title: 'цене' },
+		{ param: 'title', title: 'алфавиту' },
+	],
 };
 
 const sortInitialState: IUserState = {
@@ -42,7 +37,7 @@ describe('Sort table where you can sort to up or down or by using params', () =>
 
 	it('Other state for currentSortParam', async () => {
 		const spy = jest.spyOn(React, 'useEffect');
-		setRender({
+		setRender(<Sort {...defaultProps} />, {
 			pizzaSortReducer: sortInitialState,
 		});
 		const buttonElem = screen.getByTestId('open-popuop-button');
@@ -70,7 +65,7 @@ describe('Sort table where you can sort to up or down or by using params', () =>
 	});
 
 	it('Other state for isSortedToDown', async () => {
-		setRender({
+		setRender(<Sort {...defaultProps} />, {
 			pizzaSortReducer: sortInitialState,
 		});
 		const sortUpDownButton = screen.getByTestId('sort-up-down-button');
@@ -82,7 +77,7 @@ describe('Sort table where you can sort to up or down or by using params', () =>
 	});
 
 	it('Sort up or down button', async () => {
-		setRender();
+		setRender(<Sort {...defaultProps} />);
 		const sortUpDownButton = screen.getByTestId('sort-up-down-button');
 		expect(sortUpDownButton).not.toHaveClass('down');
 
@@ -96,7 +91,7 @@ describe('Sort table where you can sort to up or down or by using params', () =>
 	});
 
 	it('Popup opening', async () => {
-		setRender();
+		setRender(<Sort {...defaultProps} />);
 		const buttonElem = screen.getByTestId('open-popuop-button');
 		expect(buttonElem).toBeInTheDocument();
 		expect(screen.getByTestId('popup')).not.toHaveClass('popupActive');
@@ -109,7 +104,7 @@ describe('Sort table where you can sort to up or down or by using params', () =>
 	});
 
 	it('Sort buttons performance', async () => {
-		setRender();
+		setRender(<Sort sortParams={sortParams} />);
 		const buttonElem = screen.getByTestId('open-popuop-button');
 		expect(buttonElem).toHaveTextContent('популярности');
 		const sortButtonElems = screen.getAllByTestId('sort-button');
@@ -134,5 +129,6 @@ describe('Sort table where you can sort to up or down or by using params', () =>
 
 		sortButtonElems[1] && (await userEvent.click(sortButtonElems[1]));
 		expect(buttonElem).toHaveTextContent('цене');
+		expect(sortButtonElems).toMatchSnapshot();
 	});
 });

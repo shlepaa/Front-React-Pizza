@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort table where you can sort to up or down or by using params Sort buttons performance 1`] = `
+[
+  <button
+    class=""
+    data-testid="sort-button"
+  >
+    популярности
+  </button>,
+  <button
+    class="active"
+    data-testid="sort-button"
+  >
+    цене
+  </button>,
+  <button
+    class=""
+    data-testid="sort-button"
+  >
+    алфавиту
+  </button>,
+]
+`;
+
