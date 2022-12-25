@@ -14,6 +14,7 @@ export const UlDough: FC<UlDoughProps> = ({
 		<div className={cn(className, styles.list)} {...props}>
 			{allDoughs.map((d) => (
 				<button
+					data-testid="size-button"
 					key={d}
 					onClick={() => setDough(d)}
 					className={cn({
