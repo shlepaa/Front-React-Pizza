@@ -27,7 +27,7 @@ const TestWrapper: FC<TestWrapperProps> = ({ allDoughs }) => {
 	);
 };
 
-describe('Table with all sizes for current pizza', () => {
+describe('Table with all doughs for current pizza', () => {
 	it('With filled doughs', async () => {
 		setRender(
 			<TestWrapper allDoughs={['тонкое', 'традиционное', 'сырное']} />

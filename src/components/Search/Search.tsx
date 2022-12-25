@@ -13,7 +13,7 @@ export const Search: FC<SearchProps> = ({ className, ...props }) => {
 	const { searchValue } = useAppSelector((state) => state.pizzaSortReducer);
 
 	useEffect(() => {
-		searchValue && dispatch(search(searchValue));
+		dispatch(search(searchValue));
 	}, [dispatch, search, searchValue]);
 
 	const handlerSearch = (currentValue: string) => {
@@ -26,22 +26,22 @@ export const Search: FC<SearchProps> = ({ className, ...props }) => {
 	};
 
 	return (
-		<div className={styles.wrapper}>
+		<div data-testid="search-wrapper" className={styles.wrapper}>
 			<input
+				data-testid="search"
 				placeholder="Поиск..."
 				onChange={(e) => handlerSearch(e.currentTarget.value)}
 				value={searchValue}
 				className={cn(className, styles.search)}
 				{...props}
 			/>
-			<button className={styles.icon}>
-				<IconContext.Provider
-					value={{
-						size: '30px',
-					}}>
-					<FcBinoculars />
-				</IconContext.Provider>
-			</button>
+			<IconContext.Provider
+				value={{
+					className: styles.icon,
+					size: '30px',
+				}}>
+				<FcBinoculars />
+			</IconContext.Provider>
 		</div>
 	);
 };
