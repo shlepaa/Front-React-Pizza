@@ -16,7 +16,7 @@ export interface IUserState {
 }
 
 export const initialState: IUserState = {
-	isLoading: false,
+	isLoading: true,
 	error: false,
 	pizzas: [],
 	pizzasBackup: [],
