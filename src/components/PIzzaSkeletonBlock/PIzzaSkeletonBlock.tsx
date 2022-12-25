@@ -8,11 +8,14 @@ export const PIzzaSkeletonBlock: FC<PIzzaSkeletonBlockProps> = ({
 	...props
 }) => {
 	return (
-		<div className={cn(className, styles.pizzaBlock)} {...props}>
+		<div
+			data-testid="wrapper"
+			className={cn(className, styles.pizzaBlock)}
+			{...props}>
 			<img
 				className={cn(styles.image)}
 				src="https://i.imgur.com/mTJhAis.png"
-				alt={'Skeleton'}
+				alt={'Loading pizza'}
 			/>
 			<div className={cn(styles.title)} />
 			<div className={cn(styles.selector)}>

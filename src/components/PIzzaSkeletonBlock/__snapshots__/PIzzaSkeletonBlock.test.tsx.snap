@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PIzzaSkeletonBlock Should follow the structuce 1`] = `
+<div
+  class="pizzaBlock"
+  data-testid="wrapper"
+>
+  <img
+    alt="Skeleton"
+    class="image"
+    src="https://i.imgur.com/mTJhAis.png"
+  />
+  <div
+    class="title"
+  />
+  <div
+    class="selector"
+  >
+    <div
+      class="list"
+    >
+      <div
+        class="active"
+      />
+      <div />
+    </div>
+    <div
+      class="list"
+    >
+      <div
+        class="active"
+      />
+      <div />
+    </div>
+  </div>
+  <div
+    class="info"
+  >
+    <div
+      class="price"
+    />
+    <div
+      class="buttonsBlock"
+    >
+      <div
+        class="plus"
+      />
+      <div
+        class="plus"
+      />
+    </div>
+    <div
+      class="button buttonOutline"
+    >
+      <div
+        class="buttonTitle"
+      />
+      <div
+        class="count"
+      />
+    </div>
+  </div>
+</div>
+`;
