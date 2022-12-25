@@ -26,7 +26,7 @@ const TestComponent: FC<TestComponentProps> = ({ testProp }) => {
 	);
 };
 
-describe('setRender', () => {
+describe('Set render component for tests', () => {
 	it('Performance without props', () => {
 		setRender(<TestComponent />);
 		const headingElem = screen.getByTestId('h1-test');
