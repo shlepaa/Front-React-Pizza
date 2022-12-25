@@ -30,8 +30,8 @@ export const initialState: IUserState = {
 	},
 };
 
-const checkForSimilarity = (word: string, search: string): boolean => {
-	return word
+export const checkForSimilarity = (string: string, search: string): boolean => {
+	return string
 		.toLowerCase()
 		.split(' ')
 		.join('')
