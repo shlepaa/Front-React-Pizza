@@ -1,0 +1,146 @@
+import { IPizza } from '../../../../interfaces/IPizza';
+import pizzasSortReducer, { IUserState, sortByType } from '../PizzaSortSlice';
+
+const startedPizzas: IPizza[] = [
+	{
+		currentPrice: 100,
+		image: 'http://google.com/image1',
+		title: 'Б',
+		rating: 3,
+		types: ['мясная'],
+		possibleDoughs: ['тонкое'],
+		sizesAndPrices: [
+			{
+				size: '26',
+				price: 100,
+			},
+		],
+	},
+	{
+		currentPrice: 300,
+		image: 'http://google.com/image1',
+		title: 'А',
+		rating: 1,
+		types: ['рыбная'],
+		possibleDoughs: ['тонкое'],
+		sizesAndPrices: [
+			{
+				size: '26',
+				price: 300,
+			},
+		],
+	},
+	{
+		currentPrice: 200,
+		image: 'http://google.com/image2',
+		title: 'В',
+		rating: 5,
+		types: ['мясная', 'сырная'],
+		possibleDoughs: ['тонкое', 'традиционное'],
+		sizesAndPrices: [
+			{
+				size: '26',
+				price: 200,
+			},
+			{
+				size: '30',
+				price: 400,
+			},
+		],
+	},
+];
+
+const sortedByMeatPizzas: IPizza[] = [
+	{
+		currentPrice: 100,
+		image: 'http://google.com/image1',
+		title: 'Б',
+		rating: 3,
+		types: ['мясная'],
+		possibleDoughs: ['тонкое'],
+		sizesAndPrices: [
+			{
+				size: '26',
+				price: 100,
+			},
+		],
+	},
+	{
+		currentPrice: 200,
+		image: 'http://google.com/image2',
+		title: 'В',
+		rating: 5,
+		types: ['мясная', 'сырная'],
+		possibleDoughs: ['тонкое', 'традиционное'],
+		sizesAndPrices: [
+			{
+				size: '26',
+				price: 200,
+			},
+			{
+				size: '30',
+				price: 400,
+			},
+		],
+	},
+];
+
+const sortedByCheesePizzas: IPizza[] = [
+	{
+		currentPrice: 200,
+		image: 'http://google.com/image2',
+		title: 'В',
+		rating: 5,
+		types: ['мясная', 'сырная'],
+		possibleDoughs: ['тонкое', 'традиционное'],
+		sizesAndPrices: [
+			{
+				size: '26',
+				price: 200,
+			},
+			{
+				size: '30',
+				price: 400,
+			},
+		],
+	},
+];
+
+const initialState: IUserState = {
+	isLoading: false,
+	error: false,
+	pizzas: startedPizzas,
+	pizzasBackup: startedPizzas,
+	allPizzaTypes: ['тестовая'],
+	currentType: 'все',
+	searchValue: '',
+	isSortedToDown: false,
+	currentSortParam: {
+		title: 'популярности',
+		param: 'rating',
+	},
+};
+
+describe('Set pizzas according to their types and drop search value', () => {
+	it('Sort by meat', () => {
+		const changedState = pizzasSortReducer(
+			{ ...initialState, searchValue: 'test' },
+			sortByType('мясная')
+		);
+		expect(changedState.pizzas).toStrictEqual(sortedByMeatPizzas);
+		expect(changedState.pizzasBackup).toBe(startedPizzas);
+		expect(changedState.currentType).toBe('мясная');
+		expect(changedState.searchValue).toBe('');
+	});
+
+	it('Sort by cheese', () => {
+		const changedState = pizzasSortReducer(
+			{ ...initialState, searchValue: '42' },
+			sortByType('сырная')
+		);
+		expect(changedState.pizzas).toStrictEqual(sortedByCheesePizzas);
+		expect(changedState.pizzasBackup).toBe(startedPizzas);
+		expect(changedState.currentType).toBe('сырная');
+		expect(changedState.searchValue).toBe('');
+	});
+});
