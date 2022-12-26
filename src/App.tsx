@@ -1,13 +1,11 @@
 import { FC } from 'react';
-import cn from 'classnames';
-import { Content, Header } from './components';
-import styles from './styles/styles.module.scss';
+import { BrowserRouter } from 'react-router-dom';
+import { AppRouter } from './router/AppRouter';
 
 export const App: FC = () => {
 	return (
-		<div className={cn(styles.wrapper)}>
-			<Header />
-			<Content />
-		</div>
+		<BrowserRouter>
+			<AppRouter />
+		</BrowserRouter>
 	);
 };
