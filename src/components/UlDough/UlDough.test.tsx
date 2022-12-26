@@ -32,22 +32,25 @@ describe('Table with all doughs for current pizza', () => {
 		setRender(
 			<TestWrapper allDoughs={['тонкое', 'традиционное', 'сырное']} />
 		);
-		const buttonElems = screen.getAllByTestId('size-button');
+		const buttonElems = screen.getAllByTestId('dough-button');
 		expect(buttonElems).toHaveLength(3);
 		expect(buttonElems[0]).toHaveClass('active');
+		expect(buttonElems[0]).toHaveTextContent('тонкое');
 
 		buttonElems[1] && (await userEvent.click(buttonElems[1]));
 		expect(buttonElems[1]).toHaveClass('active');
 		expect(buttonElems[0]).not.toHaveClass('active');
+		expect(buttonElems[1]).toHaveTextContent('традиционное');
 
 		buttonElems[2] && (await userEvent.click(buttonElems[2]));
 		expect(buttonElems[2]).toHaveClass('active');
 		expect(buttonElems[1]).not.toHaveClass('active');
+		expect(buttonElems[2]).toHaveTextContent('сырное');
 	});
 
 	it('Without doughs', () => {
 		setRender(<TestWrapper allDoughs={[]} />);
-		const buttonElem = screen.queryByTestId('size-button');
+		const buttonElem = screen.queryByTestId('dough-button');
 		expect(buttonElem).not.toBeInTheDocument();
 	});
 });

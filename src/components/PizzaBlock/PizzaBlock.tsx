@@ -134,8 +134,9 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 				/>
 			</div>
 			<div className={cn(styles.info)}>
-				<div className={cn(styles.price)}>
+				<div data-testid="price" className={cn(styles.price)}>
 					<span
+						data-testid="amount-cost"
 						className={cn(styles.amountCost, {
 							[styles.visibleAmount]: count > 1,
 						})}>
@@ -147,6 +148,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 					₽
 				</div>
 				<AddButton
+					data-testid="add-button"
 					onClick={setPizzaParams}
 					count={count}
 					setCount={handlerSetCount}

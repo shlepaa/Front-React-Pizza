@@ -33,14 +33,17 @@ describe('Table with all sizes for current pizza', () => {
 		const buttonElems = screen.getAllByTestId('size-button');
 		expect(buttonElems).toHaveLength(3);
 		expect(buttonElems[0]).toHaveClass('active');
+		expect(buttonElems[0]).toHaveTextContent('26');
 
 		buttonElems[1] && (await userEvent.click(buttonElems[1]));
 		expect(buttonElems[1]).toHaveClass('active');
 		expect(buttonElems[0]).not.toHaveClass('active');
+		expect(buttonElems[1]).toHaveTextContent('30');
 
 		buttonElems[2] && (await userEvent.click(buttonElems[2]));
 		expect(buttonElems[2]).toHaveClass('active');
 		expect(buttonElems[1]).not.toHaveClass('active');
+		expect(buttonElems[2]).toHaveTextContent('40');
 	});
 
 	it('Without sizes', () => {
