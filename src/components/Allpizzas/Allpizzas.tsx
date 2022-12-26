@@ -8,6 +8,7 @@ import { fetchPizzas } from '../../store/slices/ActionCreators';
 import { PIzzaSkeletonBlock } from '../PIzzaSkeletonBlock/PIzzaSkeletonBlock';
 import { ErrorBlock } from '../ErrorBlock/ErrorBlock';
 import fillWithNumbers from '../../helpers/fillWithNumbers';
+import setEnding from '../../helpers/setEnding';
 
 export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	const { pizzas, currentType, searchValue, error, isLoading } =
@@ -18,23 +19,6 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 		dispatch(fetchPizzas());
 	}, [dispatch]);
 
-	const firstToUpper =
-		currentType[0]?.toUpperCase() +
-		currentType.slice(1, currentType.length);
-	const lastChars = `${firstToUpper[firstToUpper.length - 2]}${
-		firstToUpper[firstToUpper.length - 1]
-	}`;
-
-	let correctedType = '';
-	if (lastChars === 'ая') {
-		correctedType = firstToUpper.slice(0, firstToUpper.length - 2) + 'ие';
-	} else {
-		correctedType = firstToUpper;
-	}
-	if (lastChars === 'ая' && firstToUpper[firstToUpper.length - 3] !== 'к') {
-		correctedType = firstToUpper.slice(0, firstToUpper.length - 2) + 'ые';
-	}
-
 	const handlerLogicalTitle = (): string => {
 		if (!pizzas.length) {
 			return 'Не найдено';
@@ -42,7 +26,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 		if (searchValue) {
 			return 'Поиск';
 		}
-		return correctedType;
+		return setEnding(currentType);
 	};
 
 	return (

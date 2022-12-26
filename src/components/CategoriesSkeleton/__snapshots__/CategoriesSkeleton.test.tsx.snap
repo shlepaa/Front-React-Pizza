@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoriesSkeleton Should follow the structure 1`] = `
+<div
+  class="categories"
+  data-testid="wrapper"
+>
+  <div
+    class="active category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+</div>
+`;

@@ -10,12 +10,15 @@ export const CategoriesSkeleton: FC<CategoriesSkeletonProps> = ({
 	...props
 }) => {
 	return (
-		<div className={cn(className, styles.categories)} {...props}>
+		<div
+			data-testid="wrapper"
+			className={cn(className, styles.categories)}
+			{...props}>
 			<div className={cn(styles.active, styles.category)}>
 				<div className={styles.title} />
 			</div>
 			{fillWithNumbers(count).map((c) => (
-				<div key={c} className={styles.category}>
+				<div data-testid="category" key={c} className={styles.category}>
 					<div className={styles.title} />
 				</div>
 			))}
