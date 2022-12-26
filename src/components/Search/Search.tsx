@@ -28,7 +28,7 @@ export const Search: FC<SearchProps> = ({ className, ...props }) => {
 
 	return (
 		<div data-testid="search-wrapper" className={styles.wrapper}>
-			<Link to="/">
+			<Link data-testid="link" to="/">
 				<input
 					data-testid="search"
 					placeholder="Поиск..."

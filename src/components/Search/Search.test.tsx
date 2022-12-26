@@ -23,4 +23,11 @@ describe('Input for searching pizzas', () => {
 		await userEvent.clear(seacrhElem);
 		expect(seacrhElem).toHaveValue('');
 	});
+
+	it('Link path', async () => {
+		setRender(<Search />);
+		const linkElem = screen.getByTestId('link');
+
+		expect(linkElem).toHaveAttribute('href', '/');
+	});
 });

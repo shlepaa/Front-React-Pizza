@@ -5,12 +5,17 @@ exports[`Input for searching pizzas Set different values 1`] = `
   class="wrapper"
   data-testid="search-wrapper"
 >
-  <input
-    class="search"
-    data-testid="search"
-    placeholder="Поиск..."
-    value=""
-  />
+  <a
+    data-testid="link"
+    href="/"
+  >
+    <input
+      class="search"
+      data-testid="search"
+      placeholder="Поиск..."
+      value=""
+    />
+  </a>
   <svg
     class="icon"
     enable-background="new 0 0 48 48"
