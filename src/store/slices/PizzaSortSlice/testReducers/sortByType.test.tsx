@@ -1,5 +1,5 @@
 import { IPizza } from '../../../../interfaces/IPizza';
-import pizzasSortReducer, { IUserState, sortByType } from '../PizzaSortSlice';
+import pizzasSortReducer, { initialState, sortByType } from '../PizzaSortSlice';
 
 const startedPizzas: IPizza[] = [
 	{
@@ -106,25 +106,15 @@ const sortedByCheesePizzas: IPizza[] = [
 	},
 ];
 
-const initialState: IUserState = {
-	isLoading: false,
-	error: false,
-	pizzas: startedPizzas,
-	pizzasBackup: startedPizzas,
-	allPizzaTypes: ['тестовая'],
-	currentType: 'все',
-	searchValue: '',
-	isSortedToDown: false,
-	currentSortParam: {
-		title: 'популярности',
-		param: 'rating',
-	},
-};
-
 describe('Set pizzas according to their types and drop search value', () => {
 	it('Sort by meat', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState, searchValue: 'test' },
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+				searchValue: 'test',
+			},
 			sortByType('мясная')
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByMeatPizzas);
@@ -135,7 +125,12 @@ describe('Set pizzas according to their types and drop search value', () => {
 
 	it('Sort by cheese', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState, searchValue: '42' },
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+				searchValue: '42',
+			},
 			sortByType('сырная')
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByCheesePizzas);

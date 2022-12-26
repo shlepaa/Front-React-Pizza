@@ -1,5 +1,5 @@
 import { IPizza } from '../../../../interfaces/IPizza';
-import pizzasSortReducer, { IUserState, search } from '../PizzaSortSlice';
+import pizzasSortReducer, { search, initialState } from '../PizzaSortSlice';
 
 const startedPizzas: IPizza[] = [
 	{
@@ -119,25 +119,14 @@ const salmonPizzas: IPizza[] = [
 	},
 ];
 
-const initialState: IUserState = {
-	isLoading: false,
-	error: false,
-	pizzas: startedPizzas,
-	pizzasBackup: startedPizzas,
-	allPizzaTypes: ['тестовая'],
-	currentType: 'все',
-	searchValue: '',
-	isSortedToDown: false,
-	currentSortParam: {
-		title: 'популярности',
-		param: 'rating',
-	},
-};
-
 describe('Set pizzas according to seacrh value', () => {
 	it('Seacrh for pizza burger', () => {
 		const changedState = pizzasSortReducer(
-			initialState,
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
 			search('пицца БУРГЕР')
 		);
 		expect(changedState.pizzas).toHaveLength(1);
@@ -146,14 +135,28 @@ describe('Set pizzas according to seacrh value', () => {
 	});
 
 	it('Seacrh for meat pizzas', () => {
-		const changedState = pizzasSortReducer(initialState, search('Мя с н '));
+		const changedState = pizzasSortReducer(
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
+			search('Мя с н ')
+		);
 		expect(changedState.pizzas).toHaveLength(2);
 		expect(changedState.pizzas).toStrictEqual(meatPizzas);
 		expect(changedState.pizzasBackup).toStrictEqual(startedPizzas);
 	});
 
 	it('Seacrh for pizzas with salmon', () => {
-		const changedState = pizzasSortReducer(initialState, search('семг'));
+		const changedState = pizzasSortReducer(
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
+			search('семг')
+		);
 		expect(changedState.pizzas).toHaveLength(1);
 		expect(changedState.pizzas).toStrictEqual(salmonPizzas);
 		expect(changedState.pizzasBackup).toStrictEqual(startedPizzas);
@@ -161,7 +164,11 @@ describe('Set pizzas according to seacrh value', () => {
 
 	it('Not found search value', () => {
 		const changedState = pizzasSortReducer(
-			initialState,
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
 			search('not found value')
 		);
 		expect(changedState.pizzas).toHaveLength(0);

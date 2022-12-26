@@ -1,5 +1,5 @@
 import { IPizza } from '../../../../interfaces/IPizza';
-import pizzasSortReducer, { IUserState, unset } from '../PizzaSortSlice';
+import pizzasSortReducer, { initialState, unset } from '../PizzaSortSlice';
 
 const startedPizzas: IPizza[] = [
 	{
@@ -50,25 +50,15 @@ const startedPizzas: IPizza[] = [
 	},
 ];
 
-const initialState: IUserState = {
-	isLoading: false,
-	error: false,
-	pizzas: [],
-	pizzasBackup: startedPizzas,
-	allPizzaTypes: ['тестовая'],
-	currentType: 'все',
-	searchValue: '',
-	isSortedToDown: false,
-	currentSortParam: {
-		title: 'популярности',
-		param: 'rating',
-	},
-};
-
 describe('Reset current type and main pizzas, drop seacrh value', () => {
 	it('Unset', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState, searchValue: 'test', currentType: 'мясная' },
+			{
+				...initialState,
+				pizzasBackup: startedPizzas,
+				searchValue: 'test',
+				currentType: 'мясная',
+			},
 			unset()
 		);
 		expect(changedState.pizzas).toStrictEqual(startedPizzas);

@@ -1,6 +1,6 @@
 import { IPizza } from '../../../../interfaces/IPizza';
 import pizzasSortReducer, {
-	IUserState,
+	initialState,
 	sortToUpOrDown,
 } from '../PizzaSortSlice';
 
@@ -109,25 +109,10 @@ const sortedByAlphabetToUp: IPizza[] = [
 	},
 ];
 
-const initialState: IUserState = {
-	isLoading: false,
-	error: false,
-	pizzas: sortedByPriceToDown,
-	pizzasBackup: [],
-	allPizzaTypes: ['тестовая'],
-	currentType: 'все',
-	searchValue: '',
-	isSortedToDown: false,
-	currentSortParam: {
-		title: 'цене',
-		param: 'currentPrice',
-	},
-};
-
 describe('Sort to up or down by using params', () => {
 	it('Sort by price to down', () => {
 		const changedState = pizzasSortReducer(
-			{ ...initialState },
+			{ ...initialState, pizzas: sortedByPriceToDown },
 			sortToUpOrDown(true)
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByPriceToDown);
@@ -138,6 +123,7 @@ describe('Sort to up or down by using params', () => {
 		const changedState = pizzasSortReducer(
 			{
 				...initialState,
+				pizzas: sortedByPriceToDown,
 				currentSortParam: {
 					title: 'популярности',
 					param: 'rating',
@@ -153,6 +139,7 @@ describe('Sort to up or down by using params', () => {
 		const changedState = pizzasSortReducer(
 			{
 				...initialState,
+				pizzas: sortedByPriceToDown,
 				currentSortParam: {
 					title: 'алфавиту',
 					param: 'title',

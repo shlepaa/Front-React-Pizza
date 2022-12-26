@@ -1,6 +1,9 @@
 import { IPizza } from '../../../../interfaces/IPizza';
 import { TypeParams } from '../../../../interfaces/TypeParams';
-import pizzasSortReducer, { IUserState, sortByParam } from '../PizzaSortSlice';
+import pizzasSortReducer, {
+	initialState,
+	sortByParam,
+} from '../PizzaSortSlice';
 
 const startedPizzas: IPizza[] = [
 	{
@@ -213,25 +216,14 @@ const sortByAlphabet: TypeParams = {
 	param: 'title',
 };
 
-const initialState: IUserState = {
-	isLoading: false,
-	error: false,
-	pizzas: startedPizzas,
-	pizzasBackup: startedPizzas,
-	allPizzaTypes: ['тестовая'],
-	currentType: 'все',
-	searchValue: '',
-	isSortedToDown: false,
-	currentSortParam: {
-		title: 'популярности',
-		param: 'rating',
-	},
-};
-
 describe('Set pizzas according to their params', () => {
 	it('Sort by price', () => {
 		const changedState = pizzasSortReducer(
-			initialState,
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
 			sortByParam(sortByPrice)
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByPricePizzas);
@@ -241,7 +233,11 @@ describe('Set pizzas according to their params', () => {
 
 	it('Sort by rating', () => {
 		const changedState = pizzasSortReducer(
-			initialState,
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
 			sortByParam(sortByRating)
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByRatingPizzas);
@@ -251,7 +247,11 @@ describe('Set pizzas according to their params', () => {
 
 	it('Sort by alphabet', () => {
 		const changedState = pizzasSortReducer(
-			initialState,
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
 			sortByParam(sortByAlphabet)
 		);
 		expect(changedState.pizzas).toStrictEqual(sortedByAlphabetPizzas);

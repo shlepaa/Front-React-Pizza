@@ -1,5 +1,5 @@
 import { IPizza } from '../../../../interfaces/IPizza';
-import pizzaSortReducer, { IUserState, setParam } from '../PizzaSortSlice';
+import pizzaSortReducer, { setParam, initialState } from '../PizzaSortSlice';
 
 const startedPizzas: IPizza[] = [
 	{
@@ -108,25 +108,14 @@ const combinedStartedAndChangedPizzas: IPizza[] = [
 	},
 ];
 
-const initialState: IUserState = {
-	isLoading: false,
-	error: false,
-	pizzas: startedPizzas,
-	pizzasBackup: startedPizzas,
-	allPizzaTypes: ['тестовая'],
-	currentType: 'все',
-	searchValue: '',
-	isSortedToDown: false,
-	currentSortParam: {
-		title: 'популярности',
-		param: 'rating',
-	},
-};
-
 describe('Set started pizzas and then replace started pizzas with changed(dough, size) pizzas and write new props into the pizzasBackup', () => {
 	it('Change properties in one pizza and then replace it', () => {
 		const changedState = pizzaSortReducer(
-			initialState,
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
 			setParam(changedPizzas)
 		);
 		expect(changedState.pizzas).toHaveLength(1);
@@ -138,7 +127,14 @@ describe('Set started pizzas and then replace started pizzas with changed(dough,
 	});
 
 	it('With empty param', () => {
-		const changedState = pizzaSortReducer(initialState, setParam([]));
+		const changedState = pizzaSortReducer(
+			{
+				...initialState,
+				pizzas: startedPizzas,
+				pizzasBackup: startedPizzas,
+			},
+			setParam([])
+		);
 		expect(changedState.pizzas).toHaveLength(0);
 		expect(changedState.pizzasBackup).toHaveLength(2);
 		expect(changedState.pizzas).toStrictEqual([]);
