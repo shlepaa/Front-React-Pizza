@@ -14,7 +14,9 @@ export const AddButton: FC<AddButtonProps> = ({
 	return (
 		<>
 			<div className={styles.buttonsBlock}>
-				<button onClick={() => setCount('increment')}>
+				<button
+					data-testid="plus"
+					onClick={() => setCount('increment')}>
 					<IconContext.Provider
 						value={{
 							size: '30px',
@@ -23,7 +25,9 @@ export const AddButton: FC<AddButtonProps> = ({
 						<AiFillPlusCircle />
 					</IconContext.Provider>
 				</button>
-				<button onClick={() => setCount('decrement')}>
+				<button
+					data-testid="minus"
+					onClick={() => setCount('decrement')}>
 					<IconContext.Provider
 						value={{
 							size: '30px',
@@ -33,7 +37,7 @@ export const AddButton: FC<AddButtonProps> = ({
 					</IconContext.Provider>
 				</button>
 			</div>
-			<div
+			<button
 				{...props}
 				className={cn(
 					className,
@@ -42,8 +46,10 @@ export const AddButton: FC<AddButtonProps> = ({
 					styles.buttonAdd
 				)}>
 				<span>Добавить</span>
-				<i className={styles.count}>{count}</i>
-			</div>
+				<i data-testid="count" className={styles.count}>
+					{count}
+				</i>
+			</button>
 		</>
 	);
 };
