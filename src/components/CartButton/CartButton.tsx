@@ -26,7 +26,7 @@ export const CartButton: FC<CartButtonProps> = ({
 			0
 		);
 		const count = pizzas.reduce(
-			(totalPrice, currentPrice) => totalPrice + currentPrice.count,
+			(totalCount, currentCount) => totalCount + currentCount.count,
 			0
 		);
 		setTotalPrice(price);
@@ -36,7 +36,7 @@ export const CartButton: FC<CartButtonProps> = ({
 	return (
 		<a href={link} {...props}>
 			<button className={cn(className, styles.button, styles.buttonCart)}>
-				<span>{totalPrice} ₽</span>
+				<span data-testid="total-price">{totalPrice} ₽</span>
 				<div className={styles.delimiter}></div>
 				<IconContext.Provider
 					value={{
@@ -45,7 +45,7 @@ export const CartButton: FC<CartButtonProps> = ({
 					}}>
 					<RiShoppingCartLine />
 				</IconContext.Provider>
-				<span>{totalCount}</span>
+				<span data-testid="total-count">{totalCount}</span>
 			</button>
 		</a>
 	);
