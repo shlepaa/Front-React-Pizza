@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PIzzaSkeletonBlock Should follow the structuce 1`] = `
+exports[`PIzzaSkeletonBlock Should follow the structure 1`] = `
 <div
   class="pizzaBlock"
   data-testid="wrapper"
 >
   <img
-    alt="Skeleton"
+    alt="Loading pizza"
     class="image"
     src="https://i.imgur.com/mTJhAis.png"
   />

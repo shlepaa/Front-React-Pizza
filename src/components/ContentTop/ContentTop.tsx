@@ -16,11 +16,11 @@ export const ContentTop: FC<ContentTopProps> = ({ className, ...props }) => {
 	return (
 		<div className={cn(className, styles.contentTop)} {...props}>
 			{isLoading || error ? (
-				<CategoriesSkeleton count={4} />
+				<CategoriesSkeleton data-testid="skeleton-wrapper" count={4} />
 			) : (
 				<>
-					<Categories />
-					<Sort sortParams={sortParams} />
+					<Categories data-testid="categories-wrapper" />
+					<Sort data-testid="sort-wrapper" sortParams={sortParams} />
 				</>
 			)}
 		</div>

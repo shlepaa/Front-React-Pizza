@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table with all sizes for current pizza With filled doughs 1`] = `
+exports[`Input for searching pizzas Set different values 1`] = `
 <div
   class="wrapper"
   data-testid="search-wrapper"

@@ -5,7 +5,10 @@ import cn from 'classnames';
 
 export const ErrorBlock: FC<ErrorBlockProps> = ({ className, ...props }) => {
 	return (
-		<div className={cn(className, styles.error)} {...props}>
+		<div
+			data-testid="error-wrapper"
+			className={cn(className, styles.error)}
+			{...props}>
 			<h1>500 Ошибка Сервера</h1>
 			<img
 				className={styles.image}

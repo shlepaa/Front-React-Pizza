@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBlock Should follow the structure 1`] = `
+<div
+  class="error"
+  data-testid="error-wrapper"
+>
+  <h1>
+    500 Ошибка Сервера
+  </h1>
+  <img
+    alt="Pizza error"
+    class="image"
+    src="https://i.imgur.com/F0qoSsb.png"
+  />
+  <span
+    class="text"
+  >
+    Не удалось загрузить пиццы
+  </span>
+  <span
+    class="text"
+  >
+    Перезагрузите страничку или попробуйте позже
+  </span>
+</div>
+`;
