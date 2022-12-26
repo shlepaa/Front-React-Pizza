@@ -5,6 +5,7 @@ import { FC, useEffect, useState } from 'react';
 import { RiShoppingCartLine } from 'react-icons/ri';
 import { IconContext } from 'react-icons';
 import { useAppSelector } from '../../hooks/redux';
+import { Link } from 'react-router-dom';
 
 export const CartButton: FC<CartButtonProps> = ({
 	link,
@@ -34,8 +35,10 @@ export const CartButton: FC<CartButtonProps> = ({
 	}, [pizzas]);
 
 	return (
-		<a href={link} {...props}>
-			<button className={cn(className, styles.button, styles.buttonCart)}>
+		<Link to={link}>
+			<button
+				className={cn(className, styles.button, styles.buttonCart)}
+				{...props}>
 				<span data-testid="total-price">{totalPrice} ₽</span>
 				<div className={styles.delimiter}></div>
 				<IconContext.Provider
@@ -47,6 +50,6 @@ export const CartButton: FC<CartButtonProps> = ({
 				</IconContext.Provider>
 				<span data-testid="total-count">{totalCount}</span>
 			</button>
-		</a>
+		</Link>
 	);
 };

@@ -6,6 +6,7 @@ import { FcBinoculars } from 'react-icons/fc';
 import { IconContext } from 'react-icons';
 import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { Link } from 'react-router-dom';
 
 export const Search: FC<SearchProps> = ({ className, ...props }) => {
 	const dispatch = useAppDispatch();
@@ -27,14 +28,16 @@ export const Search: FC<SearchProps> = ({ className, ...props }) => {
 
 	return (
 		<div data-testid="search-wrapper" className={styles.wrapper}>
-			<input
-				data-testid="search"
-				placeholder="Поиск..."
-				onChange={(e) => handlerSearch(e.currentTarget.value)}
-				value={searchValue}
-				className={cn(className, styles.search)}
-				{...props}
-			/>
+			<Link to="/">
+				<input
+					data-testid="search"
+					placeholder="Поиск..."
+					onChange={(e) => handlerSearch(e.currentTarget.value)}
+					value={searchValue}
+					className={cn(className, styles.search)}
+					{...props}
+				/>
+			</Link>
 			<IconContext.Provider
 				value={{
 					className: styles.icon,
