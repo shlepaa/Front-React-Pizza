@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TypeParams } from '../../../interfaces/TypeParams';
 import { IPizza } from '../../../interfaces/IPizza';
 import { fetchPizzas } from '../ActionCreators';
+import checkForSimilarity from '../../../helpers/checkForSimilarity';
 
 export interface IUserState {
 	isLoading: boolean;
@@ -28,14 +29,6 @@ export const initialState: IUserState = {
 		title: 'популярности',
 		param: 'rating',
 	},
-};
-
-export const checkForSimilarity = (string: string, search: string): boolean => {
-	return string
-		.toLowerCase()
-		.split(' ')
-		.join('')
-		.includes(search.toLowerCase().split(' ').join(''));
 };
 
 export const pizzaSortSlice = createSlice({

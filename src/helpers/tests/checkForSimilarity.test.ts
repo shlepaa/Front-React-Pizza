@@ -1,4 +1,4 @@
-import { checkForSimilarity } from './PizzaSortSlice';
+import checkForSimilarity from '../checkForSimilarity';
 
 const string = 'Some test text without meaning';
 

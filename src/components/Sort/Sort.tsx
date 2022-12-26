@@ -40,7 +40,10 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 	};
 
 	return (
-		<div className={cn(className, styles.sort)} {...props}>
+		<div
+			data-testid="sort-wrapper"
+			className={cn(className, styles.sort)}
+			{...props}>
 			<button
 				onClick={handlerSetIsSortedByUpOrDown}
 				className={styles.icon}>
