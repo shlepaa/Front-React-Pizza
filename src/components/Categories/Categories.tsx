@@ -23,6 +23,7 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 	return (
 		<div className={cn(className, styles.categories)} {...props}>
 			<button
+				data-testid="all-button"
 				onClick={() => handlerSetType('все')}
 				className={cn({
 					[styles.active]: currentType === 'все' && !searchValue,
@@ -31,6 +32,7 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 			</button>
 			{allPizzaTypes.map((p) => (
 				<button
+					data-testid="type-button"
 					key={p}
 					onClick={() => handlerSetType(p)}
 					className={cn({
