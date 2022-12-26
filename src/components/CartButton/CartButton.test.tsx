@@ -23,8 +23,8 @@ const chosenPizzas: IChosenPizza[] = [
 ];
 
 describe('Displays pizzas count and total price that have chosen', () => {
-	it('With empty pizzas', async () => {
-		setRender(<CartButton link={''} />, {
+	it('With empty pizzas', () => {
+		setRender(<CartButton link={'/'} />, {
 			pizzasReducer: {
 				pizzas: [],
 			},
@@ -36,8 +36,8 @@ describe('Displays pizzas count and total price that have chosen', () => {
 		expect(totalCountElem).toHaveTextContent('0');
 	});
 
-	it('With filled pizzas', async () => {
-		setRender(<CartButton link={''} />, {
+	it('With filled pizzas', () => {
+		setRender(<CartButton link={'/'} />, {
 			pizzasReducer: {
 				pizzas: chosenPizzas,
 			},
@@ -47,5 +47,16 @@ describe('Displays pizzas count and total price that have chosen', () => {
 
 		expect(totalPriceElem).toHaveTextContent('300');
 		expect(totalCountElem).toHaveTextContent('3');
+	});
+
+	it('Link path', async () => {
+		setRender(<CartButton link={'/'} />, {
+			pizzasReducer: {
+				pizzas: chosenPizzas,
+			},
+		});
+		const linkElem = screen.getByTestId('link');
+
+		expect(linkElem).toHaveAttribute('href', '/');
 	});
 });
