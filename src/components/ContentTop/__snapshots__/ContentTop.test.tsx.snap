@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContentTop If happened error display skeleton 1`] = `
+exports[`Displays categories and sort table if loaded If data is loading or threw error display skeleton 1`] = `
 <div
   class="categories"
   data-testid="skeleton-wrapper"

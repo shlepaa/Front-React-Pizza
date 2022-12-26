@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { Sort } from './Sort';
 import userEvent from '@testing-library/user-event';
-import { IUserState } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
+import { initialState } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import React from 'react';
 import setRender from '../../helpers/setRender';
 import { IDefaultProps } from '../../interfaces/IDefaultProps';
@@ -15,21 +15,6 @@ const defaultProps: IDefaultProps = {
 	],
 };
 
-const sortInitialState: IUserState = {
-	isLoading: false,
-	error: false,
-	pizzas: [],
-	pizzasBackup: [],
-	allPizzaTypes: [],
-	currentType: 'все',
-	searchValue: '',
-	isSortedToDown: true,
-	currentSortParam: {
-		title: 'цене',
-		param: 'currentPrice',
-	},
-};
-
 describe('Sort table where you can sort to up or down or by using params', () => {
 	beforeEach(() => {
 		localStorage.clear();
@@ -38,7 +23,13 @@ describe('Sort table where you can sort to up or down or by using params', () =>
 	it('Other state for currentSortParam', async () => {
 		const spy = jest.spyOn(React, 'useEffect');
 		setRender(<Sort {...defaultProps} />, {
-			pizzaSortReducer: sortInitialState,
+			pizzaSortReducer: {
+				...initialState,
+				currentSortParam: {
+					title: 'цене',
+					param: 'currentPrice',
+				},
+			},
 		});
 		const buttonElem = screen.getByTestId('open-popuop-button');
 		expect(buttonElem).toHaveTextContent('цене');
@@ -66,7 +57,14 @@ describe('Sort table where you can sort to up or down or by using params', () =>
 
 	it('Other state for isSortedToDown', async () => {
 		setRender(<Sort {...defaultProps} />, {
-			pizzaSortReducer: sortInitialState,
+			pizzaSortReducer: {
+				...initialState,
+				currentSortParam: {
+					title: 'цене',
+					param: 'currentPrice',
+				},
+				isSortedToDown: true,
+			},
 		});
 		const sortUpDownButton = screen.getByTestId('sort-up-down-button');
 		expect(sortUpDownButton).toHaveClass('down');

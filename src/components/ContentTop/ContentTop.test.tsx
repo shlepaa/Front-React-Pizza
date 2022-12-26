@@ -2,27 +2,15 @@ import setRender from '../../helpers/setRender';
 import { ContentTop } from './ContentTop';
 import { screen } from '@testing-library/dom';
 import * as fillWithNumbers from '../../helpers/fillWithNumbers';
-import { IUserState } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
+import { initialState } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 
-const sortInitialState: IUserState = {
-	isLoading: false,
-	error: false,
-	pizzas: [],
-	pizzasBackup: [],
-	allPizzaTypes: [],
-	currentType: 'все',
-	searchValue: '',
-	isSortedToDown: true,
-	currentSortParam: {
-		title: 'цене',
-		param: 'currentPrice',
-	},
-};
-
-describe('ContentTop', () => {
-	it('Should display data after loading', async () => {
+describe('Displays categories and sort table if loaded', () => {
+	it('If loaded', async () => {
 		setRender(<ContentTop />, {
-			pizzaSortReducer: sortInitialState,
+			pizzaSortReducer: {
+				...initialState,
+				isLoading: false,
+			},
 		});
 		const categoriesWrapper = await screen.findByTestId(
 			'categories-wrapper'
@@ -32,10 +20,14 @@ describe('ContentTop', () => {
 		expect(sortWrapper).toBeInTheDocument();
 	});
 
-	it('If happened error display skeleton', () => {
+	it('If data is loading or threw error display skeleton', () => {
 		const spyFunc = jest.spyOn(fillWithNumbers, 'default');
 		setRender(<ContentTop />, {
-			pizzaSortReducer: { ...sortInitialState, isLoading: true },
+			pizzaSortReducer: {
+				...initialState,
+				isLoading: true,
+				error: true,
+			},
 		});
 		const categorieSkeletonWrapper = screen.getByTestId('skeleton-wrapper');
 		const categoryElem = screen.getAllByTestId('category');
