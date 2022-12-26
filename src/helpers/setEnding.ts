@@ -1,20 +1,23 @@
 const setEnding = (word: string): string => {
+	if (!word) {
+		return word;
+	}
 	const firstToUpper = word[0]?.toUpperCase() + word.slice(1, word.length);
 	const lastChars = `${firstToUpper[firstToUpper.length - 2]}${
 		firstToUpper[firstToUpper.length - 1]
 	}`;
 
-	let correctedType = '';
+	let correctedWord = '';
 	if (lastChars === 'ая') {
-		correctedType = firstToUpper.slice(0, firstToUpper.length - 2) + 'ие';
+		correctedWord = firstToUpper.slice(0, firstToUpper.length - 2) + 'ие';
 	} else {
-		correctedType = firstToUpper;
+		correctedWord = firstToUpper;
 	}
 	if (lastChars === 'ая' && firstToUpper[firstToUpper.length - 3] !== 'к') {
-		correctedType = firstToUpper.slice(0, firstToUpper.length - 2) + 'ые';
+		correctedWord = firstToUpper.slice(0, firstToUpper.length - 2) + 'ые';
 	}
 
-	return correctedType;
+	return correctedWord;
 };
 
 export default setEnding;
