@@ -1,7 +1,7 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 
 export interface SearchProps
 	extends DetailedHTMLProps<
-		HTMLAttributes<HTMLInputElement>,
+		InputHTMLAttributes<HTMLInputElement>,
 		HTMLInputElement
 	> {}

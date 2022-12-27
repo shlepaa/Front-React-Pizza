@@ -1,8 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
 export interface AddButtonProps
 	extends DetailedHTMLProps<
-		HTMLAttributes<HTMLButtonElement>,
+		ButtonHTMLAttributes<HTMLButtonElement>,
 		HTMLButtonElement
 	> {
 	count: number;

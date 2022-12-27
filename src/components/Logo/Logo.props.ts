@@ -1,4 +1,3 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { SVGProps } from 'react';
 
-export interface LogoProps
-	extends DetailedHTMLProps<HTMLAttributes<SVGSVGElement>, SVGSVGElement> {}
+export interface LogoProps extends SVGProps<SVGSVGElement> {}
