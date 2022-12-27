@@ -12,6 +12,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ className, ...props }) => {
 			<Header />
 			<OrderButton />
 			<Outlet />
+			<h1>footer</h1>
 		</div>
 	);
 };
