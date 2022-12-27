@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 
 .header {
-	padding: 40px 0;
+	margin-bottom: 40px;
 	border-bottom: 1px solid $gray-line;
 
 	.container {
@@ -9,14 +9,13 @@
 		grid-template-columns: 1fr auto auto;
 		align-items: center;
 		justify-content: space-between;
-		width: 90%;
-		margin: 0 auto;
 	}
 
 	.logoBlock {
 		display: flex;
 
 		.logo {
+			margin-top: 5px;
 			width: 38px;
 			margin-right: 15px;
 		}

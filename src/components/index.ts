@@ -12,3 +12,6 @@ export * from './UlDough/UlDough';
 export * from './PIzzaSkeletonBlock/PIzzaSkeletonBlock';
 export * from './CategoriesSkeleton/CategoriesSkeleton';
 export * from './ErrorBlock/ErrorBlock';
+export * from './NotFound/NotFound';
+export * from './Cart/Cart';
+export * from './Logo/Logo';

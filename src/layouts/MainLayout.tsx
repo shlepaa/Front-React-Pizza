@@ -9,7 +9,9 @@ export const MainLayout: FC<MainLayoutProps> = ({ className, ...props }) => {
 	return (
 		<div className={cn(styles.wrapper, className)} {...props}>
 			<Header />
+			<h1>navbar</h1>
 			<Outlet />
+			<h1>footer</h1>
 		</div>
 	);
 };

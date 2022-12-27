@@ -35,7 +35,7 @@ export const CartButton: FC<CartButtonProps> = ({
 	}, [pizzas]);
 
 	return (
-		<Link data-testid={`${testid} link`} to={link}>
+		<Link data-testid={`${testid ? testid : ''} link`} to={link}>
 			<button className={cn(className, styles.button, styles.buttonCart)}>
 				<span data-testid="total-price">{totalPrice} ₽</span>
 				<div className={styles.delimiter}></div>
