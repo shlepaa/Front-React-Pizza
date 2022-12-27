@@ -25,6 +25,7 @@ module.exports = {
 		},
 	},
 	output: {
+		publicPath: '/',
 		path: path.resolve(__dirname, '..', './build'),
 		filename: 'js/[name].[contenthash].js',
 		clean: true,
@@ -115,12 +116,8 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: devMode
-				? 'assets/css/[name].css'
-				: 'assets/css/[name].[contenthash].css',
-			chunkFilename: devMode
-				? 'assets/css/[id].css'
-				: 'assets/css/[id].[contenthash].css',
+			filename: 'css/[name].[contenthash].css',
+			chunkFilename: 'css/[id].[contenthash].css',
 		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '..', './src/index.html'),
