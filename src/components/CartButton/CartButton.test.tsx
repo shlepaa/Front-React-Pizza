@@ -50,13 +50,13 @@ describe('Displays pizzas count and total price that have chosen', () => {
 	});
 
 	it('Link path', async () => {
-		setRender(<CartButton link={'/'} />, {
+		setRender(<CartButton link={'/test-path'} />, {
 			pizzasReducer: {
 				pizzas: chosenPizzas,
 			},
 		});
 		const linkElem = screen.getByTestId('link');
 
-		expect(linkElem).toHaveAttribute('href', '/');
+		expect(linkElem).toHaveAttribute('href', '/test-path');
 	});
 });

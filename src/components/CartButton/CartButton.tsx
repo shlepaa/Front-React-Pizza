@@ -8,9 +8,9 @@ import { useAppSelector } from '../../hooks/redux';
 import { Link } from 'react-router-dom';
 
 export const CartButton: FC<CartButtonProps> = ({
-	link,
+	testid,
 	className,
-	...props
+	link,
 }) => {
 	const [totalPrice, setTotalPrice] = useState<number>(0);
 	const [totalCount, setTotalCount] = useState<number>(0);
@@ -35,10 +35,8 @@ export const CartButton: FC<CartButtonProps> = ({
 	}, [pizzas]);
 
 	return (
-		<Link data-testid="link" to={link}>
-			<button
-				className={cn(className, styles.button, styles.buttonCart)}
-				{...props}>
+		<Link data-testid={`${testid} link`} to={link}>
+			<button className={cn(className, styles.button, styles.buttonCart)}>
 				<span data-testid="total-price">{totalPrice} ₽</span>
 				<div className={styles.delimiter}></div>
 				<IconContext.Provider
