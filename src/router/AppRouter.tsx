@@ -8,8 +8,8 @@ export const AppRouter: FC = () => {
 		<Routes>
 			<Route path="/" element={<MainLayout />}>
 				<Route index element={<Content />} />
-				<Route path="*" element={<NotFound />} />
-				<Route path="cart" element={<h1>cart</h1>} />
+				<Route path="/*" element={<NotFound />} />
+				<Route path="/cart" element={<h1>cart</h1>} />
 			</Route>
 		</Routes>
 	);

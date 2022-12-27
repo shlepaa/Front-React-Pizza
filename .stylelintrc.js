@@ -1,0 +1,19 @@
+module.exports = {
+	extends: [
+		'stylelint-config-standard',
+		'stylelint-config-rational-order',
+		'stylelint-prettier/recommended',
+	],
+	plugins: ['stylelint-order', 'stylelint-scss'],
+	rules: {
+		indentation: 'tab',
+		'color-hex-case': 'upper',
+		'string-quotes': 'single',
+		'selector-class-pattern': '^[a-z]|[a-z][a-zA-Z0-9]+$|^ant-|^mz-',
+		'declaration-block-no-redundant-longhand-properties': null,
+		'color-function-notation': 'legacy',
+		'import-notation': 'string',
+		'function-no-unknown': null,
+		'no-descending-specificity': null,
+	},
+};
