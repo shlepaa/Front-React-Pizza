@@ -2,8 +2,7 @@ import styles from './AddButton.module.scss';
 import { AddButtonProps } from './AddButton.props';
 import cn from 'classnames';
 import { FC } from 'react';
-import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
-import { IconContext } from 'react-icons';
+import { CalcButton } from '../CalcButton/CalcButton';
 
 export const AddButton: FC<AddButtonProps> = ({
 	setCount,
@@ -14,28 +13,15 @@ export const AddButton: FC<AddButtonProps> = ({
 	return (
 		<>
 			<div className={styles.buttonsBlock}>
-				<button
+				<CalcButton
+					isIncrement
 					data-testid="plus"
-					onClick={() => setCount('increment')}>
-					<IconContext.Provider
-						value={{
-							size: '30px',
-							className: cn(styles.plus),
-						}}>
-						<AiFillPlusCircle />
-					</IconContext.Provider>
-				</button>
-				<button
-					data-testid="minus"
-					onClick={() => setCount('decrement')}>
-					<IconContext.Provider
-						value={{
-							size: '30px',
-							className: cn(styles.plus),
-						}}>
-						<AiFillMinusCircle />
-					</IconContext.Provider>
-				</button>
+					onClick={() => setCount('increment')}
+				/>
+				<CalcButton
+					data-testid="plus"
+					onClick={() => setCount('decrement')}
+				/>
 			</div>
 			<button
 				{...props}

@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+
+.plus {
+	color: $orange;
+	cursor: pointer;
+
+	&:hover {
+		fill: $black;
+	}
+}
