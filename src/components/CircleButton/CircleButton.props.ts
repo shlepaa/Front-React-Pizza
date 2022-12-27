@@ -6,4 +6,5 @@ export interface CircleButtonProps
 		HTMLButtonElement
 	> {
 	isIncrement?: boolean;
+	close?: boolean;
 }
