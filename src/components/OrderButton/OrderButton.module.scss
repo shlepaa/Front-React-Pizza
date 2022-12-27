@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.button {
+	padding: 18px 29px;
+	font-weight: 700;
+	border-radius: 30px;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.backButton {
+	border: 1px solid $gray-button;
+	color: $gray-button;
+}
+
+.orderButton {
+	color: $white;
+	background-color: $orange;
+}

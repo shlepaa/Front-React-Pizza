@@ -25,7 +25,6 @@ module.exports = {
 		},
 	},
 	output: {
-		publicPath: '/',
 		path: path.resolve(__dirname, '..', './build'),
 		filename: 'js/[name].[contenthash].js',
 		clean: true,
@@ -36,11 +35,7 @@ module.exports = {
 			{
 				test: /\.(ts|js)x?$/,
 				exclude: /node_modules/,
-				use: [
-					{
-						loader: 'babel-loader',
-					},
-				],
+				use: 'babel-loader',
 			},
 			{
 				test: /\.module\.s(a|c)ss$/,
