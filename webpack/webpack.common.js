@@ -24,6 +24,13 @@ module.exports = {
 			},
 		},
 	},
+	output: {
+		publicPath: '/',
+		path: path.resolve(__dirname, '..', './build'),
+		filename: 'js/[name].[contenthash].js',
+		clean: true,
+		assetModuleFilename: 'assets/[name][ext]',
+	},
 	module: {
 		rules: [
 			{
@@ -96,10 +103,10 @@ module.exports = {
 				use: ['@svgr/webpack'],
 			},
 			{
-				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+				test: /\.(ico|gif|png|jpg|jpeg)$/,
 				type: 'asset/resource',
 				generator: {
-					emit: false,
+					filename: 'assets/img/[name][ext][query]',
 				},
 			},
 			{
@@ -110,12 +117,6 @@ module.exports = {
 				},
 			},
 		],
-	},
-	output: {
-		publicPath: '/',
-		path: path.resolve(__dirname, '..', './build'),
-		filename: 'js/[name].[contenthash].js',
-		clean: true,
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
