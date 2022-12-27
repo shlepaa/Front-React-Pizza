@@ -13,6 +13,7 @@ import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
+	id,
 	sizesAndPrices,
 	possibleDoughs,
 	image,
@@ -36,6 +37,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		setCount(1);
 		const chosenPizza: IChosenPizza = {
 			dough,
+			id,
 			title,
 			count,
 			size,
@@ -52,11 +54,11 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 
 		const allPizzas: IChosenPizza[] = JSON.parse(localStorage.chosenPizzas);
 		const currentPizza = allPizzas.find(
-			(p) => p.title === title && p.dough === dough && p.size === size
+			(p) => p.id === id && p.dough === dough && p.size === size
 		);
 		if (currentPizza) {
 			allPizzas.map((p) => {
-				if (p.title === title && p.dough === dough && p.size === size) {
+				if (p.id === id && p.dough === dough && p.size === size) {
 					p.count = p.count + count;
 					return p;
 				}

@@ -5,7 +5,7 @@ const checkForSavedPizzas = (pizzas: IPizza[]): IPizza[] => {
 		return pizzas.map((pizza) => {
 			const replacementPizza: IPizza = JSON.parse(
 				localStorage.pizzas
-			).find((savedPizza: IPizza) => savedPizza.title === pizza.title);
+			).find((savedPizza: IPizza) => savedPizza._id === pizza._id);
 			if (replacementPizza) {
 				return replacementPizza;
 			}

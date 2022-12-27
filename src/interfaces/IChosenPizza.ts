@@ -5,4 +5,5 @@ export interface IChosenPizza {
 	size: string;
 	image: string;
 	price: number;
+	id: string;
 }

@@ -39,7 +39,7 @@ export const pizzaSortSlice = createSlice({
 			state.pizzas = action.payload;
 			state.pizzasBackup = state.pizzasBackup.map((pizzaBack) => {
 				const replacementPizza = action.payload.find(
-					(pizza) => pizzaBack.title === pizza.title
+					(pizza) => pizzaBack._id === pizza._id
 				);
 				if (replacementPizza) {
 					return replacementPizza;

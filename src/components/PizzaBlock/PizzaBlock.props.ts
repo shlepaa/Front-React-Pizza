@@ -9,4 +9,5 @@ export interface PizzaBlockProps
 	defaultSize?: string;
 	possibleDoughs: string[];
 	sizesAndPrices: ISizeAndPrice[];
+	id: string;
 }

@@ -10,4 +10,5 @@ export interface IPizza {
 	size?: string;
 	possibleDoughs: string[];
 	sizesAndPrices: ISizeAndPrice[];
+	_id: string;
 }
