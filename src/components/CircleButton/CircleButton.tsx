@@ -1,17 +1,17 @@
-import styles from './CalcButton.module.scss';
-import { CalcButtonProps } from './CalcButton.props';
+import styles from './CircleButton.module.scss';
+import { CircleButtonProps } from './CircleButton.props';
 import { FC } from 'react';
 import cn from 'classnames';
 import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 
-export const CalcButton: FC<CalcButtonProps> = ({
+export const CircleButton: FC<CircleButtonProps> = ({
 	isIncrement = false,
 	className,
 	...props
 }) => {
 	return (
-		<button className={cn(styles.calcButton)} {...props}>
+		<button className={cn(styles.circleButton)} {...props}>
 			<IconContext.Provider
 				value={{
 					size: '30px',

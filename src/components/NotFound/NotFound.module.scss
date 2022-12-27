@@ -5,8 +5,8 @@
 	flex-direction: column;
 	gap: 10px;
 	align-items: center;
-	height: 60vh;
 	justify-content: center;
+	height: 60vh;
 	text-align: center;
 }
 
@@ -18,11 +18,11 @@
 	width: 500px;
 	height: 300px;
 	margin: 10px 0;
-	border-radius: 10px;
 	padding: 10px;
-	border: 1px solid $gray;
-	object-position: 60% 0;
 	object-fit: cover;
+	object-position: 60% 0;
+	border: 1px solid $gray;
+	border-radius: 10px;
 }
 
 .title {
@@ -30,10 +30,11 @@
 }
 
 .homepage {
-	font-size: 28px;
 	font-weight: 500;
+	font-size: 28px;
+
 	a {
-		font-size: 28px;
 		color: $orange;
+		font-size: 28px;
 	}
 }

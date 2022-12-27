@@ -3,6 +3,7 @@ import { OrderButtonProps } from './OrderButton.props';
 import { FC } from 'react';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
+import ArrowIcon from './arrow.svg';
 
 export const OrderButton: FC<OrderButtonProps> = ({
 	back,
@@ -14,6 +15,7 @@ export const OrderButton: FC<OrderButtonProps> = ({
 			<button
 				className={cn(className, styles.button, styles.backButton)}
 				{...props}>
+				<ArrowIcon className={cn(styles.icon)} />
 				Вернуться назад
 			</button>
 		</Link>

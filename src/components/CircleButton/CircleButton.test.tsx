@@ -1,4 +1,4 @@
-import { CalcButton } from './CalcButton';
+import { CalcButton } from './CircleButton';
 import setRender from '../../helpers/setRender';
 
 describe('Table with all sizes for current pizza', () => {

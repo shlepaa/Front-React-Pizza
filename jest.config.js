@@ -4,6 +4,6 @@ module.exports = {
 	testEnvironment: 'jsdom',
 	setupFilesAfterEnv: ['<rootDir>/src/jest-setup.ts'],
 	moduleNameMapper: {
-		'\\.(css|scss)$': 'identity-obj-proxy',
+		'\\.(css|scss|img|jpg|jpeg|svg)$': 'identity-obj-proxy',
 	},
 };

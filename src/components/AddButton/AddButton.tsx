@@ -2,7 +2,7 @@ import styles from './AddButton.module.scss';
 import { AddButtonProps } from './AddButton.props';
 import cn from 'classnames';
 import { FC } from 'react';
-import { CalcButton } from '../CalcButton/CalcButton';
+import { CircleButton } from '../CircleButton/CircleButton';
 
 export const AddButton: FC<AddButtonProps> = ({
 	setCount,
@@ -13,13 +13,13 @@ export const AddButton: FC<AddButtonProps> = ({
 	return (
 		<>
 			<div className={styles.buttonsBlock}>
-				<CalcButton
+				<CircleButton
 					isIncrement
 					data-testid="plus"
 					onClick={() => setCount('increment')}
 				/>
-				<CalcButton
-					data-testid="plus"
+				<CircleButton
+					data-testid="minus"
 					onClick={() => setCount('decrement')}
 				/>
 			</div>

@@ -3,17 +3,36 @@
 .button {
 	padding: 18px 29px;
 	font-weight: 700;
-	border-radius: 30px;
 	font-size: 16px;
 	line-height: 19px;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: all $duration ease-in-out;
 }
 
 .backButton {
-	border: 1px solid $gray-button;
 	color: $gray-button;
+	border: 1px solid $gray-button;
+	&:hover {
+		color: $gray;
+		border-color: $gray;
+
+		path {
+			stroke: $gray;
+		}
+	}
 }
 
 .orderButton {
 	color: $white;
 	background-color: $orange;
+	&:hover {
+		background-color: darken($color: $orange, $amount: 8%);
+	}
+}
+
+.icon {
+	margin-right: 6px;
+	position: relative;
+	top: 2px;
 }
