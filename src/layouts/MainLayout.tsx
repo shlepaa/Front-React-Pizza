@@ -10,7 +10,6 @@ export const MainLayout: FC<MainLayoutProps> = ({ className, ...props }) => {
 		<div className={cn(styles.wrapper, className)} {...props}>
 			<Header />
 			<Outlet />
-			<h1>footer</h1>
 		</div>
 	);
 };

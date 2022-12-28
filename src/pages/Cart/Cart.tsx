@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { BsCart, BsTrash } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
 import { clearPizzas } from '../../store/slices/PizzasSlice/PizzasSlice';
-import { EmptyCart, OrderButton, OrderPosition } from '..';
+import { EmptyCart, OrderButton, OrderPosition } from '../../components';
 
 export const Cart: FC<CartProps> = ({ className, ...props }) => {
 	const dispatch = useAppDispatch();
