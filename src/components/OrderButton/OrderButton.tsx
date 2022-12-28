@@ -8,24 +8,25 @@ import ArrowIcon from './arrow.svg';
 export const OrderButton: FC<OrderButtonProps> = ({
 	back,
 	className,
+	children,
 	...props
 }) => {
 	return back ? (
-		<Link to="/">
-			<button
-				className={cn(className, styles.button, styles.backButton)}
-				{...props}>
+		<button
+			className={cn(className, styles.button, styles.backButton)}
+			{...props}>
+			<Link to="/">
 				<ArrowIcon className={cn(styles.icon)} />
-				Вернуться назад
-			</button>
-		</Link>
+				<span>{children}</span>
+			</Link>
+		</button>
 	) : (
-		<Link to="/order">
-			<button
-				className={cn(className, styles.button, styles.orderButton)}
-				{...props}>
-				Оплатить сейчас
-			</button>
-		</Link>
+		<button
+			className={cn(className, styles.button, styles.orderButton)}
+			{...props}>
+			<Link to="/order">
+				<span>{children}</span>
+			</Link>
+		</button>
 	);
 };
