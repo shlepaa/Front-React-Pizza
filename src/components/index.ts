@@ -17,3 +17,4 @@ export * from './Cart/Cart';
 export * from './Logo/Logo';
 export * from './CircleButton/CircleButton';
 export * from './OrderPosition/OrderPosition';
+export * from './EmptyCart/EmptyCart';

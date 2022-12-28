@@ -34,7 +34,7 @@ module.exports = {
 	],
 	ignorePatterns: ['**/*.js'],
 	rules: {
-		'no-underscore-dangle': 'error',
+		'no-underscore-dangle': 'off',
 		camelcase: 'error',
 		'no-unused-vars': 'off',
 		'@typescript-eslint/no-unused-vars': 'error',

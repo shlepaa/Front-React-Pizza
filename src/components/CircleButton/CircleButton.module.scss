@@ -3,8 +3,9 @@
 .plus {
 	color: $orange;
 	cursor: pointer;
+	transition: all $duration ease-in-out;
 
 	&:hover {
-		fill: $black;
+		fill: darken($color: $orange, $amount: 18%);
 	}
 }

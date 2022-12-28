@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-size: 16px;
+	font-size: inherit;
 	font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
 	list-style: none;
 	outline: none;
@@ -17,6 +17,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	color: $black;
 	background-color: $background;
+	font-weight: 400;
 }
 
 a,

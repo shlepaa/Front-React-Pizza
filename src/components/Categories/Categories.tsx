@@ -3,14 +3,16 @@ import { CategoriesProps } from './Categories.props';
 import cn from 'classnames';
 import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
+import {
+	sortByType,
+	unset,
+} from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 
 export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 	const dispatch = useAppDispatch();
 	const { allPizzaTypes, currentType, searchValue } = useAppSelector(
 		(state) => state.pizzaSortReducer
 	);
-	const { unset, sortByType } = pizzaSortSlice.actions;
 
 	const handlerSetType = (type: string) => {
 		if (type === 'все') {

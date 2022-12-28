@@ -13,7 +13,7 @@
 		border: 3px solid $gray-block;
 		border-radius: 30px;
 		cursor: pointer;
-		transition: background-color 0.1s ease-in-out;
+		transition: all $duration ease-in-out;
 
 		&:hover {
 			background-color: darken($white, 5%);

@@ -4,13 +4,16 @@ import { FC, useEffect } from 'react';
 import cn from 'classnames';
 import { FcBinoculars } from 'react-icons/fc';
 import { IconContext } from 'react-icons';
-import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
+import {
+	search,
+	setSearchValue,
+	unset,
+} from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { Link } from 'react-router-dom';
 
 export const Search: FC<SearchProps> = ({ className, ...props }) => {
 	const dispatch = useAppDispatch();
-	const { search, unset, setSearchValue } = pizzaSortSlice.actions;
 	const { searchValue } = useAppSelector((state) => state.pizzaSortReducer);
 
 	useEffect(() => {

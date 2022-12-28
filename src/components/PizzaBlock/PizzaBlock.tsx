@@ -6,10 +6,13 @@ import { AddButton } from '../AddButton/AddButton';
 import { UlSizes } from '../UlSizes/UlSizes';
 import { UlDough } from '../UlDough/UlDough';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { pizzasSlice } from '../../store/slices/PizzasSlice/PizzasSlice';
+import {
+	addPizza,
+	reloadPizzas,
+} from '../../store/slices/PizzasSlice/PizzasSlice';
 import { IChosenPizza } from '../../interfaces/IChosenPizza';
 import { IPizza } from '../../interfaces/IPizza';
-import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
+import { setParam } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
@@ -26,8 +29,9 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 	const [size, setSize] = useState<string>(defaultSize);
 	const [count, setCount] = useState<number>(1);
 	const dispatch = useAppDispatch();
-	const { setParam } = pizzaSortSlice.actions;
-	const { addPizza, reloadPizzas } = pizzasSlice.actions;
+	const { pizzas: chosenPizzas } = useAppSelector(
+		(state) => state.pizzasReducer
+	);
 	const { pizzas } = useAppSelector((state) => state.pizzaSortReducer);
 	const copiedWithoutFlagsPizzas: IPizza[] = JSON.parse(
 		JSON.stringify(pizzas)
@@ -45,14 +49,16 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			price: findDependencyBetweenSizeAndPrice(),
 		};
 
-		if (!localStorage.chosenPizzas) {
+		if (!chosenPizzas.length) {
 			localStorage.chosenPizzas = JSON.stringify([chosenPizza]);
 			dispatch(addPizza(chosenPizza));
 			console.log(JSON.parse(localStorage.chosenPizzas), 1);
 			return;
 		}
 
-		const allPizzas: IChosenPizza[] = JSON.parse(localStorage.chosenPizzas);
+		const allPizzas: IChosenPizza[] = JSON.parse(
+			JSON.stringify(chosenPizzas)
+		);
 		const currentPizza = allPizzas.find(
 			(p) => p.id === id && p.dough === dough && p.size === size
 		);

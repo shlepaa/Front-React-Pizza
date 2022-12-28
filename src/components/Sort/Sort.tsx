@@ -3,7 +3,10 @@ import { SortProps } from './Sort.props';
 import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { pizzaSortSlice } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
+import {
+	sortByParam,
+	sortToUpOrDown,
+} from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import { TypeParams } from '../../interfaces/TypeParams';
 import { IconContext } from 'react-icons';
 import { AiFillCaretUp } from 'react-icons/ai';
@@ -11,7 +14,6 @@ import { AiFillCaretUp } from 'react-icons/ai';
 export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
-	const { sortByParam, sortToUpOrDown } = pizzaSortSlice.actions;
 	const { currentSortParam, isSortedToDown } = useAppSelector(
 		(state) => state.pizzaSortReducer
 	);

@@ -29,42 +29,39 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 		return setEnding(currentType);
 	};
 
+	if (error) {
+		return <ErrorBlock data-testid="error" />;
+	}
+
 	return (
 		<>
-			{error ? (
-				<>
-					<ErrorBlock data-testid="error" />
-				</>
-			) : (
-				<>
-					<h2 data-testid="title" className={styles.title}>
-						{isLoading
-							? 'Загрузка пицц . . .'
-							: `${handlerLogicalTitle()} пиццы`}
-					</h2>
-					<div className={cn(className, styles.items)} {...props}>
-						{isLoading
-							? fillWithNumbers(8).map((p) => (
-									<PIzzaSkeletonBlock
-										data-testid="sleketon-wrapper"
-										key={p}
-									/>
-							  ))
-							: pizzas.map((p) => (
-									<PizzaBlock
-										data-testid="pizza-wrapper"
-										sizesAndPrices={p.sizesAndPrices}
-										possibleDoughs={p.possibleDoughs}
-										image={p.image}
-										title={p.title}
-										key={p.title}
-										defaultDough={p.dough}
-										defaultSize={p.size}
-									/>
-							  ))}
-					</div>
-				</>
-			)}
+			<h2 data-testid="title" className={styles.title}>
+				{isLoading
+					? 'Загрузка пицц . . .'
+					: `${handlerLogicalTitle()} пиццы`}
+			</h2>
+			<div className={cn(className, styles.items)} {...props}>
+				{isLoading
+					? fillWithNumbers(8).map((p) => (
+							<PIzzaSkeletonBlock
+								data-testid="sleketon-wrapper"
+								key={p}
+							/>
+					  ))
+					: pizzas.map((p) => (
+							<PizzaBlock
+								data-testid="pizza-wrapper"
+								sizesAndPrices={p.sizesAndPrices}
+								possibleDoughs={p.possibleDoughs}
+								image={p.image}
+								title={p.title}
+								key={p.title}
+								defaultDough={p.dough}
+								defaultSize={p.size}
+								id={p._id}
+							/>
+					  ))}
+			</div>
 		</>
 	);
 };
