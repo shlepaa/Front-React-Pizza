@@ -3,11 +3,10 @@ import { CartProps } from './Cart.props';
 import { FC } from 'react';
 import cn from 'classnames';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { OrderPosition } from '../OrderPosition/OrderPosition';
 import { BsCart, BsTrash } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
-import { OrderButton } from '../OrderButton/OrderButton';
 import { clearPizzas } from '../../store/slices/PizzasSlice/PizzasSlice';
+import { EmptyCart, OrderButton, OrderPosition } from '..';
 
 export const Cart: FC<CartProps> = ({ className, ...props }) => {
 	const dispatch = useAppDispatch();
@@ -24,6 +23,10 @@ export const Cart: FC<CartProps> = ({ className, ...props }) => {
 		0
 	);
 
+	if (!pizzas.length) {
+		return <EmptyCart />;
+	}
+
 	return (
 		<div className={cn(className, styles.cart)} {...props}>
 			<div className={styles.title}>
@@ -37,6 +40,7 @@ export const Cart: FC<CartProps> = ({ className, ...props }) => {
 				<span>Корзина</span>
 			</div>
 			<button
+				data-testid="clear-all-button"
 				onClick={() => dispatch(clearPizzas())}
 				className={styles.clear}>
 				<IconContext.Provider
@@ -50,16 +54,19 @@ export const Cart: FC<CartProps> = ({ className, ...props }) => {
 			</button>
 			{pizzas.map((pizza) => (
 				<OrderPosition
+					data-testid="position"
 					className={styles.position}
 					key={pizza.id + pizza.dough + pizza.size}
 					{...pizza}
 				/>
 			))}
 			<span className={styles.count}>
-				Всего пицц: <span>{countPizzas} шт.</span>
+				Всего пицц:{' '}
+				<span data-testid="amount-count">{countPizzas} шт.</span>
 			</span>
 			<span className={styles.amountTitle}>
-				Сумма заказа: <span>{amountPrice} ₽</span>
+				Сумма заказа:{' '}
+				<span data-testid="amount-price">{amountPrice} ₽</span>
 			</span>
 			<OrderButton className={styles.back} back>
 				Вернуться назад
