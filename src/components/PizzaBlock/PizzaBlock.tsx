@@ -2,9 +2,7 @@ import styles from './PizzaBlock.module.scss';
 import { PizzaBlockProps } from './PizzaBlock.props';
 import cn from 'classnames';
 import { FC, useState } from 'react';
-import { AddButton } from '../AddButton/AddButton';
-import { UlSizes } from '../UlSizes/UlSizes';
-import { UlDough } from '../UlDough/UlDough';
+import { UlDough, UlSizes, AddButton } from '..';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import {
 	addPizza,

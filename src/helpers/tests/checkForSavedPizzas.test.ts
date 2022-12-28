@@ -3,6 +3,7 @@ import checkForSavedPizzas from '../checkForSavedPizzas';
 
 const pizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Б',
@@ -17,6 +18,7 @@ const pizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '2',
 		currentPrice: 300,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -31,6 +33,7 @@ const pizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '3',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'В',
@@ -52,6 +55,7 @@ const pizzas: IPizza[] = [
 
 const localStoragePizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Б',
@@ -68,6 +72,7 @@ const localStoragePizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '2',
 		currentPrice: 300,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -82,6 +87,7 @@ const localStoragePizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '3',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'В',
@@ -105,6 +111,7 @@ const localStoragePizzas: IPizza[] = [
 
 const localStorageWithLowerPizzas: IPizza[] = [
 	{
+		_id: '3',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'В',
@@ -128,6 +135,7 @@ const localStorageWithLowerPizzas: IPizza[] = [
 
 const combinedPizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Б',
@@ -142,6 +150,7 @@ const combinedPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '2',
 		currentPrice: 300,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -156,6 +165,7 @@ const combinedPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '3',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'В',

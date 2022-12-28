@@ -2,7 +2,7 @@ import styles from './AddButton.module.scss';
 import { AddButtonProps } from './AddButton.props';
 import cn from 'classnames';
 import { FC } from 'react';
-import { CircleButton } from '../CircleButton/CircleButton';
+import { CircleButton } from '..';
 
 export const AddButton: FC<AddButtonProps> = ({
 	setCount,

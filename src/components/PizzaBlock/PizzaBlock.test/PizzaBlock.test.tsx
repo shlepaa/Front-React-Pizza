@@ -15,6 +15,7 @@ import {
 
 export const pizzaBlockProps: PizzaBlockProps = {
 	title: 'Пицца',
+	id: '1',
 	image: 'http://google/image',
 	possibleDoughs: ['тонкое', 'традиционное', 'без теста'],
 	sizesAndPrices: [

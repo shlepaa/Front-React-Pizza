@@ -2,11 +2,9 @@ import styles from './Allpizzas.module.scss';
 import { AllpizzasProps } from './Allpizzas.props';
 import cn from 'classnames';
 import { FC, useEffect } from 'react';
-import { PizzaBlock } from '../PizzaBlock/PizzaBlock';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchPizzas } from '../../store/slices/ActionCreators';
-import { PIzzaSkeletonBlock } from '../PIzzaSkeletonBlock/PIzzaSkeletonBlock';
-import { ErrorBlock } from '../ErrorBlock/ErrorBlock';
+import { ErrorBlock, PIzzaSkeletonBlock, PizzaBlock } from '..';
 import fillWithNumbers from '../../helpers/fillWithNumbers';
 import setEnding from '../../helpers/setEnding';
 

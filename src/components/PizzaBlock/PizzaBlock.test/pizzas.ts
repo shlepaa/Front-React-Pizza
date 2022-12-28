@@ -3,6 +3,7 @@ import { IPizza } from '../../../interfaces/IPizza';
 
 export const defaultPizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'image',
 		possibleDoughs: ['тонкое', 'традиционное', 'без теста'],
@@ -21,6 +22,7 @@ export const defaultPizzas: IPizza[] = [
 		types: ['мясная'],
 	},
 	{
+		_id: '2',
 		currentPrice: 200,
 		image: 'image',
 		possibleDoughs: ['тонкое', 'традиционное'],
@@ -38,6 +40,7 @@ export const defaultPizzas: IPizza[] = [
 
 export const changedSizePizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'image',
 		size: '30',
@@ -57,6 +60,7 @@ export const changedSizePizzas: IPizza[] = [
 		types: ['мясная'],
 	},
 	{
+		_id: '2',
 		currentPrice: 200,
 		image: 'image',
 		possibleDoughs: ['тонкое', 'традиционное'],
@@ -74,6 +78,7 @@ export const changedSizePizzas: IPizza[] = [
 
 export const changedSizeAndDoughPizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'image',
 		size: '30',
@@ -94,6 +99,7 @@ export const changedSizeAndDoughPizzas: IPizza[] = [
 		types: ['мясная'],
 	},
 	{
+		_id: '2',
 		currentPrice: 200,
 		image: 'image',
 		possibleDoughs: ['тонкое', 'традиционное'],
@@ -111,6 +117,7 @@ export const changedSizeAndDoughPizzas: IPizza[] = [
 
 export const chosenPizzas: IChosenPizza[] = [
 	{
+		id: '1',
 		dough: 'традиционное',
 		title: 'Пицца',
 		count: 2,
@@ -122,6 +129,7 @@ export const chosenPizzas: IChosenPizza[] = [
 
 export const oneMoreChosenPizzas: IChosenPizza[] = [
 	{
+		id: '1',
 		dough: 'традиционное',
 		title: 'Пицца',
 		count: 3,
@@ -133,6 +141,7 @@ export const oneMoreChosenPizzas: IChosenPizza[] = [
 
 export const differentSizeAndDoughChosenPizzas: IChosenPizza[] = [
 	{
+		id: '1',
 		dough: 'традиционное',
 		title: 'Пицца',
 		count: 3,
@@ -141,6 +150,7 @@ export const differentSizeAndDoughChosenPizzas: IChosenPizza[] = [
 		price: 200,
 	},
 	{
+		id: '1',
 		dough: 'тонкое',
 		title: 'Пицца',
 		count: 1,

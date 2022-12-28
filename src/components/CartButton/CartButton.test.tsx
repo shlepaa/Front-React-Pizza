@@ -11,6 +11,7 @@ const chosenPizzas: IChosenPizza[] = [
 		size: '26',
 		image: 'image',
 		price: 100,
+		id: '1',
 	},
 	{
 		dough: 'тонкое',
@@ -19,6 +20,7 @@ const chosenPizzas: IChosenPizza[] = [
 		size: '26',
 		image: 'image',
 		price: 100,
+		id: '2',
 	},
 ];
 

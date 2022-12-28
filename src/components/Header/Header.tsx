@@ -2,10 +2,8 @@ import styles from './Header.module.scss';
 import { HeaderProps } from './Header.props';
 import cn from 'classnames';
 import { FC } from 'react';
-import { CartButton } from '../CartButton/CartButton';
-import { Search } from '../Search/Search';
+import { CartButton, Logo, Search } from '..';
 import { Link } from 'react-router-dom';
-import { Logo } from '../Logo/Logo';
 
 export const Header: FC<HeaderProps> = ({ className, ...props }) => {
 	return (

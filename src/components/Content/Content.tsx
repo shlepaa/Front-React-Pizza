@@ -2,8 +2,7 @@ import styles from './Content.module.scss';
 import { ContentProps } from './Content.props';
 import cn from 'classnames';
 import { FC } from 'react';
-import { ContentTop } from '../ContentTop/ContentTop';
-import { Allpizzas } from '../Allpizzas/Allpizzas';
+import { Allpizzas, ContentTop } from '..';
 
 export const Content: FC<ContentProps> = ({ className, ...props }) => {
 	return (
