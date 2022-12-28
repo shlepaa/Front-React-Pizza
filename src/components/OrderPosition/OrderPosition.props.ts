@@ -8,4 +8,5 @@ export interface OrderPositionProps
 	size: string;
 	image: string;
 	price: number;
+	id: string;
 }
