@@ -1,1 +1,71 @@
 @import '../../styles/variables.scss';
+
+.cart {
+	width: 75%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: [start] 1fr 1fr [end];
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 27px;
+	color: $black;
+}
+
+.title {
+	display: flex;
+	align-items: center;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 39px;
+
+	span {
+		margin-left: 17px;
+	}
+}
+
+.position {
+	grid-column: start / end;
+	margin-top: 60px;
+
+	&:last-of-type {
+		margin-bottom: 40px;
+	}
+}
+
+.clear {
+	display: flex;
+	align-items: center;
+	justify-self: flex-end;
+	font-size: 16px;
+	line-height: 19px;
+	color: $gray-button;
+	cursor: pointer;
+	span {
+		margin-left: 7px;
+	}
+}
+
+.count {
+	margin-bottom: 40px;
+	span {
+		font-size: 24px;
+		font-weight: 600;
+	}
+}
+
+.amountTitle {
+	justify-self: flex-end;
+	span {
+		font-size: 24px;
+		font-weight: 600;
+		color: $orange;
+	}
+}
+
+.back {
+	justify-self: flex-start;
+}
+
+.orderNow {
+	justify-self: flex-end;
+}
