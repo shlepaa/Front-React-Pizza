@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table with all sizes for current pizza With filled sizes 1`] = `
+<div
+  class="notFound"
+  data-testid="not-found"
+>
+  <h1
+    class="ops"
+  >
+    Упс
+  </h1>
+  <h2
+    class="title"
+  >
+    404 Страница не найдена
+  </h2>
+  <img
+    alt="Cat on the piece of pizzas"
+    class="image"
+    src=""
+  />
+  <span
+    class="homepage"
+  >
+    Все пиццы сьел кот!
+  </span>
+  <span
+    class="homepage"
+  >
+    Поищите пиццы на
+     
+    <a
+      data-testid="link"
+      href="/"
+    >
+      главной
+    </a>
+     
+    страницу
+  </span>
+</div>
+`;

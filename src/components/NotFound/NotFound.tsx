@@ -7,7 +7,10 @@ import img from './1500x500.jpg';
 
 export const NotFound: FC<NotFoundProps> = ({ className, ...props }) => {
 	return (
-		<div className={cn(className, styles.notFound)} {...props}>
+		<div
+			data-testid="not-found"
+			className={cn(className, styles.notFound)}
+			{...props}>
 			<h1 className={styles.ops}>Упс</h1>
 			<h2 className={styles.title}>404 Страница не найдена</h2>
 			<img
@@ -17,7 +20,11 @@ export const NotFound: FC<NotFoundProps> = ({ className, ...props }) => {
 			/>
 			<span className={styles.homepage}>Все пиццы сьел кот!</span>
 			<span className={styles.homepage}>
-				Поищите пиццы на <Link to="/">главной</Link> страницу
+				Поищите пиццы на{' '}
+				<Link data-testid="link" to="/">
+					главной
+				</Link>{' '}
+				странице
 			</span>
 		</div>
 	);
