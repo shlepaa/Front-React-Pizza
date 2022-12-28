@@ -3,6 +3,7 @@ import pizzasReducer, { reloadPizzas, IUserState } from '../PizzasSlice';
 
 const startedPizzas: IChosenPizza[] = [
 	{
+		id: '1',
 		dough: 'тонкое',
 		title: 'Пицца',
 		count: 1,
@@ -11,6 +12,7 @@ const startedPizzas: IChosenPizza[] = [
 		price: 100,
 	},
 	{
+		id: '2',
 		dough: 'традиционное',
 		title: 'Пицца2',
 		count: 2,
@@ -22,6 +24,7 @@ const startedPizzas: IChosenPizza[] = [
 
 const newPizzas: IChosenPizza[] = [
 	{
+		id: '3',
 		dough: 'традиционное',
 		title: 'Пицца',
 		count: 2,
@@ -30,6 +33,7 @@ const newPizzas: IChosenPizza[] = [
 		price: 100,
 	},
 	{
+		id: '4',
 		dough: 'тонкое',
 		title: 'Пицца2',
 		count: 1,

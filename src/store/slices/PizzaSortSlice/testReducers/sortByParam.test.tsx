@@ -7,6 +7,7 @@ import pizzasSortReducer, {
 
 const startedPizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Б',
@@ -21,6 +22,7 @@ const startedPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '2',
 		currentPrice: 300,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -35,6 +37,7 @@ const startedPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '3',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'В',
@@ -56,6 +59,7 @@ const startedPizzas: IPizza[] = [
 
 const sortedByPricePizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Б',
@@ -70,6 +74,7 @@ const sortedByPricePizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '3',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'В',
@@ -88,6 +93,7 @@ const sortedByPricePizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '2',
 		currentPrice: 300,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -105,6 +111,7 @@ const sortedByPricePizzas: IPizza[] = [
 
 const sortedByRatingPizzas: IPizza[] = [
 	{
+		_id: '2',
 		currentPrice: 300,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -119,6 +126,7 @@ const sortedByRatingPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Б',
@@ -133,6 +141,7 @@ const sortedByRatingPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '3',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'В',
@@ -154,6 +163,7 @@ const sortedByRatingPizzas: IPizza[] = [
 
 const sortedByAlphabetPizzas: IPizza[] = [
 	{
+		_id: '2',
 		currentPrice: 300,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -168,6 +178,7 @@ const sortedByAlphabetPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Б',
@@ -182,6 +193,7 @@ const sortedByAlphabetPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '3',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'В',

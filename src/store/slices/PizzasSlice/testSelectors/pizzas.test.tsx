@@ -7,6 +7,7 @@ const getPizzas = (state?: Pick<RootState, 'pizzasReducer'>): IChosenPizza[] =>
 
 const pizzas: IChosenPizza[] = [
 	{
+		id: '1',
 		dough: 'тонкое',
 		title: 'Пицца',
 		count: 1,

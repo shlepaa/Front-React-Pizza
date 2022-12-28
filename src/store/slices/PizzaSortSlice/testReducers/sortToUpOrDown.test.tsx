@@ -6,6 +6,7 @@ import pizzasSortReducer, {
 
 const sortedByPriceToDown: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'Б',
@@ -24,6 +25,7 @@ const sortedByPriceToDown: IPizza[] = [
 		],
 	},
 	{
+		_id: '2',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -41,6 +43,7 @@ const sortedByPriceToDown: IPizza[] = [
 
 const sortedByPopularToUp: IPizza[] = [
 	{
+		_id: '2',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -55,6 +58,7 @@ const sortedByPopularToUp: IPizza[] = [
 		],
 	},
 	{
+		_id: '1',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'Б',
@@ -76,6 +80,7 @@ const sortedByPopularToUp: IPizza[] = [
 
 const sortedByAlphabetToUp: IPizza[] = [
 	{
+		_id: '2',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'А',
@@ -90,6 +95,7 @@ const sortedByAlphabetToUp: IPizza[] = [
 		],
 	},
 	{
+		_id: '1',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'Б',

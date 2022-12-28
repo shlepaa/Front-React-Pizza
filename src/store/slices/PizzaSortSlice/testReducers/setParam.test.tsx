@@ -3,6 +3,7 @@ import pizzaSortReducer, { setParam, initialState } from '../PizzaSortSlice';
 
 const startedPizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Пицца мясная',
@@ -17,6 +18,7 @@ const startedPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '2',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'Пицца сырная',
@@ -38,6 +40,7 @@ const startedPizzas: IPizza[] = [
 
 const changedPizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Пицца мясная',
@@ -65,6 +68,7 @@ const changedPizzas: IPizza[] = [
 
 const combinedStartedAndChangedPizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image1',
 		title: 'Пицца мясная',
@@ -89,6 +93,7 @@ const combinedStartedAndChangedPizzas: IPizza[] = [
 		],
 	},
 	{
+		_id: '2',
 		currentPrice: 200,
 		image: 'http://google.com/image2',
 		title: 'Пицца сырная',

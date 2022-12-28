@@ -7,6 +7,7 @@ const getPizzas = (state?: Pick<RootState, 'pizzaSortReducer'>): IPizza[] =>
 
 const pizzas: IPizza[] = [
 	{
+		_id: '1',
 		currentPrice: 100,
 		image: 'http://google.com/image',
 		title: 'Пицца',

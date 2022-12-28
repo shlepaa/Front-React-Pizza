@@ -23,9 +23,13 @@ export const pizzasSlice = createSlice({
 		reloadPizzas: (state, action: PayloadAction<IChosenPizza[]>) => {
 			state.pizzas = action.payload;
 		},
+		clearPizzas: (state) => {
+			state.pizzas = [];
+			localStorage.chosenPizzas = [];
+		},
 	},
 });
 
 export default pizzasSlice.reducer;
 
-export const { addPizza, reloadPizzas } = pizzasSlice.actions;
+export const { addPizza, reloadPizzas, clearPizzas } = pizzasSlice.actions;
