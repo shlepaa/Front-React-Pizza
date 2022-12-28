@@ -2,7 +2,7 @@ import styles from './OrderPosition.module.scss';
 import { OrderPositionProps } from './OrderPosition.props';
 import { FC, useState } from 'react';
 import cn from 'classnames';
-import { CircleButton } from '../CircleButton/CircleButton';
+import { CircleButton } from '..';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { IChosenPizza } from '../../interfaces/IChosenPizza';
 import { reloadPizzas } from '../../store/slices/PizzasSlice/PizzasSlice';
@@ -24,6 +24,8 @@ export const OrderPosition: FC<OrderPositionProps> = ({
 	const allPizzas: IChosenPizza[] = JSON.parse(JSON.stringify(pizzas));
 
 	const handlerSetCount = (calcCount: number): void => {
+		setCount(calcCount);
+
 		if (calcCount < 1) {
 			const newPizzas = pizzas.filter((pizza) => {
 				if (
@@ -40,7 +42,6 @@ export const OrderPosition: FC<OrderPositionProps> = ({
 			return;
 		}
 
-		setCount(calcCount);
 		const currentPizza = allPizzas.find(
 			(p) => p.id === id && p.dough === dough && p.size === size
 		);
@@ -59,25 +60,41 @@ export const OrderPosition: FC<OrderPositionProps> = ({
 		}
 	};
 
+	if (count < 1) {
+		return <></>;
+	}
+
 	return (
-		<div className={cn(className, styles.orderPosition)} {...props}>
+		<div
+			data-testid="position-wrapper"
+			className={cn(className, styles.orderPosition)}
+			{...props}>
 			<img className={cn(styles.image)} src={image} alt={title} />
 			<div>
 				<h2 className={styles.title}>{title}</h2>
-				<span className={styles.params}>
+				<span data-testid="params" className={styles.params}>
 					{dough} тесто, {size} см
 				</span>
 			</div>
 			<div className={styles.countBlock}>
 				<CircleButton
+					data-testid="plus-button"
 					isIncrement
 					onClick={() => handlerSetCount(count + 1)}
 				/>
-				<span className={styles.count}>{count}</span>
-				<CircleButton onClick={() => handlerSetCount(count - 1)} />
+				<span data-testid="count" className={styles.count}>
+					{count}
+				</span>
+				<CircleButton
+					data-testid="minus-button"
+					onClick={() => handlerSetCount(count - 1)}
+				/>
 			</div>
-			<span className={styles.price}>{price} ₽</span>
+			<span data-testid="price" className={styles.price}>
+				{price * count} ₽
+			</span>
 			<CircleButton
+				data-testid="clear-button"
 				onClick={() => handlerSetCount(0)}
 				className={styles.close}
 				close
