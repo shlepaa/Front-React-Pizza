@@ -1,9 +1,10 @@
 import styles from './Sort.module.scss';
 import { SortProps } from './Sort.props';
 import cn from 'classnames';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import {
+	setIsAllPage,
 	sortByParam,
 	sortToUpOrDown,
 } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
@@ -14,37 +15,40 @@ import { AiFillCaretUp } from 'react-icons/ai';
 export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
-	const { currentSortParam, isSortedToDown } = useAppSelector(
+	const { isAllPages, currentSortParam, isSortedToDown } = useAppSelector(
 		(state) => state.pizzaSortReducer
 	);
 
-	useEffect(() => {
-		if (localStorage.currentSortParam) {
-			dispatch(sortByParam(JSON.parse(localStorage.currentSortParam)));
-		} else {
-			dispatch(sortByParam(currentSortParam));
-		}
-	}, [dispatch, sortByParam, sortToUpOrDown]);
-
 	const chooseSort = (param: TypeParams) => {
 		setIsOpened(false);
-		localStorage.currentSortParam = JSON.stringify(param);
 		dispatch(sortByParam(param));
 	};
 
-	const handlerSetIsSortedByUpOrDown = () => {
-		dispatch(sortToUpOrDown(isSortedToDown));
-		if (!isSortedToDown) {
-			localStorage.isDown = true;
-			return;
-		}
-		localStorage.isDown = false;
+	const handleSetPage = (isAllPages: boolean): void => {
+		dispatch(setIsAllPage(isAllPages));
 	};
 
 	return (
 		<div className={cn(className, styles.sort)} {...props}>
+			<span className={styles.listsBlock}>
+				<span className={styles.hr}>/</span>
+				<button
+					onClick={() => handleSetPage(true)}
+					className={cn(styles.lists, {
+						[styles.active]: isAllPages,
+					})}>
+					Все страницы
+				</button>
+				<button
+					onClick={() => handleSetPage(false)}
+					className={cn(styles.lists, {
+						[styles.active]: !isAllPages,
+					})}>
+					Постранично
+				</button>
+			</span>
 			<button
-				onClick={handlerSetIsSortedByUpOrDown}
+				onClick={() => dispatch(sortToUpOrDown(isSortedToDown))}
 				className={styles.icon}>
 				<IconContext.Provider
 					value={{

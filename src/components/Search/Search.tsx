@@ -7,7 +7,6 @@ import { IconContext } from 'react-icons';
 import {
 	search,
 	setSearchValue,
-	unset,
 } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { Link } from 'react-router-dom';
@@ -18,13 +17,9 @@ export const Search: FC<SearchProps> = ({ className, ...props }) => {
 
 	useEffect(() => {
 		dispatch(search(searchValue));
-	}, [dispatch, search, searchValue]);
+	}, [dispatch, searchValue]);
 
 	const handlerSearch = (currentValue: string) => {
-		if (!currentValue) {
-			dispatch(unset());
-			return;
-		}
 		dispatch(setSearchValue(currentValue));
 		dispatch(search(searchValue));
 	};
