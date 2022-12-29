@@ -94,15 +94,15 @@ export const pizzaSortSlice = createSlice({
 		unset: (state) => {
 			state.currentType = 'все';
 			state.searchValue = '';
-			(state.currentSortParam = {
+			state.currentSortParam = {
 				title: 'популярности',
 				param: 'rating',
-			}),
-				(state.pizzas = state.currentPizzasPage);
+			};
 			if (state.isAllPages) {
 				state.pizzas = state.pizzasBackup;
 				return;
 			}
+			state.pizzas = state.currentPizzasPage;
 		},
 		search: (state, action: PayloadAction<string>) => {
 			if (!action.payload && !state.isAllPages) {

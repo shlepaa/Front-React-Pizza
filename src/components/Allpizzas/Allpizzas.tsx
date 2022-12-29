@@ -7,10 +7,7 @@ import { fetchPizzas } from '../../store/slices/ActionCreators';
 import { ErrorBlock, PIzzaSkeletonBlock, PizzaBlock } from '..';
 import fillWithNumbers from '../../helpers/fillWithNumbers';
 import setEnding from '../../helpers/setEnding';
-import {
-	setParam,
-	unset,
-} from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
+import { setParam } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 
 export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	const {
@@ -43,7 +40,6 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	const handleSwitchPage = (number: number): void => {
 		const newPage = pizzasBackup.slice((number - 1) * 5, number * 5);
 		dispatch(setParam(newPage));
-		dispatch(unset());
 		setCurrentPage(number);
 	};
 
@@ -88,6 +84,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 							{page + 1}
 						</button>
 					))}
+					. . .
 				</div>
 			)}
 		</div>
