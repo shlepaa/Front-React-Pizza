@@ -10,5 +10,6 @@ export interface PizzaBlockProps
 	possibleDoughs: string[];
 	sizesAndPrices: ISizeAndPrice[];
 	_id: string;
+	currentPrice?: number;
 	rating: number;
 }

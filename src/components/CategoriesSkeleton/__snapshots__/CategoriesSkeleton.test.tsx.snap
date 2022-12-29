@@ -6,39 +6,39 @@ exports[`CategoriesSkeleton Should follow the structure 1`] = `
   data-testid="wrapper"
 >
   <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
     class="active category"
-  >
-    <div
-      class="title"
-    />
-  </div>
-  <div
-    class="category"
-    data-testid="category"
-  >
-    <div
-      class="title"
-    />
-  </div>
-  <div
-    class="category"
-    data-testid="category"
-  >
-    <div
-      class="title"
-    />
-  </div>
-  <div
-    class="category"
-    data-testid="category"
-  >
-    <div
-      class="title"
-    />
-  </div>
-  <div
-    class="category"
-    data-testid="category"
   >
     <div
       class="title"

@@ -14,9 +14,11 @@ import { setParam } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
-	_id,
+	_id: id,
 	sizesAndPrices,
 	possibleDoughs,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	currentPrice,
 	image,
 	rating,
 	defaultDough = possibleDoughs[0] || '',
@@ -40,7 +42,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		setCount(1);
 		const chosenPizza: IChosenPizza = {
 			dough,
-			id: _id,
+			id,
 			title,
 			count,
 			size,
@@ -59,11 +61,11 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			JSON.stringify(chosenPizzas)
 		);
 		const currentPizza = allPizzas.find(
-			(p) => p.id === _id && p.dough === dough && p.size === size
+			(p) => p.id == id && p.dough === dough && p.size === size
 		);
 		if (currentPizza) {
 			allPizzas.map((p) => {
-				if (p.id === _id && p.dough === dough && p.size === size) {
+				if (p.id == id && p.dough === dough && p.size === size) {
 					p.count = p.count + count;
 					return p;
 				}
@@ -142,9 +144,9 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 				/>
 			</div>
 			<div className={cn(styles.info)}>
-				<div data-test_id="price" className={cn(styles.price)}>
+				<div data-testid="price" className={cn(styles.price)}>
 					<span
-						data-test_id="amount-cost"
+						data-testid="amount-cost"
 						className={cn(styles.amountCost, {
 							[styles.visibleAmount]: count > 1,
 						})}>
@@ -156,7 +158,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 					₽
 				</div>
 				<AddButton
-					data-test_id="add-button"
+					data-testid="add-button"
 					onClick={setPizzaParams}
 					count={count}
 					setCount={handlerSetCount}

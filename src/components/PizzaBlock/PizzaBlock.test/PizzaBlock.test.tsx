@@ -15,7 +15,6 @@ import {
 
 export const pizzaBlockProps: PizzaBlockProps = {
 	title: 'Пицца',
-	id: '1',
 	image: 'http://google/image',
 	possibleDoughs: ['тонкое', 'традиционное', 'без теста'],
 	sizesAndPrices: [
@@ -30,6 +29,8 @@ export const pizzaBlockProps: PizzaBlockProps = {
 	],
 	defaultDough: 'тонкое',
 	defaultSize: '26',
+	_id: '1',
+	rating: 1,
 };
 
 describe('Displays block with information about current pizza', () => {

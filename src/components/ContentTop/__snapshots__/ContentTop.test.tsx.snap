@@ -6,39 +6,39 @@ exports[`Displays categories and sort table if loaded If data is loading or thre
   data-testid="skeleton-wrapper"
 >
   <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
+    class="category"
+    data-testid="category"
+  >
+    <div
+      class="title"
+    />
+  </div>
+  <div
     class="active category"
-  >
-    <div
-      class="title"
-    />
-  </div>
-  <div
-    class="category"
-    data-testid="category"
-  >
-    <div
-      class="title"
-    />
-  </div>
-  <div
-    class="category"
-    data-testid="category"
-  >
-    <div
-      class="title"
-    />
-  </div>
-  <div
-    class="category"
-    data-testid="category"
-  >
-    <div
-      class="title"
-    />
-  </div>
-  <div
-    class="category"
-    data-testid="category"
   >
     <div
       class="title"
