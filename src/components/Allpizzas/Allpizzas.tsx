@@ -12,6 +12,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 	const { pizzas, currentType, searchValue, error, isLoading } =
 		useAppSelector((state) => state.pizzaSortReducer);
 	const dispatch = useAppDispatch();
+	// const pageCount = pizzasBackup.length / 2;
 
 	useEffect(() => {
 		dispatch(fetchPizzas());
@@ -27,18 +28,24 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 		return setEnding(currentType);
 	};
 
+	// const handleSwitchPage = (number: number): void => {
+	// 	const newPage = pizzasBackup.slice((number - 1) * 2, number * 2);
+	// 	console.log(pizzas);
+	// 	dispatch(setParam(newPage));
+	// };
+
 	if (error) {
 		return <ErrorBlock data-testid="error" />;
 	}
 
 	return (
-		<>
+		<div {...props}>
 			<h2 data-testid="title" className={styles.title}>
 				{isLoading
 					? 'Загрузка пицц . . .'
 					: `${handlerLogicalTitle()} пиццы`}
 			</h2>
-			<div className={cn(className, styles.items)} {...props}>
+			<div className={cn(className, styles.items)}>
 				{isLoading
 					? fillWithNumbers(8).map((p) => (
 							<PIzzaSkeletonBlock
@@ -60,6 +67,15 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 							/>
 					  ))}
 			</div>
-		</>
+			{/* <div className={styles.pages}>
+				{fillWithNumbers(Math.ceil(pageCount)).map((page) => (
+					<button
+						onClick={() => handleSwitchPage(page + 1)}
+						key={page}>
+						{page + 1}
+					</button>
+				))}
+			</div> */}
+		</div>
 	);
 };
