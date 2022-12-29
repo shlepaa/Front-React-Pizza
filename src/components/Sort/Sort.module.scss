@@ -21,6 +21,7 @@
 
 		b {
 			margin-right: 8px;
+			white-space: nowrap;
 		}
 
 		span {
@@ -78,5 +79,11 @@
 		&.down {
 			transform: rotate(180deg);
 		}
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.sort {
+		margin-top: 10px;
 	}
 }

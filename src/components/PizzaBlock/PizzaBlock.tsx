@@ -14,10 +14,11 @@ import { setParam } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 
 export const PizzaBlock: FC<PizzaBlockProps> = ({
 	title,
-	id,
+	_id,
 	sizesAndPrices,
 	possibleDoughs,
 	image,
+	rating,
 	defaultDough = possibleDoughs[0] || '',
 	defaultSize = sizesAndPrices.map((s) => s.size)[0] || '',
 	className,
@@ -39,7 +40,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		setCount(1);
 		const chosenPizza: IChosenPizza = {
 			dough,
-			id,
+			id: _id,
 			title,
 			count,
 			size,
@@ -58,11 +59,11 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 			JSON.stringify(chosenPizzas)
 		);
 		const currentPizza = allPizzas.find(
-			(p) => p.id === id && p.dough === dough && p.size === size
+			(p) => p.id === _id && p.dough === dough && p.size === size
 		);
 		if (currentPizza) {
 			allPizzas.map((p) => {
-				if (p.id === id && p.dough === dough && p.size === size) {
+				if (p.id === _id && p.dough === dough && p.size === size) {
 					p.count = p.count + count;
 					return p;
 				}
@@ -126,6 +127,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 	return (
 		<div className={cn(className, styles.pizzaBlock)} {...props}>
 			<img className={cn(styles.image)} src={image} alt={title} />
+			<span className={styles.rate}>Рейтинг: {rating}/5</span>
 			<h4 className={cn(styles.title)}>{title}</h4>
 			<div className={cn(styles.selector)}>
 				<UlDough
@@ -140,9 +142,9 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 				/>
 			</div>
 			<div className={cn(styles.info)}>
-				<div data-testid="price" className={cn(styles.price)}>
+				<div data-test_id="price" className={cn(styles.price)}>
 					<span
-						data-testid="amount-cost"
+						data-test_id="amount-cost"
 						className={cn(styles.amountCost, {
 							[styles.visibleAmount]: count > 1,
 						})}>
@@ -154,7 +156,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 					₽
 				</div>
 				<AddButton
-					data-testid="add-button"
+					data-test_id="add-button"
 					onClick={setPizzaParams}
 					count={count}
 					setCount={handlerSetCount}

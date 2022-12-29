@@ -1,14 +1,20 @@
 @import '../../styles/variables.scss';
 
-.categories {
-	display: grid;
-	grid-gap: 10px;
+.wrapper {
 	margin-right: 25px;
-	grid-template-columns: repeat(5, 180px);
+	width: 100%;
+}
+
+.categories {
+	display: flex;
 	position: relative;
+	flex-direction: row-reverse;
+	flex-wrap: wrap-reverse;
+	gap: 10px;
 }
 
 .categoryButton {
+	flex: 1 0 188px;
 	padding: 13px 30px;
 	font-weight: bold;
 	background-color: $white;
@@ -32,14 +38,25 @@
 }
 
 .seeAll {
-	position: absolute;
-	top: 63px;
 	color: $gray;
 	font-size: 20px;
 	cursor: pointer;
+	margin-top: 15px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1050px) {
+	.seeAll {
+		margin: 15px 0;
+		width: 100%;
+	}
+
+	.wrapper {
+		margin-right: unset;
+	}
+}
+
+@media screen and (max-width: 450px) {
 	.categories {
+		margin: 0 25px;
 	}
 }

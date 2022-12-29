@@ -1,14 +1,17 @@
 @import '../../styles/variables.scss';
 
 .categories {
-	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	display: flex;
+	position: relative;
+	flex-direction: row-reverse;
+	flex-wrap: wrap-reverse;
+	gap: 10px;
+	width: 82%;
 	margin-right: 25px;
 }
 
 .category {
-	width: 188px;
+	flex: 1 0 188px;
 	height: 52px;
 	padding: 13px 30px;
 	background-color: $skeleton-white;
@@ -30,10 +33,4 @@
 	height: 100%;
 	background-color: $skeleton-main-color;
 	border-radius: 10px;
-}
-
-@media screen and (max-width: 1480px) {
-	.categories {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-	}
 }

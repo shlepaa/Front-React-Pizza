@@ -56,14 +56,8 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 					: pizzas.map((p) => (
 							<PizzaBlock
 								data-testid="pizza-wrapper"
-								sizesAndPrices={p.sizesAndPrices}
-								possibleDoughs={p.possibleDoughs}
-								image={p.image}
-								title={p.title}
-								key={p.title}
-								defaultDough={p.dough}
-								defaultSize={p.size}
-								id={p._id}
+								key={p._id}
+								{...p}
 							/>
 					  ))}
 			</div>

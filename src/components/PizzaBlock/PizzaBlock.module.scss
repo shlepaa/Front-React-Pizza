@@ -3,39 +3,39 @@
 .pizzaBlock {
 	width: 280px;
 	text-align: center;
+}
 
-	.image {
-		width: 260px;
-	}
+.image {
+	width: 260px;
+}
 
-	.title {
-		margin-bottom: 20px;
-		font-weight: 900;
-		font-size: 20px;
-		letter-spacing: 1%;
-	}
+.title {
+	margin-bottom: 20px;
+	font-weight: 900;
+	font-size: 20px;
+	letter-spacing: 1%;
+}
 
-	.selector {
-		display: flex;
-		flex-direction: column;
-		padding: 6px;
-		background-color: $gray-block;
-		border-radius: 10px;
-	}
+.selector {
+	display: flex;
+	flex-direction: column;
+	padding: 6px;
+	background-color: $gray-block;
+	border-radius: 10px;
+}
 
-	& .info {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-top: 20px;
-	}
+.info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+}
 
-	& .price {
-		position: relative;
-		font-weight: bold;
-		font-size: 22px;
-		letter-spacing: 0.015em;
-	}
+.price {
+	position: relative;
+	font-weight: bold;
+	font-size: 22px;
+	letter-spacing: 0.015em;
 }
 
 .amountCost {
@@ -48,4 +48,20 @@
 
 .visibleAmount {
 	display: block;
+}
+
+.rate {
+	display: block;
+	text-align: right;
+	color: $gray;
+}
+
+@media screen and (max-width: 450px) {
+	.pizzaBlock {
+		width: 100%;
+	}
+
+	.image {
+		width: 100%;
+	}
 }

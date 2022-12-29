@@ -26,6 +26,7 @@
 .countBlock {
 	display: flex;
 	align-items: center;
+	margin: 0 10px;
 }
 
 .count {
@@ -36,11 +37,67 @@
 
 .price {
 	justify-self: center;
+	white-space: nowrap;
 }
 
 .close {
 	color: $gray-button;
 	&:hover {
 		fill: darken($color: $gray-button, $amount: 18%);
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.countBlock {
+		margin-left: 10px;
+		margin-right: 5px;
+	}
+
+	.close {
+		margin-left: 5px;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	.orderPosition {
+		font-size: 22px;
+		grid-template-columns: auto auto auto auto auto;
+
+		h2 {
+			font-size: 22px;
+		}
+	}
+
+	.image {
+		width: 60px;
+		margin-right: 5px;
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.orderPosition {
+		grid-template-columns: auto auto auto;
+	}
+
+	.image {
+		display: none;
+	}
+
+	.close {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.orderPosition {
+		font-size: 14px;
+
+		h2 {
+			font-size: 14px;
+		}
+
+		span {
+			font-size: 14px;
+		}
 	}
 }

@@ -31,7 +31,28 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 	};
 
 	return (
-		<div className={cn(className, styles.categories)} {...props}>
+		<div className={cn(className, styles.wrapper)} {...props}>
+			<div className={cn(className, styles.categories)}>
+				{checkForCount().map((p) => (
+					<button
+						data-testid="type-button"
+						key={p}
+						onClick={() => handlerSetType(p)}
+						className={cn(styles.categoryButton, {
+							[styles.active]: currentType === p && !searchValue,
+						})}>
+						{p[0]?.toUpperCase() + p.slice(1, p.length)}
+					</button>
+				))}
+				<button
+					data-testid="all-button"
+					onClick={() => handlerSetType('все')}
+					className={cn(styles.categoryButton, {
+						[styles.active]: currentType === 'все' && !searchValue,
+					})}>
+					Все
+				</button>
+			</div>
 			{isPartShown && allPizzaTypes.length >= 5 && (
 				<button
 					onClick={() => setIsPartShown(!isPartShown)}
@@ -39,25 +60,6 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 					Смотреть все категории . . .
 				</button>
 			)}
-			<button
-				data-testid="all-button"
-				onClick={() => handlerSetType('все')}
-				className={cn(styles.categoryButton, {
-					[styles.active]: currentType === 'все' && !searchValue,
-				})}>
-				Все
-			</button>
-			{checkForCount().map((p) => (
-				<button
-					data-testid="type-button"
-					key={p}
-					onClick={() => handlerSetType(p)}
-					className={cn(styles.categoryButton, {
-						[styles.active]: currentType === p && !searchValue,
-					})}>
-					{p[0]?.toUpperCase() + p.slice(1, p.length)}
-				</button>
-			))}
 		</div>
 	);
 };

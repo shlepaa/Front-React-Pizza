@@ -15,3 +15,14 @@
 	position: absolute;
 	right: 45px;
 }
+
+@media screen and (max-width: 1050px) {
+	.search {
+		margin: unset;
+	}
+
+	.icon {
+	position: absolute;
+	right: 10px;
+}
+}

@@ -7,10 +7,8 @@ import { Allpizzas, ContentTop } from '../../components';
 export const Content: FC<ContentProps> = ({ className, ...props }) => {
 	return (
 		<div className={cn(className, styles.content)} {...props}>
-			<div className={styles.container}>
-				<ContentTop />
-				<Allpizzas />
-			</div>
+			<ContentTop />
+			<Allpizzas />
 		</div>
 	);
 };

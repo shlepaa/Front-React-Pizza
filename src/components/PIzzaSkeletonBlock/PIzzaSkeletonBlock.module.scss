@@ -3,42 +3,42 @@
 .pizzaBlock {
 	width: 280px;
 	text-align: center;
+}
 
-	.image {
-		width: 260px;
-	}
+.image {
+	width: 260px;
+}
 
-	.title {
-		width: 70%;
-		height: 24px;
-		margin: 0 auto;
-		margin-bottom: 20px;
-		background-color: $skeleton-main-color;
-		border-radius: 10px;
-	}
+.title {
+	width: 70%;
+	height: 24px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	background-color: $skeleton-main-color;
+	border-radius: 10px;
+}
 
-	.selector {
-		display: flex;
-		flex-direction: column;
-		height: 85px;
-		padding: 6px;
-		background-color: $skeleton-main-color;
-		border-radius: 10px;
-	}
+.selector {
+	display: flex;
+	flex-direction: column;
+	height: 85px;
+	padding: 6px;
+	background-color: $skeleton-main-color;
+	border-radius: 10px;
+}
 
-	& .info {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-top: 20px;
-	}
+.info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+}
 
-	& .price {
-		width: 30%;
-		height: 30px;
-		background-color: $skeleton-main-color;
-		border-radius: 10px;
-	}
+.price {
+	width: 30%;
+	height: 30px;
+	background-color: $skeleton-main-color;
+	border-radius: 10px;
 }
 
 .list {
@@ -113,4 +113,14 @@
 	height: 100%;
 	background-color: $skeleton-main-color;
 	border-radius: 50%;
+}
+
+@media screen and (max-width: 450px) {
+	.pizzaBlock {
+		width: 100%;
+	}
+
+	.image {
+		width: 100%;
+	}
 }

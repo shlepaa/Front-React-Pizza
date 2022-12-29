@@ -3,6 +3,7 @@
 .list {
 	display: flex;
 	flex: 1;
+	flex-wrap: wrap;
 
 	&:first-of-type {
 		margin-bottom: 6px;

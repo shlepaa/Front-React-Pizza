@@ -3,3 +3,9 @@
 .content {
 	margin-top: 40px;
 }
+
+@media screen and (max-width: 1050px) {
+	.content {
+		margin-top: 20px;
+	}
+}

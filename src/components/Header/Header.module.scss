@@ -3,41 +3,52 @@
 .header {
 	margin-bottom: 40px;
 	border-bottom: 1px solid $gray-line;
+}
 
-	.container {
-		display: grid;
-		grid-template-columns: 1fr auto auto;
-		align-items: center;
-		justify-content: space-between;
+.container {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	align-items: center;
+}
+
+.logoBlock {
+	display: flex;
+
+	.logo {
+		width: 38px;
+		margin-top: 5px;
+		margin-right: 15px;
 	}
 
-	.logoBlock {
-		display: flex;
+	img {
+		margin-right: 15px;
+	}
 
-		.logo {
-			width: 38px;
-			margin-top: 5px;
-			margin-right: 15px;
-		}
+	h1 {
+		color: $black;
+		font-weight: 800;
+		font-size: 24px;
+		letter-spacing: 1%;
+		text-transform: uppercase;
+	}
 
-		img {
-			margin-right: 15px;
-		}
-
-		h1 {
-			color: $black;
-			font-weight: 800;
-			font-size: 24px;
-			letter-spacing: 1%;
-			text-transform: uppercase;
-		}
-
-		p {
-			color: $gray;
-		}
+	p {
+		color: $gray;
 	}
 }
 
 .search {
 	margin-right: 35px;
+}
+
+@media screen and (max-width: 1050px) {
+	.header {
+		margin-bottom: 20px;
+	}
+
+	.container {
+		grid-template-columns: 1fr;
+		gap: 15px;
+		justify-items: center;
+	}
 }

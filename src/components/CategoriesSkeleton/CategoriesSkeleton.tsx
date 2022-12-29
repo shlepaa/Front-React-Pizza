@@ -14,14 +14,14 @@ export const CategoriesSkeleton: FC<CategoriesSkeletonProps> = ({
 			data-testid="wrapper"
 			className={cn(className, styles.categories)}
 			{...props}>
-			<div className={cn(styles.active, styles.category)}>
-				<div className={styles.title} />
-			</div>
 			{fillWithNumbers(count).map((c) => (
 				<div data-testid="category" key={c} className={styles.category}>
 					<div className={styles.title} />
 				</div>
 			))}
+			<div className={cn(styles.active, styles.category)}>
+				<div className={styles.title} />
+			</div>
 		</div>
 	);
 };

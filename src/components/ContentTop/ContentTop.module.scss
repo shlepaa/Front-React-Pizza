@@ -5,3 +5,12 @@
 	align-items: center;
 	justify-content: space-between;
 }
+
+@media screen and (max-width: 1050px) {
+	.contentTop {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+
