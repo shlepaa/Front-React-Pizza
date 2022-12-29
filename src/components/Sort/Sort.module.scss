@@ -20,6 +20,7 @@
 .lists {
 	cursor: pointer;
 	color: $gray;
+	white-space: nowrap;
 
 	&.active {
 		color: $orange;
