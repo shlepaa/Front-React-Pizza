@@ -3,6 +3,7 @@
 		"target": "ES6",
 		"module": "CommonJS",
 		"moduleResolution": "node",
+		"types": ["node", "@wdio/globals/types", "@wdio/mocha-framework"],
 		"lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost"],
 		"jsx": "react-jsx",
 		"noEmit": true,
@@ -15,5 +16,5 @@
 		"strictPropertyInitialization": false,
 		"noUncheckedIndexedAccess": true,
 		"noImplicitReturns": true
-	}
+	},
 }

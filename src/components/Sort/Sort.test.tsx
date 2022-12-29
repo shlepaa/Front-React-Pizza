@@ -15,6 +15,8 @@ const defaultProps: IDefaultProps = {
 };
 
 describe('Sort table where you can sort to up or down or by using params', () => {
+	it.todo('All pages / part pages performance');
+
 	it('Other state for currentSortParam', async () => {
 		setRender(<Sort {...defaultProps} />, {
 			pizzaSortReducer: {

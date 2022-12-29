@@ -33,6 +33,7 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 			<span className={styles.listsBlock}>
 				<span className={styles.hr}>/</span>
 				<button
+					data-testid="all-pages-button"
 					onClick={() => handleSetPage(true)}
 					className={cn(styles.lists, {
 						[styles.active]: isAllPages,
@@ -40,6 +41,7 @@ export const Sort: FC<SortProps> = ({ sortParams, className, ...props }) => {
 					Все страницы
 				</button>
 				<button
+					data-testid="part-pages-button"
 					onClick={() => handleSetPage(false)}
 					className={cn(styles.lists, {
 						[styles.active]: !isAllPages,
