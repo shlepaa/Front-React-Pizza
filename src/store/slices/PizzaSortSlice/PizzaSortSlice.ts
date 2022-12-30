@@ -139,21 +139,19 @@ export const pizzaSortSlice = createSlice({
 			state.currentPizzasPage =
 				action.payload?.pizzas.filter((pizza, index) => index < 5) ??
 				[];
-
-			if (localStorage.isAllPages) {
-				const checkForSsAllPages =
-					localStorage.isAllPages === 'true' ? true : false;
-				if (checkForSsAllPages) {
-					state.pizzas = action.payload?.pizzas ?? [];
-					return;
-				}
-				state.pizzas =
-					action.payload?.pizzas.filter(
-						(pizza, index) => index < 5
-					) ?? [];
-				return;
-			}
-
+			// if (localStorage.isAllPages) {
+			// 	const checkForSsAllPages =
+			// 		localStorage.isAllPages === 'true' ? true : false;
+			// 	if (checkForSsAllPages) {
+			// 		state.pizzas = action.payload?.pizzas ?? [];
+			// 		return;
+			// 	}
+			// 	state.pizzas =
+			// 		action.payload?.pizzas.filter(
+			// 			(pizza, index) => index < 5
+			// 		) ?? [];
+			// 	return;
+			// }
 			state.pizzas =
 				action.payload?.pizzas.filter((pizza, index) => index < 5) ??
 				[];

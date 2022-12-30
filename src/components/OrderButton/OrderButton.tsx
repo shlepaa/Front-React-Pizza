@@ -16,11 +16,7 @@ export const OrderButton: FC<OrderButtonProps> = ({
 			<button
 				className={cn(className, styles.button, styles.backButton)}
 				{...props}>
-				{process.env.NODE_ENV === 'test' ? (
-					''
-				) : (
-					<ArrowIcon className={cn(styles.icon)} />
-				)}
+				<ArrowIcon className={cn(styles.icon)} />
 				<span>{children}</span>
 			</button>
 		</Link>

@@ -16,4 +16,5 @@
 		"noUncheckedIndexedAccess": true,
 		"noImplicitReturns": true
 	},
+	"include": ["src/**/*", "./cypress/support/cypress.d.ts"]
 }

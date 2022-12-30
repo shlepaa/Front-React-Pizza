@@ -15,11 +15,7 @@ export const EmptyCart: FC<EmptyCartProps> = ({ className, ...props }) => {
 			<span className={styles.text}>
 				Для того, чтобы заказать пиццу, перейди на главную страницу.
 			</span>
-			<img
-				className={styles.img}
-				src={process.env.NODE_ENV === 'test' ? '' : cart}
-				alt="Empty cart"
-			/>
+			<img className={styles.img} src={cart} alt="Empty cart" />
 			<OrderButton back className={styles.back}>
 				Вернуться назад
 			</OrderButton>
