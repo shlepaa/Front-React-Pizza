@@ -130,7 +130,9 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 		<div className={cn(className, styles.pizzaBlock)} {...props}>
 			<img className={cn(styles.image)} src={image} alt={title} />
 			<span className={styles.rate}>Рейтинг: {rating}/5</span>
-			<h4 className={cn(styles.title)}>{title}</h4>
+			<h4 data-testid="title-pizza" className={cn(styles.title)}>
+				{title}
+			</h4>
 			<div className={cn(styles.selector)}>
 				<UlDough
 					setDough={handlerSetDough}

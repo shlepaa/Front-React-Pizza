@@ -15,7 +15,22 @@ const defaultProps: IDefaultProps = {
 };
 
 describe('Sort table where you can sort to up or down or by using params', () => {
-	it.todo('All pages / part pages performance');
+	it('All pages / part pages performance', async () => {
+		setRender(<Sort {...defaultProps} />, {
+			pizzaSortReducer: {
+				...initialState,
+				isAllPages: false,
+			},
+		});
+		const allPageButton = screen.getByTestId('all-pages-button');
+		const partPageButton = screen.getByTestId('part-pages-button');
+
+		expect(partPageButton).toHaveClass('active');
+
+		await userEvent.click(allPageButton);
+		expect(partPageButton).not.toHaveClass('active');
+		expect(allPageButton).toHaveClass('active');
+	});
 
 	it('Other state for currentSortParam', async () => {
 		setRender(<Sort {...defaultProps} />, {

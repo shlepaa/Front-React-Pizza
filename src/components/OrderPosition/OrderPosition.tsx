@@ -71,7 +71,9 @@ export const OrderPosition: FC<OrderPositionProps> = ({
 			{...props}>
 			<img className={cn(styles.image)} src={image} alt={title} />
 			<div>
-				<h2 className={styles.title}>{title}</h2>
+				<h2 data-testid="position-title" className={styles.title}>
+					{title}
+				</h2>
 				<span data-testid="params" className={styles.params}>
 					{dough} тесто, {size} см
 				</span>
