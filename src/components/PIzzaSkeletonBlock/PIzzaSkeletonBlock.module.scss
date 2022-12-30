@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .pizzaBlock {
 	width: 280px;
@@ -29,8 +29,8 @@
 
 .info {
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	align-items: center;
 	margin-top: 20px;
 }
 
@@ -96,8 +96,8 @@
 
 	&.buttonOutline {
 		background-color: $skeleton-white;
-		border-color: $skeleton-main-color;
 		border-width: 5px;
+		border-color: $skeleton-main-color;
 	}
 }
 

@@ -1,11 +1,11 @@
-@import '../styles/variables.scss';
+@import '../styles/variables';
 
 .wrapper {
 	width: calc(100vw - 100px);
 	max-width: 1400px;
 	height: 100%;
 	margin: 50px auto;
-	padding: 40px 70px;
+	padding: 40px 65px;
 	background-color: $white;
 	border-radius: 10px;
 }

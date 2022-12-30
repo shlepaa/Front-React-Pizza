@@ -13,11 +13,11 @@ html {
 }
 
 body {
+	color: $black;
+	font-weight: 400;
+	background-color: $background;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	color: $black;
-	background-color: $background;
-	font-weight: 400;
 }
 
 a,

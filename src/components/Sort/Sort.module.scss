@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .sort {
 	position: relative;
@@ -7,9 +7,9 @@
 }
 
 .listsBlock {
-	grid-column: start / end;
 	position: relative;
 	display: flex;
+	grid-column: start / end;
 	justify-content: center;
 
 	> button + button {
@@ -18,9 +18,9 @@
 }
 
 .lists {
-	cursor: pointer;
 	color: $gray;
 	white-space: nowrap;
+	cursor: pointer;
 
 	&.active {
 		color: $orange;

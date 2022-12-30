@@ -1,13 +1,13 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .wrapper {
-	margin-right: 82px;
 	width: 100%;
+	margin-right: 15px;
 }
 
 .categories {
-	display: flex;
 	position: relative;
+	display: flex;
 	flex-direction: row-reverse;
 	flex-wrap: wrap-reverse;
 	gap: 10px;
@@ -38,16 +38,16 @@
 }
 
 .seeAll {
+	margin-top: 15px;
 	color: $gray;
 	font-size: 20px;
 	cursor: pointer;
-	margin-top: 15px;
 }
 
 @media screen and (max-width: 1050px) {
 	.seeAll {
-		margin: 15px 0;
 		width: 100%;
+		margin: 15px 0;
 	}
 
 	.wrapper {

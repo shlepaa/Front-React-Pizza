@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .search {
 	padding: 5px 10px;
@@ -22,7 +22,7 @@
 	}
 
 	.icon {
-	position: absolute;
-	right: 10px;
-}
+		position: absolute;
+		right: 10px;
+	}
 }

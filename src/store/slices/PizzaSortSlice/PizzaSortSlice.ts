@@ -32,7 +32,7 @@ export const initialState: IUserState = {
 		title: 'популярности',
 		param: 'rating',
 	},
-	isAllPages: localStorage.isAllPages === 'true' ? true : false,
+	isAllPages: false,
 };
 
 export const pizzaSortSlice = createSlice({
@@ -43,7 +43,6 @@ export const pizzaSortSlice = createSlice({
 			state.isAllPages = action.payload;
 			state.currentType = 'все';
 			state.searchValue = '';
-			localStorage.isAllPages = action.payload;
 
 			if (action.payload) {
 				state.pizzas = state.pizzasBackup;

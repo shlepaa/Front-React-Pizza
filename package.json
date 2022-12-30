@@ -10,8 +10,7 @@
 		"eslint": "eslint --fix",
 		"format": "prettier --write \"./*.{babelrc,js,json}\" \"./{webpack,src}/**/*.{js,jsx,ts,tsx,json,css,scss,md,html,}\"",
 		"prepare": "husky install",
-		"test": "jest",
-		"wdio": "wdio run ./wdio.conf.ts"
+		"test": "jest"
 	},
 	"keywords": [],
 	"author": "",

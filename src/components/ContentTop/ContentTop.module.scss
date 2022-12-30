@@ -1,9 +1,9 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .contentTop {
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	align-items: center;
 }
 
 @media screen and (max-width: 1050px) {
@@ -12,5 +12,3 @@
 		justify-content: center;
 	}
 }
-
-

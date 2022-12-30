@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .button {
 	padding: 18px 29px;
@@ -12,15 +12,19 @@
 
 .backButton {
 	border: 1px solid $gray-button;
+
 	&:hover {
 		border-color: $gray;
+
 		path {
 			stroke: $gray;
 		}
+
 		span {
 			color: $gray;
 		}
 	}
+
 	span {
 		color: $gray-button;
 	}
@@ -28,16 +32,18 @@
 
 .orderButton {
 	background-color: $orange;
+
 	&:hover {
 		background-color: darken($color: $orange, $amount: 8%);
 	}
+
 	span {
 		color: $white;
 	}
 }
 
 .icon {
-	margin-right: 6px;
 	position: relative;
 	top: 2px;
+	margin-right: 6px;
 }

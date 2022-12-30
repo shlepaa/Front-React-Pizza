@@ -1,12 +1,12 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .categories {
-	display: flex;
 	position: relative;
+	display: flex;
 	flex-direction: row-reverse;
 	flex-wrap: wrap-reverse;
 	gap: 10px;
-	width: 73%;
+	width: 78%;
 }
 
 .category {

@@ -5,6 +5,12 @@ module.exports = {
 		'jest-dom',
 		'testing-library',
 		'cypress',
+		'prettier',
+		'eslint-comments',
+		'prettier',
+		'jsx-a11y',
+		'react',
+		'react-hooks',
 	],
 	root: true,
 	env: {

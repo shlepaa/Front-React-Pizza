@@ -1,13 +1,13 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .orderPosition {
 	display: grid;
 	grid-template-columns: auto 1fr auto 1fr auto;
+	align-items: center;
+	color: $black;
 	font-weight: 700;
 	font-size: 26px;
-	align-items: center;
 	letter-spacing: 0.01em;
-	color: $black;
 }
 
 .image {
@@ -16,11 +16,11 @@
 }
 
 .params {
+	color: $gray;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
 	letter-spacing: 0.01em;
-	color: $gray;
 }
 
 .countBlock {
@@ -42,6 +42,7 @@
 
 .close {
 	color: $gray-button;
+
 	&:hover {
 		fill: darken($color: $gray-button, $amount: 18%);
 	}
@@ -49,8 +50,8 @@
 
 @media screen and (max-width: 1050px) {
 	.countBlock {
-		margin-left: 10px;
 		margin-right: 5px;
+		margin-left: 10px;
 	}
 
 	.close {
@@ -60,8 +61,8 @@
 
 @media screen and (max-width: 950px) {
 	.orderPosition {
-		font-size: 22px;
 		grid-template-columns: auto auto auto auto auto;
+		font-size: 22px;
 
 		h2 {
 			font-size: 22px;
