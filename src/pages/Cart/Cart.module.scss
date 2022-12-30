@@ -9,6 +9,10 @@
 	font-size: 22px;
 	line-height: 27px;
 	color: $black;
+
+	> a + a {
+		justify-self: end;
+	}
 }
 
 .title {
@@ -65,8 +69,10 @@
 	justify-self: flex-start;
 }
 
-.orderNow {
-	justify-self: flex-end;
+a {
+	.orderNow {
+		justify-self: flex-end;
+	}
 }
 
 @media screen and (max-width: 1050px) {

@@ -156,7 +156,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 					</span>
 					{count > 1
 						? findDependencyBetweenSizeAndPrice() * count
-						: findDependencyBetweenSizeAndPrice()}
+						: findDependencyBetweenSizeAndPrice()}{' '}
 					₽
 				</div>
 				<AddButton

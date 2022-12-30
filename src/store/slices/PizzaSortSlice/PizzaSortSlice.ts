@@ -44,10 +44,13 @@ export const pizzaSortSlice = createSlice({
 			state.currentType = 'все';
 			state.searchValue = '';
 			localStorage.isAllPages = action.payload;
+
 			if (action.payload) {
 				state.pizzas = state.pizzasBackup;
+
 				return;
 			}
+
 			state.pizzas = state.currentPizzasPage;
 		},
 		setParam: (state, action: PayloadAction<IPizza[]>) => {
@@ -57,9 +60,11 @@ export const pizzaSortSlice = createSlice({
 				const replacementPizza = action.payload.find(
 					(pizza) => pizzaBack._id === pizza._id
 				);
+
 				if (replacementPizza) {
 					return replacementPizza;
 				}
+
 				return pizzaBack;
 			});
 		},
@@ -71,8 +76,10 @@ export const pizzaSortSlice = createSlice({
 				) {
 					return action.payload ? -1 : 1;
 				}
+
 				return action.payload ? 1 : -1;
 			});
+
 			state.isSortedToDown = !action.payload;
 		},
 		sortByParam: (state, action: PayloadAction<TypeParams>) => {
@@ -98,10 +105,13 @@ export const pizzaSortSlice = createSlice({
 				title: 'популярности',
 				param: 'rating',
 			};
+
 			if (state.isAllPages) {
 				state.pizzas = state.pizzasBackup;
+
 				return;
 			}
+
 			state.pizzas = state.currentPizzasPage;
 		},
 		search: (state, action: PayloadAction<string>) => {
@@ -109,6 +119,7 @@ export const pizzaSortSlice = createSlice({
 				state.pizzas = state.currentPizzasPage;
 				return;
 			}
+
 			state.pizzas = state.pizzasBackup.filter(
 				(p) =>
 					checkForSimilarity(p.title, action.payload) ||
@@ -128,10 +139,11 @@ export const pizzaSortSlice = createSlice({
 			state.currentPizzasPage =
 				action.payload?.pizzas.filter((pizza, index) => index < 5) ??
 				[];
+
 			if (localStorage.isAllPages) {
-				const checkForBoolean =
+				const checkForSsAllPages =
 					localStorage.isAllPages === 'true' ? true : false;
-				if (checkForBoolean) {
+				if (checkForSsAllPages) {
 					state.pizzas = action.payload?.pizzas ?? [];
 					return;
 				}
@@ -141,6 +153,7 @@ export const pizzaSortSlice = createSlice({
 					) ?? [];
 				return;
 			}
+
 			state.pizzas =
 				action.payload?.pizzas.filter((pizza, index) => index < 5) ??
 				[];

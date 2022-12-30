@@ -12,25 +12,25 @@ export const OrderButton: FC<OrderButtonProps> = ({
 	...props
 }) => {
 	return back ? (
-		<button
-			className={cn(className, styles.button, styles.backButton)}
-			{...props}>
-			<Link to="/">
+		<Link to="/">
+			<button
+				className={cn(className, styles.button, styles.backButton)}
+				{...props}>
 				{process.env.NODE_ENV === 'test' ? (
 					''
 				) : (
 					<ArrowIcon className={cn(styles.icon)} />
 				)}
 				<span>{children}</span>
-			</Link>
-		</button>
+			</button>
+		</Link>
 	) : (
-		<button
-			className={cn(className, styles.button, styles.orderButton)}
-			{...props}>
-			<Link to="/order">
+		<Link to="/order">
+			<button
+				className={cn(className, styles.button, styles.orderButton)}
+				{...props}>
 				<span>{children}</span>
-			</Link>
-		</button>
+			</button>
+		</Link>
 	);
 };
