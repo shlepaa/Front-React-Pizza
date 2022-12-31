@@ -115,6 +115,7 @@ export const pizzaSortSlice = createSlice({
 			state.pizzas = state.currentPizzasPage;
 		},
 		search: (state, action: PayloadAction<string>) => {
+			state.currentType = 'все';
 			if (!action.payload && !state.isAllPages) {
 				state.pizzas = state.currentPizzasPage;
 				return;

@@ -73,12 +73,6 @@
 	justify-self: flex-start;
 }
 
-a {
-	.orderNow {
-		justify-self: flex-end;
-	}
-}
-
 @media screen and (max-width: 1050px) {
 	.cart {
 		width: 100%;
@@ -88,6 +82,10 @@ a {
 @media screen and (max-width: 580px) {
 	.cart {
 		grid-template-columns: [start] 1fr [end];
+
+		> a + a {
+			justify-self: unset;
+		}
 	}
 
 	.clear {
@@ -115,9 +113,5 @@ a {
 	.back {
 		justify-self: unset;
 		margin-bottom: 10px;
-	}
-
-	.orderNow {
-		justify-self: unset;
 	}
 }

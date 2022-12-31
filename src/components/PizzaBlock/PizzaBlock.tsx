@@ -129,8 +129,8 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({
 	return (
 		<div className={cn(className, styles.pizzaBlock)} {...props}>
 			<img className={cn(styles.image)} src={image} alt={title} />
-			<span data-testid="rating" className={styles.rate}>
-				Рейтинг: {rating}/5
+			<span className={styles.rate}>
+				Рейтинг: <span data-testid="rating">{rating}</span>/5
 			</span>
 			<h4 data-testid="title-pizza" className={cn(styles.title)}>
 				{title}
