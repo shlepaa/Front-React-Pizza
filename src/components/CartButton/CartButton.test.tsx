@@ -57,7 +57,7 @@ describe('Displays pizzas count and total price that have chosen', () => {
 				pizzas: chosenPizzas,
 			},
 		});
-		const linkElem = screen.getByTestId(/link/i);
+		const linkElem = screen.getByTestId('cart-button-header');
 
 		expect(linkElem).toHaveAttribute('href', '/test-path');
 	});

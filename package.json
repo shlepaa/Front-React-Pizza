@@ -10,7 +10,8 @@
 		"eslint": "eslint --fix",
 		"format": "prettier --write \"./*.{babelrc,js,json}\" \"./{webpack,src}/**/*.{js,jsx,ts,tsx,json,css,scss,md,html,}\"",
 		"prepare": "husky install",
-		"test": "jest"
+		"test": "jest",
+		"cy:open": "npx cypress open"
 	},
 	"keywords": [],
 	"author": "",

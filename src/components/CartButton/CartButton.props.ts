@@ -6,5 +6,4 @@ export interface CartButtonProps
 		HTMLAnchorElement
 	> {
 	link: string;
-	testid?: string;
 }

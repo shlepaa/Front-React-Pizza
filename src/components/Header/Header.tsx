@@ -20,7 +20,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
 					</div>
 				</Link>
 				<Search className={styles.search} />
-				<CartButton testid="cart-button-header" link="/cart" />
+				<CartButton link="/cart" />
 			</div>
 		</div>
 	);

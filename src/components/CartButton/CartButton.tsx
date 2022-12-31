@@ -7,11 +7,7 @@ import { IconContext } from 'react-icons';
 import { useAppSelector } from '../../hooks/redux';
 import { Link } from 'react-router-dom';
 
-export const CartButton: FC<CartButtonProps> = ({
-	testid,
-	className,
-	link,
-}) => {
+export const CartButton: FC<CartButtonProps> = ({ className, link }) => {
 	const [totalPrice, setTotalPrice] = useState<number>(0);
 	const [totalCount, setTotalCount] = useState<number>(0);
 	const { pizzas } = useAppSelector((state) => state.pizzasReducer);
@@ -35,7 +31,7 @@ export const CartButton: FC<CartButtonProps> = ({
 	}, [pizzas]);
 
 	return (
-		<Link data-testid={`${testid ? testid : ''} link`} to={link}>
+		<Link data-testid="cart-button-header" to={link}>
 			<button className={cn(className, styles.button, styles.buttonCart)}>
 				<span data-testid="total-price">{totalPrice} ₽</span>
 				<div className={styles.delimiter}></div>
