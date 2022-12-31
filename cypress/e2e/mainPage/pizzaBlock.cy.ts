@@ -7,12 +7,14 @@ describe('Pizza block performance', () => {
 	it('Check pizza block performance', () => {
 		cy.getWithTestId('search').type('4 сыра');
 
+		cy.getWithTestId('pizza-wrapper').should('exist');
 		cy.getWithTestId('pizza-wrapper').within(() => {
 			cy.getWithTestId('dough-button').then(($dough) => {
 				expect($dough[0]).attr('class').contain('active');
 				expect($dough[1]).text('традиционное');
-				$dough[1]?.click();
+				cy.wrap($dough[1]).click();
 			});
+
 			cy.getWithTestId('dough-button').then(($dough) => {
 				expect($dough[0]).attr('class').not.contain('active');
 				expect($dough[1]).attr('class').contain('active');
@@ -21,7 +23,7 @@ describe('Pizza block performance', () => {
 			cy.getWithTestId('size-button').then(($size) => {
 				expect($size[0]).attr('class').contain('active');
 				expect($size[1]).contain.text('30');
-				$size[1]?.click();
+				cy.wrap($size[1]).click();
 			});
 			cy.getWithTestId('size-button').then(($size) => {
 				expect($size[0]).attr('class').not.contain('active');
@@ -45,7 +47,7 @@ describe('Pizza block performance', () => {
 			cy.getWithTestId('count').should('have.text', 1);
 		});
 
-		cy.checkStorage('http://localhost:8080', 'chosenPizzas', [
+		cy.checkStorage('chosenPizzas', [
 			{
 				count: 2,
 				dough: 'традиционное',

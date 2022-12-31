@@ -8,10 +8,11 @@
 		"build": "webpack --node-env=prod --config webpack/webpack.config.js",
 		"stylelint": "stylelint \"**/*.scss\" --fix",
 		"eslint": "eslint --fix",
-		"format": "prettier --write \"./*.{babelrc,js,json}\" \"./{webpack,src}/**/*.{js,jsx,ts,tsx,json,css,scss,md,html,}\"",
+		"format": "prettier --write \"./*.{babelrc,js,json}\" \"./{webpack,src,cypress}/**/*.{js,jsx,ts,tsx,json,css,scss,md,html,}\"",
 		"prepare": "husky install",
 		"test": "jest",
-		"cy:open": "npx cypress open"
+		"cy:open": "npx cypress open",
+		"cy:test": "cypress run -C \"./cypress.config.ts\""
 	},
 	"keywords": [],
 	"author": "",

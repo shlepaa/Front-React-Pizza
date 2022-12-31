@@ -49,7 +49,7 @@ describe('Buttons', () => {
 			cy.getWithTestId('sort-button').then(($button) => {
 				expect($button[0]).attr('class').contain('active');
 				expect($button[1]).attr('class').not.contain('active');
-				$button[1]?.click();
+				cy.wrap($button[1]).click();
 			});
 
 			cy.getWithTestId('sort-button').then(($button) => {

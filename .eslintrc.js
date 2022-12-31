@@ -60,5 +60,7 @@ module.exports = {
 		'@typescript-eslint/ban-types': 'error',
 		'testing-library/no-debugging-utils': 'warn',
 		'testing-library/no-dom-import': 'off',
+		'cypress/no-unnecessary-waiting': 'off',
+		'testing-library/await-async-utils': 'warn',
 	},
 };

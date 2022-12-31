@@ -93,15 +93,15 @@ describe('Position buttons performance', () => {
 		cy.getWithTestId('position').should('have.length', 2);
 
 		cy.getWithTestId('clear-button').each(($button) => {
-			$button.trigger('click');
+			cy.wrap($button).click();
 		});
 
 		cy.getWithTestId('position').should('not.exist');
-		cy.checkStorage('chosenPizzas', []);
 		cy.getWithTestId('cart-button-header').within(() => {
 			cy.getWithTestId('total-price').should('contain.text', 0);
 			cy.getWithTestId('total-count').should('have.text', 0);
 		});
+		cy.checkStorage('chosenPizzas', []);
 	});
 
 	afterEach(() => {
