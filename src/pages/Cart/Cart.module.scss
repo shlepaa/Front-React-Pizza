@@ -13,6 +13,12 @@
 	> a + a {
 		justify-self: end;
 	}
+
+	a {
+		button {
+			width: 210px;
+		}
+	}
 }
 
 .title {
@@ -82,6 +88,7 @@
 @media screen and (max-width: 580px) {
 	.cart {
 		grid-template-columns: [start] 1fr [end];
+		justify-items: center;
 
 		> a + a {
 			justify-self: unset;

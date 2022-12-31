@@ -12,7 +12,7 @@ export const OrderButton: FC<OrderButtonProps> = ({
 	...props
 }) => {
 	return back ? (
-		<Link to="/">
+		<Link data-testid="back-button" to="/">
 			<button
 				className={cn(className, styles.button, styles.backButton)}
 				{...props}>
@@ -21,7 +21,7 @@ export const OrderButton: FC<OrderButtonProps> = ({
 			</button>
 		</Link>
 	) : (
-		<Link to="/order">
+		<Link data-testid="order-button" to="/order">
 			<button
 				className={cn(className, styles.button, styles.orderButton)}
 				{...props}>

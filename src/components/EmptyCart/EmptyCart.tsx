@@ -7,7 +7,10 @@ import { OrderButton } from '..';
 
 export const EmptyCart: FC<EmptyCartProps> = ({ className, ...props }) => {
 	return (
-		<div className={cn(className, styles.emptyCart)} {...props}>
+		<div
+			data-testid="empty-cart"
+			className={cn(className, styles.emptyCart)}
+			{...props}>
 			<h1 className={styles.title}>Корзина пустая</h1>
 			<span className={styles.text}>
 				Вероятней всего, вы не заказывали ещё пиццу.
