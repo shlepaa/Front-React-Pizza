@@ -53,8 +53,9 @@ export const Categories: FC<CategoriesProps> = ({ className, ...props }) => {
 					Все
 				</button>
 			</div>
-			{isPartShown && allPizzaTypes.length >= 5 && (
+			{isPartShown && allPizzaTypes.length > 5 && (
 				<button
+					data-testid="all-categories-button"
 					onClick={() => setIsPartShown(!isPartShown)}
 					className={styles.seeAll}>
 					Смотреть все категории . . .

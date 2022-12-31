@@ -17,6 +17,16 @@ describe('Buttons', () => {
 			.should('have.attr', 'class')
 			.and('contain', 'active');
 
+		cy.getWithTestId('type-button')
+			.should('have.a.property', 'length')
+			.and('be.lte', 5);
+
+		cy.getWithTestId('all-categories-button').click();
+
+		cy.getWithTestId('type-button')
+			.should('have.a.property', 'length')
+			.and('be.gte', 5);
+
 		cy.getWithTestId('type-button').each(($button) => {
 			expect($button).attr('class').not.contain('active');
 		});
@@ -41,6 +51,7 @@ describe('Buttons', () => {
 				expect($button[1]).attr('class').not.contain('active');
 				$button[1]?.click();
 			});
+
 			cy.getWithTestId('sort-button').then(($button) => {
 				expect($button[1]).attr('class').contain('active');
 				expect($button[0]).attr('class').not.contain('active');
@@ -70,9 +81,7 @@ describe('Buttons', () => {
 		cy.getWithTestId('sort-up-down-button')
 			.should('have.attr', 'class')
 			.and('contain', 'down');
-
 		cy.getWithTestId('sort-up-down-button').click();
-
 		cy.getWithTestId('sort-up-down-button').should(
 			'not.have.attr',
 			'class'
@@ -120,7 +129,6 @@ describe('Buttons', () => {
 		});
 
 		cy.getWithTestId('sort-up-down-button').click();
-
 		cy.getWithTestId('sort-up-down-button').should(
 			'not.have.attr',
 			'class'
@@ -134,6 +142,29 @@ describe('Buttons', () => {
 					);
 				}
 			});
+		});
+	});
+
+	it('Going through pages', () => {
+		cy.getWithTestId('page-button').then(($page) => {
+			expect($page.length).equal(2);
+			expect($page[0]).attr('class').contain('active');
+		});
+
+		cy.getWithTestId('title-pizza').then(($title) => {
+			expect($title[0]?.textContent).contain('Пицца 4 сыра');
+		});
+
+		cy.getWithTestId('page-button').last().click();
+
+		cy.getWithTestId('page-button').then(($page) => {
+			expect($page.length).equal(2);
+			expect($page[0]).attr('class').not.contain('active');
+			expect($page[1]).attr('class').contain('active');
+		});
+
+		cy.getWithTestId('title-pizza').then(($title) => {
+			expect($title[0]?.textContent).contain('Пицца с креветками');
 		});
 	});
 });

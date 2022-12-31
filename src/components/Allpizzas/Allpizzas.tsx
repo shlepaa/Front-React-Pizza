@@ -80,6 +80,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 				<div className={styles.pages}>
 					{fillWithNumbers(Math.ceil(pageCount)).map((page) => (
 						<button
+							data-testid="page-button"
 							onClick={() => handleSwitchPage(page + 1)}
 							key={page}
 							className={cn({
