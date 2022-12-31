@@ -5,3 +5,13 @@ declare namespace Cypress {
 		): Chainable<JQuery<HTMLElementTagNameMap[K]>>;
 	}
 }
+
+declare namespace Cypress {
+	interface Chainable {
+		checkStorage(
+			link: string,
+			key: string,
+			item: any
+		): Chainable<Cypress.StorageByOrigin>;
+	}
+}

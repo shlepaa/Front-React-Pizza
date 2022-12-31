@@ -38,6 +38,17 @@
 //   }
 // }
 
-Cypress.Commands.add('getWithTestId', (value: string) => {
+Cypress.Commands.add('getWithTestId', (value) => {
 	return cy.get(`[data-testid=${value}]`);
+});
+
+Cypress.Commands.add('checkStorage', (link, key, item) => {
+	return cy.getAllLocalStorage().then((result) => {
+		const currentStorage = result[link];
+		if (currentStorage) {
+			expect(JSON.parse(currentStorage[key] as string)).to.deep.equal(
+				item
+			);
+		}
+	});
 });
