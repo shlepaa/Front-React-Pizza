@@ -32,7 +32,6 @@ describe('Chosen pizza', () => {
 			cy.getWithTestId('count').should('have.text', 1);
 			cy.getWithTestId('plus').click();
 			cy.getWithTestId('price').should('contain.text', 1720);
-
 			cy.getWithTestId('add-button').click();
 		});
 
@@ -58,7 +57,13 @@ describe('Chosen pizza', () => {
 		);
 
 		cy.getWithTestId('count').should('have.text', '2');
-
 		cy.getWithTestId('price').should('contain.text', '1720');
+
+		cy.getWithTestId('header-link')
+			.should('have.attr', 'href')
+			.and('contain', '/');
+		cy.getWithTestId('header-link').click();
+
+		cy.url().should('not.include', '/cart');
 	});
 });
