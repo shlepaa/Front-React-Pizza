@@ -8,7 +8,7 @@ export const fetchPizzas = createAsyncThunk(
 	async (_, thunkAPI) => {
 		try {
 			const response = await axios.get<PizzasAndTypes>(
-				`http://localhost:5000/api/pizzas/`
+				'http://45.8.99.189:5000/api/pizzas/'
 			);
 
 			return {
