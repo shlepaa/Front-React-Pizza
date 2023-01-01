@@ -9,8 +9,7 @@
 	border: 1px solid transparent;
 	border-radius: 30px;
 	cursor: pointer;
-	transition:
-		background-color $duration ease-in-out,
+	transition: background-color $duration ease-in-out,
 		border-color $duration ease-in-out;
 
 	a {

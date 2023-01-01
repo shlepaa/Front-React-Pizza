@@ -76,7 +76,7 @@ export const Allpizzas: FC<AllpizzasProps> = ({ className, ...props }) => {
 							/>
 					  ))}
 			</div>
-			{!isAllPages && !searchValue && (
+			{!isAllPages && !searchValue && currentType === 'все' && (
 				<div className={styles.pages}>
 					{fillWithNumbers(Math.ceil(pageCount)).map((page) => (
 						<button
