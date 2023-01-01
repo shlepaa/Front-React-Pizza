@@ -1,20 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import checkForSavedPizzas from '../../helpers/checkForSavedPizzas';
-import getSortedTypes from '../../helpers/getSortedTypes';
-import { IPizza } from '../../interfaces/IPizza';
+import { PizzasAndTypes } from '../../interfaces/PizzasAndTypes';
 
 export const fetchPizzas = createAsyncThunk(
 	'get pizzas',
 	async (_, thunkAPI) => {
 		try {
-			const response = await axios.get<IPizza[]>(
-				'http://localhost:5000/api/pizzas'
+			const response = await axios.get<PizzasAndTypes>(
+				`http://localhost:5000/api/pizzas/`
 			);
 
 			return {
-				pizzas: checkForSavedPizzas(response.data),
-				types: getSortedTypes(response.data),
+				pizzas: checkForSavedPizzas(response.data.pizzas),
+				types: response.data.types,
 			};
 		} catch (error) {
 			if (error instanceof Error) {
