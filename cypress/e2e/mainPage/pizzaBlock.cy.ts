@@ -1,6 +1,6 @@
 describe('Pizza block performance', () => {
 	beforeEach(() => {
-		cy.visit('');
+		cy.visit(`${Cypress.env('CY_PORT') ?? 'http://localhost:8080'}`);
 		cy.clearAllLocalStorage();
 	});
 

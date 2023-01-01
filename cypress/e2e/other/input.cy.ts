@@ -1,6 +1,6 @@
 describe('Input', () => {
 	beforeEach(() => {
-		cy.visit('/cart');
+		cy.visit(`${Cypress.env('CY_PORT') ?? 'http://localhost:8080'}/cart`);
 	});
 
 	it('Should return on main page when we click on input', () => {

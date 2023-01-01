@@ -1,0 +1,32 @@
+name: 'Checker for errors'
+
+on:
+    push:
+        branches:
+            - 'main'
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout perository
+              uses: actions/checkout@v3
+
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '16'
+                  cache: npm
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Formatting and linting
+              run: |
+                  npm run format
+                  npm run eslint
+                  npm run tsc
+                  npm run stylelint
+
+            - name: Tests
+              run: npm run test

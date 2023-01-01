@@ -1,6 +1,8 @@
 describe('Button', () => {
 	it('Check back button performance', () => {
-		cy.visit('/not-found-url');
+		cy.visit(
+			`${Cypress.env('CY_PORT') ?? 'http://localhost:8080'}/not-found-url`
+		);
 
 		cy.getWithTestId('not-found').within(() => {
 			cy.getWithTestId('link')

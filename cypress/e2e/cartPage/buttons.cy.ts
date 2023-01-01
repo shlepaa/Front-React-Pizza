@@ -1,30 +1,33 @@
 describe('Buttons', () => {
 	describe('With chosen pizzas', () => {
 		beforeEach(() => {
-			cy.visit('/cart', {
-				onBeforeLoad(win) {
-					win.localStorage.chosenPizzas = JSON.stringify([
-						{
-							count: 3,
-							dough: 'тонкое',
-							id: '639f6e4e2e2ac7d44dded5a8',
-							image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/50555f951a6d4fd4ac0088c099eb3769_292x292.webp',
-							price: 460,
-							size: '26',
-							title: 'Охотничьи колбаски',
-						},
-						{
-							count: 1,
-							dough: 'традиционное',
-							id: '639f6e4e2e2ac7d44dded5a8',
-							image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/50555f951a6d4fd4ac0088c099eb3769_292x292.webp',
-							price: 30,
-							size: '15',
-							title: 'Пицца школьная',
-						},
-					]);
-				},
-			});
+			cy.visit(
+				`${Cypress.env('CY_PORT') ?? 'http://localhost:8080'}/cart`,
+				{
+					onBeforeLoad(win) {
+						win.localStorage.chosenPizzas = JSON.stringify([
+							{
+								count: 3,
+								dough: 'тонкое',
+								id: '639f6e4e2e2ac7d44dded5a8',
+								image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/50555f951a6d4fd4ac0088c099eb3769_292x292.webp',
+								price: 460,
+								size: '26',
+								title: 'Охотничьи колбаски',
+							},
+							{
+								count: 1,
+								dough: 'традиционное',
+								id: '639f6e4e2e2ac7d44dded5a8',
+								image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/50555f951a6d4fd4ac0088c099eb3769_292x292.webp',
+								price: 30,
+								size: '15',
+								title: 'Пицца школьная',
+							},
+						]);
+					},
+				}
+			);
 		});
 
 		it('Clear cart button', () => {
@@ -87,7 +90,9 @@ describe('Buttons', () => {
 
 	describe('Without chosen pizzas', () => {
 		beforeEach(() => {
-			cy.visit('/cart');
+			cy.visit(
+				`${Cypress.env('CY_PORT') ?? 'http://localhost:8080'}/cart`
+			);
 		});
 
 		it('Back to main page and check cart button', () => {

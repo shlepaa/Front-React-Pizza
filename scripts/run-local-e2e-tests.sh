@@ -14,7 +14,7 @@ npm start -- --port=$PORT &
 sleep 5;
 
 echo "run-e2e: running e2e test"
-npm run cy:test -- --env WEB_APP_URL="http://localhost:$PORT" || EXIT_CODE=$?
+npm run cy:test -- --env CY_PORT="http://localhost:$PORT" || EXIT_CODE=$?
 
 setFreePort
 

@@ -1,6 +1,6 @@
 describe('Position buttons performance', () => {
 	beforeEach(() => {
-		cy.visit('/cart', {
+		cy.visit(`${Cypress.env('CY_PORT') ?? 'http://localhost:8080'}/cart`, {
 			onBeforeLoad(win) {
 				win.localStorage.chosenPizzas = JSON.stringify([
 					{
