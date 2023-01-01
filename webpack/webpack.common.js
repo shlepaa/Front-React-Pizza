@@ -6,7 +6,7 @@ const devMode = process.env.NODE_ENV !== 'prod';
 
 module.exports = {
 	entry: {
-		app: path.resolve(__dirname, '..', './src/index.tsx'),
+		app: path.resolve(__dirname, '..', 'src', 'index.tsx'),
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js', '.scss'],
@@ -26,7 +26,7 @@ module.exports = {
 	},
 	output: {
 		publicPath: '/',
-		path: path.resolve(__dirname, '..', './build'),
+		path: path.resolve(__dirname, '..', 'build'),
 		filename: 'js/[name].[contenthash].js',
 		clean: true,
 	},
@@ -119,7 +119,7 @@ module.exports = {
 			chunkFilename: 'css/[id].[contenthash].css',
 		}),
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, '..', './src/index.html'),
+			template: path.resolve(__dirname, '..', 'src', 'index.html'),
 			inject: 'body',
 		}),
 		new CopyWebpackPlugin({

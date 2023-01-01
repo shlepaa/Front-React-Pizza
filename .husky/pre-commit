@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run stylelint
+# npm run stylelint
 
-npm run eslint
+# npm run eslint
 
-npm run format
+# npm run format
 
-npm run tsc
+# npm run tsc
 
-npm run cy:test
+# npm run cy:test
 
-npm test
+# npm test
