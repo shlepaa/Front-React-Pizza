@@ -14,7 +14,7 @@
 		"tsc": "npm run tsc:app && npm run tsc:cy",
 		"tsc:app": "tsc --noEmit --project \"./tsconfig.json\"",
 		"tsc:cy": "tsc --noEmit --project \"./cypress/tsconfig.json\"",
-		"cy:open": "npx cypress open",
+		"cy:open": "cypress open -C \"./cypress.config.ts\"",
 		"cy:test": "cypress run -C \"./cypress.config.ts\""
 	},
 	"keywords": [],
