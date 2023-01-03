@@ -7,7 +7,7 @@ module.exports = {
 	],
 	rules: {
 		indentation: 'tab',
-		'color-hex-case': 'upper',
+		'color-hex-case': null,
 		'string-quotes': 'single',
 		'selector-class-pattern': null,
 		'declaration-block-no-redundant-longhand-properties': null,

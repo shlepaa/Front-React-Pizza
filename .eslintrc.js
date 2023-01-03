@@ -44,6 +44,8 @@ module.exports = {
 		'prettier',
 		'plugin:prettier/recommended',
 		'plugin:cypress/recommended',
+		'plugin:storybook/recommended',
+		'plugin:mdx/recommended',
 	],
 	ignorePatterns: ['**/*.js'],
 	rules: {
@@ -62,5 +64,6 @@ module.exports = {
 		'testing-library/no-dom-import': 'off',
 		'cypress/no-unnecessary-waiting': 'off',
 		'testing-library/await-async-utils': 'warn',
+		'testing-library/no-await-sync-query': 'off',
 	},
 };

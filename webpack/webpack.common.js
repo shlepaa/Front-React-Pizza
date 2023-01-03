@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'prod';
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
 module.exports = {
 	entry: {
@@ -65,6 +66,25 @@ module.exports = {
 					{
 						loader: 'sass-loader',
 						options: { sourceMap: devMode },
+					},
+				],
+			},
+			{
+				test: /\.css$/,
+				use: [
+					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: { sourceMap: devMode },
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							sourceMap: devMode,
+							postcssOptions: {
+								config: `./postcss.config.js`,
+							},
+						},
 					},
 				],
 			},

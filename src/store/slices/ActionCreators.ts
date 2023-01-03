@@ -8,7 +8,7 @@ export const fetchPizzas = createAsyncThunk(
 	async (_, thunkAPI) => {
 		try {
 			const response = await axios.get<PizzasAndTypes>(
-				'http://37.77.105.109:5000/api/pizzas/'
+				'https://reactpizzas.ru:5000/api/pizzas'
 			);
 
 			return {
