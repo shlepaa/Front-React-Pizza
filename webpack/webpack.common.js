@@ -41,8 +41,8 @@ module.exports = {
 						options: {
 							plugins: [
 								[
-									'react-remove-properties',
-									{ properties: ['data-testid'] },
+									// 'react-remove-properties',
+									// { properties: ['data-testid'] },
 								],
 							],
 						},
