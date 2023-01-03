@@ -38,14 +38,14 @@ module.exports = {
 				use: [
 					{
 						loader: 'babel-loader',
-						options: {
-							plugins: [
-								[
-									// 'react-remove-properties',
-									// { properties: ['data-testid'] },
-								],
-							],
-						},
+						// options: {
+						// 	plugins: [
+						// 		[
+						// 			'react-remove-properties',
+						// 			{ properties: ['data-testid'] },
+						// 		],
+						// 	],
+						// },
 					},
 				],
 				exclude: /node_modules/,
