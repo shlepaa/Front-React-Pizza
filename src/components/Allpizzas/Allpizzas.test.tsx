@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/dom';
+import { screen, waitFor } from '@testing-library/dom';
 import setRender from '../../helpers/setRender';
 import { initialState } from '../../store/slices/PizzaSortSlice/PizzaSortSlice';
 import { Allpizzas } from './Allpizzas';
@@ -14,6 +14,7 @@ describe('Displays all pizzas from backend if there was no any errors and pizza 
 			},
 		});
 		const titleElem = await screen.findByText(/все пиццы/i);
+		await waitFor(() => expect(titleElem).toBeInTheDocument());
 		const pizzaWrapperElems = await screen.findAllByTestId('pizza-wrapper');
 		expect(titleElem).toHaveTextContent(/все пиццы/i);
 		expect(pizzaWrapperElems.length).toBeGreaterThan(0);
