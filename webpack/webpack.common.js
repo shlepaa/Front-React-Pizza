@@ -35,8 +35,20 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(ts|js)x?$/,
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							plugins: [
+								[
+									'react-remove-properties',
+									{ properties: ['data-testid'] },
+								],
+							],
+						},
+					},
+				],
 				exclude: /node_modules/,
-				use: ['babel-loader'],
 			},
 			{
 				test: /\.module\.s(a|c)ss$/,
