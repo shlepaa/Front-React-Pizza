@@ -10,7 +10,7 @@
 		"eslint": "eslint \"./{src,cypress}/**/*.{js,jsx,ts,tsx,json}\"",
 		"format": "prettier --write \"./*.{babelrc,js,json}\" \"./{webpack,src,cypress}/**/*.{js,jsx,ts,tsx,json,css,scss,md,html}\"",
 		"prepare": "husky install",
-		"test": "jest ./src --watchAll --detectOpenHandles",
+		"test": "jest ./src --detectOpenHandles",
 		"tsc": "npm run tsc:app && npm run tsc:cy",
 		"tsc:app": "tsc --noEmit --project \"./tsconfig.json\"",
 		"tsc:cy": "tsc --noEmit --project \"./cypress/tsconfig.json\"",
