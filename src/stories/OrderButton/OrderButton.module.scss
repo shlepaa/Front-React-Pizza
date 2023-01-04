@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+
+.button {
+	padding: 18px 29px;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: all $duration ease-in-out;
+}
+
+.backButton {
+	border: 1px solid $gray-button;
+
+	&:hover {
+		border-color: $gray;
+
+		path {
+			stroke: $gray;
+		}
+
+		span {
+			color: $gray;
+		}
+	}
+
+	span {
+		color: $gray-button;
+	}
+}
+
+.orderButton {
+	background-color: $orange;
+
+	&:hover {
+		background-color: darken($color: $orange, $amount: 8%);
+	}
+
+	span {
+		color: $white;
+	}
+}
+
+.icon {
+	position: relative;
+	top: 2px;
+	margin-right: 6px;
+}
