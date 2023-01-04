@@ -1,5 +1,3 @@
-const custom = require('../webpack/webpack.common.js');
-
 module.exports = {
 	stories: [
 		'../src/**/*.stories.mdx',
