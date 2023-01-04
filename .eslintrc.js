@@ -64,6 +64,6 @@ module.exports = {
 		'cypress/no-unnecessary-waiting': 'off',
 		'testing-library/await-async-utils': 'warn',
 		'testing-library/no-await-sync-query': 'off',
-		'import/no-unresolved': 'off',
+		'import/no-unresolved': 'warn',
 	},
 };

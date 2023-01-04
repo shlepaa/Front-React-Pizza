@@ -17,7 +17,7 @@ export const OrderButton: FC<OrderButtonProps> = ({
 				className={cn(className, styles.button, styles.backButton)}
 				{...props}>
 				<ArrowIcon className={cn(styles.icon)} />
-				<span>{children}</span>
+				<span data-testid="back-text">{children}</span>
 			</button>
 		</Link>
 	) : (
