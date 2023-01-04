@@ -16,6 +16,7 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
+		'storybook-addon-react-router-v6',
 	],
 	framework: '@storybook/react',
 	core: {
@@ -58,6 +59,22 @@ module.exports = {
 			],
 		});
 
-		return config;
+		const newRules = config.module.rules.map((rule) => {
+			if (rule.test.test('.svg')) {
+				return {
+					test: /\.(ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
+					type: 'asset/resource',
+					generator: { filename: 'static/media/[path][name][ext]' },
+				};
+			}
+			return rule;
+		});
+
+		newRules.push({
+			test: /\.svg$/,
+			use: ['@svgr/webpack'],
+		});
+
+		return { ...config, module: { ...config.module, rules: newRules } };
 	},
 };
