@@ -1,5 +1,5 @@
-# ![Alt-текст](https://badgen.net/badge/Test/React%20pizzas/black?icon=github&label) React pizza - site about pizzas
-
+# React pizza - site about pizzas ![Alt-текст](https://badgen.net/badge/Test/React%20pizzas/black) ![Alt-текст](https://badgen.net/badge/License/MIT/:black) ![Alt-текст](https://badgen.net/badge/Github/Actions/black?icon=github) 
+ 
 React pizzas has built on react by using webpack
 
 You can see site on this link - https://reactpizzas.netlify.app/
