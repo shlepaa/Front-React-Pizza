@@ -13,12 +13,10 @@ describe('Displays all pizzas from backend if there was no any errors and pizza 
 				currentType: 'все',
 			},
 		});
-		const titleElem = await screen.findByText(/все пиццы/i);
-		await waitFor(() => expect(titleElem).toBeInTheDocument(), {
-			timeout: 5000,
+		await waitFor(() => {
+			expect(screen.getByText(/все пиццы/i)).toBeInTheDocument();
 		});
 		const pizzaWrapperElems = await screen.findAllByTestId('pizza-wrapper');
-		expect(titleElem).toHaveTextContent(/все пиццы/i);
 		expect(pizzaWrapperElems.length).toBeGreaterThan(0);
 		expect(pizzaWrapperElems[0]).toBeInTheDocument();
 	});
