@@ -1,4 +1,4 @@
-# React pizza - site about pizzas ![React pizzas](https://badgen.net/badge/React/%20pizzas/black?icon=label) ![License MIT](https://badgen.net/badge/License/MIT/:black) ![CI CD](https://badgen.net/badge/Github/Actions/black?icon=github) 
+# React pizza - site about pizzas ![React pizzas](https://badgen.net/badge/React/pizzas/orange?icon=label) ![License MIT](https://badgen.net/badge/License/MIT/black) ![CI CD](https://badgen.net/badge/Github/Actions/black?icon=github) 
  
 React pizzas has built on react by using webpack
 
