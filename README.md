@@ -129,8 +129,8 @@ npm run build
 
 ## Roadmap
 
-[ ] Add docker support
-[ ] Move sort filters on the backend side
++ Add docker support
++ Move sort filters on the backend side
 
 
 ## License
