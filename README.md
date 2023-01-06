@@ -9,16 +9,16 @@ You can see site on this link - https://reactpizzas.netlify.app/
 
 ## Table of Contents
 
-1 [Main Technologies](#Main-Technologies) 
-2 [Introduction](#Introduction)
-3 [Usage](#Usage)
-4 [Run project](#Run-project)
-  4.1 [Development](#Development)
-    4.1.1 [Middleware](#Middleware)
-  4.2 [Production](#Production)
-5 [Roadmap](#Roadmap)
-6 [License](#License) 
-7 [Project status](#Project-status) 
+1. [Main Technologies](#Main-Technologies) 
+2. [Introduction](#Introduction)
+3. [Usage](#Usage)
+4. [Run project](#Run-project)
+  4.1. [Development](#Development)
+    4.1.1. [Middleware](#Middleware)
+  4.2. [Production](#Production)
+5. [Roadmap](#Roadmap)
+6. [License](#License) 
+7. [Project status](#Project-status) 
 
 
 ## Main Technologies 
