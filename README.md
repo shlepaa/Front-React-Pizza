@@ -14,7 +14,7 @@ You can see site on this link - https://reactpizzas.netlify.app/
 + [Usage](#Usage)
 + [Run project](#Run-project)
   + [Development](#Development)
-   + [Middleware](#Middleware)
+    + [Middleware](#Middleware)
   + [Production](#Production)
 + [Roadmap](#Roadmap)
 + [License](#License) 
@@ -51,7 +51,6 @@ In application you can see different pizzas. You can choose whatever you want pi
 
 
 Pizza state as a dough or size saves after realoding. 
-
 ![State saves](https://media3.giphy.com/media/DLnKQxo3u2GSJemyTS/giphy.gif?cid=790b7611dc9ddba35a01c2c581951a26b4641cff2f487eef&rid=giphy.gif&ct=g) 
 
 You can choose by yourself what you want all pizzas at once or page by page. And also other things that you can check.
