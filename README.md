@@ -46,6 +46,8 @@ You can see site on this link - https://reactpizzas.netlify.app/
 
 *This application has configured with CI CD by using github actions*. There is check for any linting and types format and then jest and automatic cypress tests. Deployment take place on Netlify, link has introduced above.
 
+*Husky was set up for work on the commit.* It calls lint and types check, format text and running tests.
+
 
 ## Usage
 
@@ -67,8 +69,17 @@ You can see site on this link - https://reactpizzas.netlify.app/
 
 
 ### Development 
+ 
+```
+npm start
+```
 
-As written above you can run e2e test without needing to start server. For this you should run code below
+### Tests 
+
+
+#### E2e Cypress 
+
+As written above you can run e2e tests without needing to start server. For this you should run code below
 
 ```
 chmod +x scripts/run-local-e2e-tests.sh
@@ -80,7 +91,22 @@ This will add permision to use this command. And then run tests.
 ./scripts/run-local-e2e-tests.sh
 ```
 
-#### Middleware
+Or you can write these several commands.
+
+```
+npm start
+npm cy:test
+```
+
+
+#### Unit tests Jest
+
+```
+npm test
+```
+
+
+### Middleware
 
 After clone repository you can set husky.
  
