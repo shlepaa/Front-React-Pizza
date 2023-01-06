@@ -42,7 +42,7 @@ Added storybook for component library. There was added own config for storybook 
 
 Added react route for going through pages without reload.
 
-Backend server for pizzas and types(it means meat, cheese or fish and etc.) have located at https://reactpizzas.ru on port 5000. You can also see code for backend on this repository https://github.com/bot1291/Back-React-Pizza. 
+Backend server for pizzas and types(it means meat, cheese or fish and etc.) have located at [this link](https://reactpizzas.ru:5000/). You can also see code for backend on this repository https://github.com/bot1291/Back-React-Pizza. 
 
 This application has configured with CI CD by using github actions. There is check for any linting and types format and then jest and automatic cypress tests. Deployment take place on Netlify, link has introduced above.
 
