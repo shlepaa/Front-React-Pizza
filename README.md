@@ -34,17 +34,17 @@ You can see site on this link - https://reactpizzas.netlify.app/
 
 ## Introduction
 
-Application has built with webpack. Were used eslint, stylint, prettier during building project their configs is shown in the project. Data fetching with axios. Sort filters works on the frontend side.
+*Application has built with webpack*. Were used eslint, stylint, prettier during building project their configs is shown in the project. Data fetching with axios. Sort filters works on the frontend side.
 
-Added many jest tests for components and a little bit e2e tests. E2e tests can be run by using script that located on path - ./scripts/run-local-e2e-tests.sh
+*Added many jest tests for components and a little bit e2e tests*. E2e tests can be run by using script that located on path - ./scripts/run-local-e2e-tests.sh
 
-Added storybook for component library. There was added own config for storybook which add supports for scss and module.scss files and also svg as a components.
+*Added storybook for component library*. There was added own config for storybook which add supports for scss and module.scss files and also svg as a components.
 
-Added react route for going through pages without reload.
+*Added react route for going through pages without reload*.
 
-Backend server for pizzas and types(it means meat, cheese or fish and etc.) have located at [this link](https://reactpizzas.ru:5000/). You can also see code for backend on this repository https://github.com/bot1291/Back-React-Pizza. 
+*Backend server for pizzas and types(it means meat, cheese or fish and etc.) have located at [this link](https://reactpizzas.ru:5000/)*. You can also see code for backend on [this repository](https://github.com/bot1291/Back-React-Pizza). 
 
-This application has configured with CI CD by using github actions. There is check for any linting and types format and then jest and automatic cypress tests. Deployment take place on Netlify, link has introduced above.
+*This application has configured with CI CD by using github actions*. There is check for any linting and types format and then jest and automatic cypress tests. Deployment take place on Netlify, link has introduced above.
 
 
 ## Usage
