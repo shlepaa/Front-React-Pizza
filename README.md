@@ -9,16 +9,16 @@ You can see site on this link - https://reactpizzas.netlify.app/
 
 ## Table of Contents
 
-+ [Main Technologies](#Main-Technologies) 
-+ [Introduction](#Introduction)
-+ [Usage](#Usage)
-+ [Run project](#Run-project)
-  + [Development](#Development)
-    + [Middleware](#Middleware)
-  + [Production](#Production)
-+ [Roadmap](#Roadmap)
-+ [License](#License) 
-+ [Project status](#Project-status) 
+1 [Main Technologies](#Main-Technologies) 
+2 [Introduction](#Introduction)
+3 [Usage](#Usage)
+4 [Run project](#Run-project)
+  4.1 [Development](#Development)
+    4.1.1 [Middleware](#Middleware)
+  4.2 [Production](#Production)
+5 [Roadmap](#Roadmap)
+6 [License](#License) 
+7 [Project status](#Project-status) 
 
 
 ## Main Technologies 
@@ -49,16 +49,16 @@ You can see site on this link - https://reactpizzas.netlify.app/
 
 ## Usage
 
-In application you can see different pizzas. You can choose whatever you want pizza then go to the cart page and order it.
+**In application you can see different pizzas. You can choose whatever you want pizza then go to the cart page and order it.**
 
 ![Order example](https://media1.giphy.com/media/Q1TiP2OdpRu8Mz71oR/giphy.gif?cid=790b7611185bd9d37c0878c597756f0c970c59c0c2ee1920&rid=giphy.gif&ct=g) 
 
 
-Pizza state as a dough or size saves after realoding. 
+**Pizza state as a dough or size saves after realoding.** 
 
 ![State saves](https://media3.giphy.com/media/DLnKQxo3u2GSJemyTS/giphy.gif?cid=790b7611dc9ddba35a01c2c581951a26b4641cff2f487eef&rid=giphy.gif&ct=g) 
 
-You can choose by yourself what you want all pizzas at once or page by page. And also other things that you can check.
+**You can choose by yourself what you want all pizzas at once or page by page. And also other things that you can check.**
 
 ![Swapping type](https://media4.giphy.com/media/2cpwZVl4vmFMrp3kim/giphy.gif?cid=790b761158ae7204bc4b3db2cc864b13abeba8c2b6378896&rid=giphy.gif&ct=g) 
 
@@ -103,8 +103,8 @@ npm run build
 
 ## Roadmap
 
-+ Add docker support
-+ Move sort filters on the backend side
+[ ] Add docker support
+[ ] Move sort filters on the backend side
 
 
 ## License
