@@ -140,4 +140,4 @@ This project is licensed under the terms of the MIT license.
 
 ## Project status
 
-Projest building is on active.
+Project building is on active.
