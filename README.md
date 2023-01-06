@@ -1,10 +1,10 @@
-# !\[alt text\]([./photo_2023-01-06_18-12-23.jpg](https://badgen.net/badge/Test/React%20pizzas/black?icon=github&label)) React pizza - site about pizzas
+# ![Alt-текст](https://badgen.net/badge/Test/React%20pizzas/black?icon=github&label) React pizza - site about pizzas
 
 React pizzas has built on react by using webpack
 
 You can see site on this link - https://reactpizzas.netlify.app/
 
-!\[alt text\](./photo_2023-01-06_18-12-23.jpg)
+![Alt-текст](./photo_2023-01-06_18-12-23.jpg)
 
 ## Table of Contents
 
