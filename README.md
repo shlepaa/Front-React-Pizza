@@ -32,6 +32,7 @@ You can see site on this link - https://reactpizzas.netlify.app/
 In application you can see different pizzas. You can choose whatever you want pizza then go to the cart page and order it.
 
 Pizza state as a dough or size save after realoding. Sort filters works on frontend part.
+![Alt-текст](https://media3.giphy.com/media/DLnKQxo3u2GSJemyTS/giphy.gif?cid=790b7611dc9ddba35a01c2c581951a26b4641cff2f487eef&rid=giphy.gif&ct=g) 
 
 Backend server for pizzas and types(it means meat, cheese or fish and etc.) have located at https://reactpizzas.ru on port 5000. You can also see code for backend on this repository https://github.com/bot1291/Back-React-Pizza. 
 
